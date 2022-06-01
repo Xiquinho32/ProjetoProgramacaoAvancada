@@ -17,4 +17,6 @@ abstract class TabelaBD(val db: SQLiteDatabase, val nome: String) {
 
     fun query(columns: Array<String>, selection: String, selectionArgs: Array<String>, groupBy: String, having: String, orderBy: String) =
         db.query(nome, columns, selection, selectionArgs, groupBy, having, orderBy)
+
+
 }
