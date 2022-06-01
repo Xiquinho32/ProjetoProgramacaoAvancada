@@ -13,7 +13,7 @@ class BDDoentesOpenHelper(context: Context?) : SQLiteOpenHelper(context, NOME, n
      */
     override fun onCreate(db: SQLiteDatabase?) {
         requireNotNull(db)
-
+ 
         //TabelaBDDoentes(db).cria()
         //TabelaBDCategorias(db).cria()
         //TabelaBDLivros(db).cria()
