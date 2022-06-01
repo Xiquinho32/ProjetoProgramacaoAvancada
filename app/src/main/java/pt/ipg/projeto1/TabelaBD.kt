@@ -9,5 +9,6 @@ abstract class TabelaBD(val db: SQLiteDatabase, val nome: String) {
     fun insert(values: ContentValues) =
         db.insert(nome, null, values)
 
-
+    fun update(values: ContentValues, whereClause: String, whereArgs: Array<String>) =
+        db.update(nome, values, whereClause, whereArgs)
 }
