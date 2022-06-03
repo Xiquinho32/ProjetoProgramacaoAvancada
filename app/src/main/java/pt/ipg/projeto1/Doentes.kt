@@ -7,6 +7,7 @@ import java.sql.Date
 data class Doentes(
     var ID_Doente : Long,
     var NOME : String,
+    var CC : Long,
     var Data_Nascimento : Date, //java.sql
     var Tipo_Doenca : String
 ){
