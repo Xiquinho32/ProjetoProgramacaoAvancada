@@ -1,4 +1,16 @@
 package pt.ipg.projeto1
 
-class TabelaBDConsultas {
+import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
+
+class TabelaBDConsultas(db: SQLiteDatabase) : TabelaBD(db, NOME) {
+    override fun cria() {
+        db.execSQL("CREATE TABLE $nome (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $Campo_CC TEXT NOT NULL, $Campo_Doente_ID INTEGER NOT NULL, FOREIGN KEY ($Campo_Doente_ID) REFERENCES ${TabelaBDDoentes.NOME}(${BaseColumns._ID})ON DELETE RESTRICT/*,Falta aqui o Campo_Medico_id*/)")
+    }
+    companion object{
+        const val NOME = "Consultas"
+        const val Campo_CC = "cartao_cidadao"
+        const val Campo_Doente_ID = "doenteId"
+        const val Campo_Medico_ID = "medicoId"
+    }
 }
