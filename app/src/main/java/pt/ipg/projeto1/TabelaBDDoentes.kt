@@ -5,7 +5,7 @@ import android.provider.BaseColumns
 
 class TabelaBDDoentes(db: SQLiteDatabase) : TabelaBD(db, NOME) {
     override fun cria() {
-        db.execSQL("CREATE TABLE $NOME (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $Campo_Nome_Doente TEXT NOT NULL, $Campo_CC STRING NOT NULL, $Campo_Data_Nascimento DATE NOT NULL, $Campo_Tipo_Doenca)")
+        db.execSQL("CREATE TABLE $NOME (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $Campo_Nome_Doente TEXT NOT NULL, $Campo_CC TEXT NOT NULL, $Campo_Data_Nascimento DATE NOT NULL, $Campo_Tipo_Doenca)")
     }
     companion object{
         const val NOME = "Doentes"

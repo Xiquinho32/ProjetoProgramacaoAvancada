@@ -10,11 +10,14 @@ data class Doentes(
     var Data_Nascimento : Date, //java.sql
     var Tipo_Doenca : String
 ){
-    /*
+
     fun toContentValues() : ContentValues{
         val valores = ContentValues()
-
+        valores.put(TabelaBDDoentes.Campo_Nome_Doente, NOME)
+        valores.put(TabelaBDDoentes.Campo_CC, CC)
+        //valores.put(TabelaBDDoentes.Campo_Data_Nascimento, Data_Nascimento)
+        valores.put(TabelaBDDoentes.Campo_Tipo_Doenca, Tipo_Doenca)
         return valores
     }
-*/
+
 }

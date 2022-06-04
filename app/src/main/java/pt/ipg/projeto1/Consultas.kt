@@ -1,4 +1,7 @@
 package pt.ipg.projeto1
 
-class Consultas {
-    }
+import java.sql.Date
+
+data class Consultas(
+    var Data: Date //java.sql
+) {}
