@@ -8,8 +8,10 @@ data class Doentes(
     var NOME : String,
     var CC : String,
     var Data_Nascimento : Date, //java.sql
-    var Tipo_Doenca : String
+    var Tipo_Doenca : String,
+    var id: Long =  -1
 ){
+
 
     fun toContentValues() : ContentValues{
         val valores = ContentValues()
