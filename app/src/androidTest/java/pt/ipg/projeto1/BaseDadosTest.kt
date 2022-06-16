@@ -14,8 +14,13 @@ class BaseDadosTest {
     }
 
     private fun insereDoentes(db: SQLiteDatabase, doentes: Doentes){
-        doentes.id = TabelaBDDoentes(db).insert(doentes.toContentValues())
+        doentes.id= TabelaBDDoentes(db).insert(doentes.toContentValues())
         Assert.assertNotEquals(-1, doentes.id)
+    }
+
+    private fun insereMedicos(db: SQLiteDatabase, medicos: Medicos){
+        medicos.id = TabelaBDMedicos(db).insert(medicos.toContentValues())
+        Assert.assertNotEquals(-1, medicos.id)
     }
 
 
