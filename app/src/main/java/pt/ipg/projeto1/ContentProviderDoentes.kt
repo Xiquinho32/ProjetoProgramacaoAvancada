@@ -73,8 +73,28 @@ class ContentProviderDoentes : ContentProvider(){
         return registosApagados
     }
 
-    override fun update(p0: Uri, p1: ContentValues?, p2: String?, p3: Array<out String>?): Int {
-        TODO("Not yet implemented")
+    override fun update(
+        uri: Uri,
+        values: ContentValues?,
+        selection: String?,
+        selectionArgs: Array<out String>?
+    ): Int {
+        requireNotNull(values)
+
+        val db = dbOpenHelper!!.writableDatabase
+
+        val id = uri.lastPathSegment
+
+        val registosAlterados = when (getUriMatcher().match(uri)) {
+            URI_DOENTES_ESPECIFICA -> TabelaBDDoentes(db).update(values, "${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_CONSULTAS_ESPECIFICA -> TabelaBDConsultas(db).update(values,"${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_MEDICOS_ESPECIFICA -> TabelaBDMedicos(db).update(values,"${BaseColumns._ID}=?", arrayOf("${id}"))
+            else -> 0
+        }
+
+        db.close()
+
+        return registosAlterados
     }
 
     companion object{
