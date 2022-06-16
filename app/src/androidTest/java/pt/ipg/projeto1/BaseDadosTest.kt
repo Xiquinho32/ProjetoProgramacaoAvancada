@@ -1,9 +1,14 @@
 package pt.ipg.projeto1
 
 import android.database.sqlite.SQLiteDatabase
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import org.junit.Assert
+import org.junit.Assert.*
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
 
+@RunWith(AndroidJUnit4::class)
 class BaseDadosTest {
     private fun appContext() =
         InstrumentationRegistry.getInstrumentation().targetContext
@@ -15,12 +20,27 @@ class BaseDadosTest {
 
     private fun insereDoentes(db: SQLiteDatabase, doentes: Doentes){
         doentes.id= TabelaBDDoentes(db).insert(doentes.toContentValues())
-        Assert.assertNotEquals(-1, doentes.id)
+        assertNotEquals(-1, doentes.id)
     }
 
     private fun insereMedicos(db: SQLiteDatabase, medicos: Medicos){
         medicos.id = TabelaBDMedicos(db).insert(medicos.toContentValues())
-        Assert.assertNotEquals(-1, medicos.id)
+        assertNotEquals(-1, medicos.id)
+    }
+
+    @Before
+    fun apagaBaseDados(){
+        appContext().deleteDatabase(BDDoentesOpenHelper.NOME)
+    }
+
+    @Test
+    fun ConsegueAbrirBaseDados(){
+        val openHelper = BDDoentesOpenHelper(appContext())
+        val db =openHelper.readableDatabase
+
+        assertTrue(db.isOpen)
+
+        db.close()
     }
 
 
