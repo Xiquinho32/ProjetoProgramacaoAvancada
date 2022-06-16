@@ -7,8 +7,47 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.BaseColumns
 
-class ContentProviderDoentes {
-    var dbOpenHelper : BDDoentesOpenHelper? = null
+class ContentProviderDoentes : ContentProvider(){
+    var bdOpenHelper : BDDoentesOpenHelper? = null
+
+    override fun onCreate(): Boolean{
+        bdOpenHelper = BDDoentesOpenHelper(context)
+        return true
+    }
+
+    override fun query(
+        p0: Uri,
+        p1: Array<out String>?,
+        p2: String?,
+        p3: Array<out String>?,
+        p4: String?
+    ): Cursor? {
+        TODO("Not yet implemented")
+    }
+
+    override fun getType(uri: Uri): String? =
+        when (getUriMatcher().match(uri)) {
+            URI_DOENTES ->"$MULTIPLOS_REGISTOS/${TabelaBDDoentes.NOME}"
+            URI_DOENTES_ESPECIFICA ->"$UNICO_REGISTO/${TabelaBDDoentes.NOME}"
+            URI_MEDICOS ->"$MULTIPLOS_REGISTOS/${TabelaBDMedicos.NOME}"
+            URI_MEDICOS_ESPECIFICA ->"$UNICO_REGISTO/${TabelaBDMedicos.NOME}"
+            URI_CONSULTAS ->"$MULTIPLOS_REGISTOS/${TabelaBDConsultas.NOME}"
+            URI_CONSULTAS_ESPECIFICA ->"$UNICO_REGISTO/${TabelaBDConsultas.NOME}"
+
+            else -> null
+        }
+
+    override fun insert(p0: Uri, p1: ContentValues?): Uri? {
+        TODO("Not yet implemented")
+    }
+
+    override fun delete(p0: Uri, p1: String?, p2: Array<out String>?): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun update(p0: Uri, p1: ContentValues?, p2: String?, p3: Array<out String>?): Int {
+        TODO("Not yet implemented")
+    }
 
     companion object{
         const val AUTHORITY = "pt.ipg.livros"
