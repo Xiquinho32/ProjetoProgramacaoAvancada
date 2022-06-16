@@ -8,19 +8,19 @@ import android.net.Uri
 import android.provider.BaseColumns
 
 class ContentProviderDoentes : ContentProvider(){
-    var bdOpenHelper : BDDoentesOpenHelper? = null
+    var dbOpenHelper : BDDoentesOpenHelper? = null
 
     override fun onCreate(): Boolean{
-        bdOpenHelper = BDDoentesOpenHelper(context)
+        dbOpenHelper = BDDoentesOpenHelper(context)
         return true
     }
 
     override fun query(
-        p0: Uri,
-        p1: Array<out String>?,
-        p2: String?,
-        p3: Array<out String>?,
-        p4: String?
+        uri: Uri,
+        projection: Array<out String>?,
+        selection: String?,
+        selectionArgs: Array<out String>?,
+        sortOrder: String?
     ): Cursor? {
         TODO("Not yet implemented")
     }
@@ -37,8 +37,23 @@ class ContentProviderDoentes : ContentProvider(){
             else -> null
         }
 
-    override fun insert(p0: Uri, p1: ContentValues?): Uri? {
-        TODO("Not yet implemented")
+    override fun insert(uri: Uri, values: ContentValues?): Uri? {
+        val db = dbOpenHelper!!.writableDatabase
+
+        requireNotNull(values)
+
+        val id = when (getUriMatcher().match(uri)){
+            URI_DOENTES ->TabelaBDDoentes(db).insert(values)
+            URI_CONSULTAS -> TabelaBDConsultas(db).insert(values)
+            URI_MEDICOS -> TabelaBDMedicos(db).insert(values)
+            else -> -1
+        }
+        db.close()
+
+        if(id == -1L) return null //-1L , id é do tipo long
+
+        return Uri.withAppendedPath(uri, "$id")
+
     }
 
     override fun delete(p0: Uri, p1: String?, p2: Array<out String>?): Int {
