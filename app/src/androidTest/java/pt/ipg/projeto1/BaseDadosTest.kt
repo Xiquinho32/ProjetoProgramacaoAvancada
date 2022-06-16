@@ -27,6 +27,10 @@ class BaseDadosTest {
         medicos.id = TabelaBDMedicos(db).insert(medicos.toContentValues())
         assertNotEquals(-1, medicos.id)
     }
+    private fun insereConsultas(db: SQLiteDatabase, consultas: Consultas){
+        consultas.id = TabelaBDConsultas(db).insert(consultas.toContentValues())
+        assertNotEquals(-1, consultas.id)
+    }
 
     @Before
     fun apagaBaseDados(){
@@ -40,6 +44,41 @@ class BaseDadosTest {
 
         assertTrue(db.isOpen)
 
+        db.close()
+    }
+
+    @Test
+    fun consegueInserirMedicos(){
+        val db = getWritableDatabase()
+
+        val consultas = Consultas("Verificação ao doente Afonso", doente_id = 1, medico_id = 1)
+        insereConsultas(db, consultas)
+
+        val medico = Medicos("Josefino", "123456789", "Cardiologia", consultas.id)
+        insereMedicos(db, medico)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueInserirDoentes(){
+        val db = getWritableDatabase()
+
+
+        val consultas = Consultas("Verificação ao doente Afonso", doente_id = 1, medico_id = 1)
+        insereConsultas(db, consultas)
+
+        val doente = Doentes("Afonso", "987654321", "2 de novembro de 1993", "Dor de peito",consultas.id)
+        insereDoentes(db, doente)
+
+        db.close()
+    }
+
+    @Test
+    fun consgueInserirConsultas(){
+        val db = getWritableDatabase()
+
+        insereConsultas(db, Consultas("Verificação ao doente Afonso", doente_id = 1, medico_id = 1))
         db.close()
     }
 
