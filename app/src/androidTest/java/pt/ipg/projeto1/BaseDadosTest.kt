@@ -65,7 +65,7 @@ class BaseDadosTest {
         val db = getWritableDatabase()
 
 
-        val consultas = Consultas("Verificação ao doente Afonso", doente_id = 1, medico_id = 1)
+        val consultas = Consultas("Verificação ao doente Afonso", -1, -1)
         insereConsultas(db, consultas)
 
         val doente = Doentes("Afonso", "987654321", "2 de novembro de 1993", "Dor de peito",consultas.id)
