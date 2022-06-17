@@ -22,7 +22,28 @@ class ContentProviderDoentes : ContentProvider(){
         selectionArgs: Array<out String>?,
         sortOrder: String?
     ): Cursor? {
-        TODO("Not yet implemented")
+        val db = dbOpenHelper!!.readableDatabase
+
+        requireNotNull(projection)
+        val colunas = projection as Array<String>
+
+        val argsSeleccao = selectionArgs as Array<String>
+
+        val id = uri.lastPathSegment
+
+        val cursor = when (getUriMatcher().match(uri)) {
+            URI_DOENTES -> TabelaBDDoentes(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_MEDICOS -> TabelaBDDoentes(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_CONSULTAS -> TabelaBDDoentes(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_DOENTES_ESPECIFICA -> TabelaBDMedicos(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            URI_MEDICOS_ESPECIFICA -> TabelaBDMedicos(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            URI_DOENTES_ESPECIFICA -> TabelaBDMedicos(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            else -> null
+        }
+
+        db.close()
+
+        return cursor
     }
 
     override fun getType(uri: Uri): String? =
