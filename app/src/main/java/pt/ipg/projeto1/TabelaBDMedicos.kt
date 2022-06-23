@@ -5,12 +5,13 @@ import android.provider.BaseColumns
 
 class TabelaBDMedicos(db: SQLiteDatabase) : TabelaBD(db, NOME) {
     override fun cria() {
-        db.execSQL("CREATE TABLE ${TabelaBDMedicos.NOME} (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $Campo_Nome_Medico STRING NOT NULL, $Campo_CC STRING NOT NULL, $Campo_Especialidades STRING NOT NULL)")  }
+        db.execSQL("CREATE TABLE ${TabelaBDMedicos.NOME} (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_NOME_MEDICO TEXT NOT NULL, $CAMPO_CC TEXT NOT NULL, $CAMPO_ESPECIALIDADES_ID INTEGER NOT NULL, FOREIGN KEY ($CAMPO_ESPECIALIDADES_ID) REFERENCES ${TabelaBDDoencas.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT)")  }
 
     companion object{
         const val NOME = "Medicos"
-        const val Campo_Nome_Medico = "nome_medico"
-        const val Campo_CC = "cartao_cidadao"
-        const val Campo_Especialidades = "especialidades"
+        const val CAMPO_ID = "$NOME.${BaseColumns._ID}"
+        const val CAMPO_NOME_MEDICO = "nome_medico"
+        const val CAMPO_CC = "cartao_cidadao"
+        const val CAMPO_ESPECIALIDADES_ID = "especialidadesId"
     }
 }

@@ -10,8 +10,8 @@ data class Medicos(
     fun toContentValues() : ContentValues{
         val valores =ContentValues()
 
-        valores.put(TabelaBDMedicos.Campo_Nome_Medico, nome)
-        valores.put(TabelaBDMedicos.Campo_CC, cc)
+        valores.put(TabelaBDMedicos.CAMPO_NOME_MEDICO, nome)
+        valores.put(TabelaBDMedicos.CAMPO_CC, cc)
 
         return valores
 
