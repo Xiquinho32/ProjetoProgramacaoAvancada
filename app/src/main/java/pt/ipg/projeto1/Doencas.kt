@@ -6,11 +6,10 @@ data class Doencas(
     var tipoDoenca: String,
     var id: Long = 1
 ) {
-    fun toContentValues() : ContentValues{
+
+    fun ToContentValues(): ContentValues {
         val valores = ContentValues()
-
         valores.put(TabelaBDDoencas.CAMPO_TIPO_DOENCAS, tipoDoenca)
-
         return valores
     }
 }

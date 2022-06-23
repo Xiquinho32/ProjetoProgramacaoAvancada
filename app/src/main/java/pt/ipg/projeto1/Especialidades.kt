@@ -7,7 +7,8 @@ data class Especialidades(
     var tipoEspecialidades : String,
     var id : Long = 1
 ) {
-    fun toContentValues() : ContentValues{
+
+    fun ToContentValues(): ContentValues {
         val valores = ContentValues()
 
         valores.put(TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES, tipoEspecialidades)

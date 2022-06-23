@@ -32,6 +32,14 @@ class BaseDadosTest {
         consultas.id = TabelaBDConsultas(db).insert(consultas.toContentValues())
         assertNotEquals(-1, consultas.id)
     }
+    private fun insereDoencas(db: SQLiteDatabase, doencas: Doencas){
+        doencas.id = TabelaBDDoencas(db).insert(doencas.ToContentValues())
+        assertNotEquals(1, doencas.id)
+    }
+    private fun insereEspecialidades(db: SQLiteDatabase, especialidades: Especialidades){
+        especialidades.id = TabelaBDEspecialidades(db).insert(especialidades.ToContentValues())
+        assertNotEquals(1, especialidades.id)
+    }
 
     @Before
     fun apagaBaseDados(){
