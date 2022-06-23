@@ -14,9 +14,9 @@ data class Doentes(
 
     fun toContentValues() : ContentValues{
         val valores = ContentValues()
-        valores.put(TabelaBDDoentes.Campo_Nome_Doente, nome)
-        valores.put(TabelaBDDoentes.Campo_CC, cc)
-        valores.put(TabelaBDDoentes.Campo_Data_Nascimento, dataNascimento)
+        valores.put(TabelaBDDoentes.CAMPO_NOME_DOENTE, nome)
+        valores.put(TabelaBDDoentes.CAMPO_CC, cc)
+        valores.put(TabelaBDDoentes.CAMPO_DATA_NASCIMENTO, dataNascimento)
         //valores.get(TabelaBDDoentes.Campo_Data_Nascimento, Data_Nascimento)
         return valores
     }

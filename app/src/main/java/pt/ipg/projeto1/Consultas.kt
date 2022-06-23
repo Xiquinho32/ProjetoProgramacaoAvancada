@@ -8,8 +8,8 @@ data class Consultas(var nome: String,  var doente_id : Long = 1, var medico_id 
         val valores =ContentValues()
 
         valores.put(TabelaBDConsultas.NOME, nome)
-        valores.put(TabelaBDConsultas.Campo_Doente_ID, doente_id)
-        valores.put(TabelaBDConsultas.Campo_Medico_ID, medico_id)
+        valores.put(TabelaBDConsultas.CAMPO_DOENTE_ID, doente_id)
+        valores.put(TabelaBDConsultas.CAMPO_MEDICO_ID, medico_id)
 
         return valores;
     }
