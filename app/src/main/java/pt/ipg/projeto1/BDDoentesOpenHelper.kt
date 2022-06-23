@@ -14,9 +14,11 @@ class   BDDoentesOpenHelper(context: Context?) : SQLiteOpenHelper(context, NOME,
     override fun onCreate(db: SQLiteDatabase?) {
         requireNotNull(db)
 
+        TabelaBDConsultas(db).cria()
         TabelaBDDoentes(db).cria()
-        //TabelaBDCategorias(db).cria()
-        //TabelaBDLivros(db).cria()
+        TabelaBDMedicos(db).cria()
+        TabelaBDDoencas(db).cria()
+        TabelaBDMedicos(db).cria()
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
