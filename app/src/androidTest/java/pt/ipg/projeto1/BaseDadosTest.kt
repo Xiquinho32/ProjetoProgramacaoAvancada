@@ -21,7 +21,7 @@ class BaseDadosTest {
 
     private fun insereDoentes(db: SQLiteDatabase, doentes: Doentes){
         doentes.id= TabelaBDDoentes(db).insert(doentes.toContentValues())
-        assertNotEquals(1, doentes.id)
+        assertNotEquals(-1, doentes.id)
     }
 
     private fun insereMedicos(db: SQLiteDatabase, medicos: Medicos){
@@ -34,11 +34,12 @@ class BaseDadosTest {
     }
     private fun insereDoencas(db: SQLiteDatabase, doencas: Doencas){
         doencas.id = TabelaBDDoencas(db).insert(doencas.ToContentValues())
-        assertNotEquals(1, doencas.id)
+        assertNotEquals(-1, doencas.id)
     }
     private fun insereEspecialidades(db: SQLiteDatabase, especialidades: Especialidades){
         especialidades.id = TabelaBDEspecialidades(db).insert(especialidades.ToContentValues())
         assertNotEquals(1, especialidades.id)
+
     }
 
     @Before
@@ -47,7 +48,7 @@ class BaseDadosTest {
     }
 
     @Test
-    fun ConsegueAbrirBaseDados(){
+    fun consegueAbrirBaseDados(){
         val openHelper = BDDoentesOpenHelper(appContext())
         val db =openHelper.readableDatabase
 
@@ -60,15 +61,18 @@ class BaseDadosTest {
     fun consegueInserirMedicos(){
         val db = getWritableDatabase()
 
-        val consultas = Consultas("Verificação ao doente Afonso", doente_id = 1, medico_id = 1)
-        insereConsultas(db, consultas)
+        //val consultas = Consultas("consulta de dor de peito", "1 de janeiro de 2022")
+        //insereConsultas(db, consultas)
 
-        val medico = Medicos("Josefino", "123456789", "Cardiologia", consultas.id)
+        val medico = Medicos("Josefino", "123456789", -1)
         insereMedicos(db, medico)
+
+        val especialidade = Especialidades("Cardiologia")
+        insereEspecialidades(db, especialidade)
 
         db.close()
     }
-
+/*
     @Test
     fun consegueInserirDoentes(){
         val db = getWritableDatabase()
@@ -78,9 +82,8 @@ class BaseDadosTest {
         insereConsultas(db, consultas)
 
 
-        val doente = Doentes("Afonso", "987654321", "3 de novembro de 2021", "Dor de peito",consultas.id)
+        val doente = Doentes("Afonso", "987654321", "3 de novembro de 2021", 1,1)
         insereDoentes(db, doente)
-
         db.close()
     }
 
@@ -92,5 +95,5 @@ class BaseDadosTest {
         db.close()
     }
 
-
+*/
 }
