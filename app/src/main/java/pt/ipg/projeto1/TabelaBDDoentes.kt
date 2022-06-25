@@ -13,7 +13,7 @@ class TabelaBDDoentes(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val CAMPO_NOME_DOENTE = "nome_doente"
         const val CAMPO_CC = "cartao_cidadao"
         const val CAMPO_DATA_NASCIMENTO = "data_nascimento"
-        const val CAMPO_DOENCA_ID = "doenca"
+        const val CAMPO_DOENCA_ID = "doencaId"
 
     }
 }

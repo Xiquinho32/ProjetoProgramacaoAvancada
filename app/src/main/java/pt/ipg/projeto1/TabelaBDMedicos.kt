@@ -1,6 +1,6 @@
 package pt.ipg.projeto1
 
-import android.database.Cursor
+
 import android.database.sqlite.SQLiteDatabase
 import android.provider.BaseColumns
 
@@ -17,14 +17,4 @@ class TabelaBDMedicos(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val CAMPO_ESPECIALIDADES_ID = "especialidadesId"
     }
 
-    override fun query(
-        columns: Array<String>,
-        selection: String?,
-        selectionArgs: Array<String>?,
-        groupBy: String?,
-        having: String?,
-        orderBy: String?
-    ): Cursor {
-        return super.query(columns, selection, selectionArgs, groupBy, having, orderBy)
-    }
 }

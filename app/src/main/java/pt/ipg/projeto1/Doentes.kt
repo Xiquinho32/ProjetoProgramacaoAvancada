@@ -9,7 +9,7 @@ data class Doentes(
     var cc : String,
     var dataNascimento : String, //java.util
     var idDoencas: Long,
-    var id: Long =  -1
+    var id: Long =  1
 ){
 
 
@@ -18,6 +18,7 @@ data class Doentes(
         valores.put(TabelaBDDoentes.CAMPO_NOME_DOENTE, nome)
         valores.put(TabelaBDDoentes.CAMPO_CC, cc)
         valores.put(TabelaBDDoentes.CAMPO_DATA_NASCIMENTO, dataNascimento)
+        valores.put(TabelaBDDoentes.CAMPO_DOENCA_ID, idDoencas)
         //valores.get(TabelaBDDoentes.Campo_Data_Nascimento, Data_Nascimento)
         //valores.put(TabelaBDDoentes.CAMPO_ID, id)
         return valores

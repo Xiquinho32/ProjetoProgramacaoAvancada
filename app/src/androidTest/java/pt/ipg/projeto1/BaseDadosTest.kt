@@ -14,45 +14,58 @@ class BaseDadosTest {
     private fun appContext() =
         InstrumentationRegistry.getInstrumentation().targetContext
 
-    private fun getWritableDatabase() :SQLiteDatabase{
+    private fun getWritableDatabase(): SQLiteDatabase {
         val openHelper = BDDoentesOpenHelper(appContext())
         return openHelper.writableDatabase
     }
 
-    private fun insereDoentes(db: SQLiteDatabase, doentes: Doentes){
-        doentes.id= TabelaBDDoentes(db).insert(doentes.toContentValues())
+    private fun insereDoentes(db: SQLiteDatabase, doentes: Doentes) {
+        doentes.id = TabelaBDDoentes(db).insert(doentes.toContentValues())
         assertNotEquals(-1, doentes.id)
     }
 
-    private fun insereMedicos(db: SQLiteDatabase, medicos: Medicos){
+    private fun insereMedicos(db: SQLiteDatabase, medicos: Medicos) {
         medicos.id = TabelaBDMedicos(db).insert(medicos.toContentValues())
         assertNotEquals(-1, medicos.id)
     }
-    private fun insereConsultas(db: SQLiteDatabase, consultas: Consultas){
+
+    private fun insereConsultas(db: SQLiteDatabase, consultas: Consultas) {
         consultas.id = TabelaBDConsultas(db).insert(consultas.toContentValues())
         assertNotEquals(-1, consultas.id)
     }
-    private fun insereDoencas(db: SQLiteDatabase, doencas: Doencas){
+
+    private fun insereDoencas(db: SQLiteDatabase, doencas: Doencas) {
         doencas.id = TabelaBDDoencas(db).insert(doencas.ToContentValues())
         assertNotEquals(-1, doencas.id)
     }
-    private fun insereEspecialidades(db: SQLiteDatabase, especialidades: Especialidades){
+
+    private fun insereEspecialidades(db: SQLiteDatabase, especialidades: Especialidades) {
         especialidades.id = TabelaBDEspecialidades(db).insert(especialidades.ToContentValues())
         assertNotEquals(1, especialidades.id)
 
     }
 
     @Before
-    fun apagaBaseDados(){
+    fun apagaBaseDados() {
         appContext().deleteDatabase(BDDoentesOpenHelper.NOME)
     }
 
     @Test
-    fun consegueAbrirBaseDados(){
+    fun consegueAbrirBaseDados() {
         val openHelper = BDDoentesOpenHelper(appContext())
-        val db =openHelper.readableDatabase
+        val db = openHelper.readableDatabase
 
         assertTrue(db.isOpen)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueInserirEspecialidades(){
+        val db = getWritableDatabase()
+
+        val especialidades = Especialidades("Cardiologia", 2)
+        insereEspecialidades(db, especialidades)
 
         db.close()
     }
@@ -61,43 +74,36 @@ class BaseDadosTest {
     fun consegueInserirMedicos(){
         val db = getWritableDatabase()
 
-        //val consultas = Consultas("consulta de dor de peito", "1 de janeiro de 2022")
-        //insereConsultas(db, consultas)
-
-        val medico = Medicos("Josefino", "123456789", -1)
-        insereMedicos(db, medico)
-
-        val especialidade = Especialidades("Cardiologia")
-        insereEspecialidades(db, especialidade)
+        val medicos = Medicos("João","123455", 2, 4)
+        insereMedicos(db, medicos)
 
         db.close()
     }
 
+    @Test
+    fun consegueInserirDoencas(){
+        val db = getWritableDatabase()
+
+        val doencas = Doencas("Dor de peito", 2)
+        insereDoencas(db, doencas)
+        db.close()
+    }
     @Test
     fun consegueInserirDoentes(){
         val db = getWritableDatabase()
+        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984",2, 4)
+        insereDoentes(db, doentes)
 
-
-        //val consultas = Consultas("Verificação ao doente Afonso", 1, 1)
-        //insereConsultas(db, consultas)
-
-
-        val doente = Doentes("Afonso", "987654321", "3 de novembro de 2021", -1,-1)
-        insereDoentes(db, doente)
-
-        val doencas = Doencas("Dor de peito", -1)
-        insereDoencas(db, doencas)
+        //val doencas = Doencas("Dor de peito", 1)
         db.close()
-
     }
-/*
     @Test
-    fun consgueInserirConsultas(){
+    fun consegueInserirConsultas(){
         val db = getWritableDatabase()
+        val consultas = Consultas("25 de junho de 2022", 4, 4, 6)
+        insereConsultas(db, consultas)
 
-        insereConsultas(db, Consultas("Verificação ao doente Afonso", doente_id = 1, medico_id = 1))
         db.close()
     }
-
-*/
 }
+

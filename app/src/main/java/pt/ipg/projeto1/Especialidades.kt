@@ -4,7 +4,7 @@ import android.content.ContentValues
 
 data class Especialidades(
     var tipoEspecialidades : String,
-    var id : Long = -1
+    var id : Long = 1
 ) {
 
     fun ToContentValues(): ContentValues {

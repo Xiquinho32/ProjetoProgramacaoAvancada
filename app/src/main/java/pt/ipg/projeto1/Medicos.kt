@@ -6,7 +6,7 @@ data class Medicos(
     var nome: String,
     var cc : String,
     var idEspecialidades: Long,
-    var id: Long =  -1
+    var id: Long =  1
 ) {
     fun toContentValues() : ContentValues{
         val valores =ContentValues()
