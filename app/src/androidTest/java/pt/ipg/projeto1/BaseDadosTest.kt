@@ -72,21 +72,26 @@ class BaseDadosTest {
 
         db.close()
     }
-/*
+
     @Test
     fun consegueInserirDoentes(){
         val db = getWritableDatabase()
 
 
-        val consultas = Consultas("Verificação ao doente Afonso", 1, 1)
-        insereConsultas(db, consultas)
+        //val consultas = Consultas("Verificação ao doente Afonso", 1, 1)
+        //insereConsultas(db, consultas)
 
 
-        val doente = Doentes("Afonso", "987654321", "3 de novembro de 2021", 1,1)
+        val doente = Doentes("Afonso", "987654321", "3 de novembro de 2021", -1,-1)
         insereDoentes(db, doente)
-        db.close()
-    }
 
+        val doencas = Doencas("Dor de peito", -1)
+        insereDoencas(db, doencas)
+        db.close()
+
+
+    }
+/*
     @Test
     fun consgueInserirConsultas(){
         val db = getWritableDatabase()
