@@ -89,7 +89,6 @@ class BaseDadosTest {
         insereDoencas(db, doencas)
         db.close()
 
-
     }
 /*
     @Test
