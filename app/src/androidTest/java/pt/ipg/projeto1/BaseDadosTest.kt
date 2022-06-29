@@ -211,5 +211,75 @@ class BaseDadosTest {
         db.close()
 
     }
+    @Test
+    fun consegueLerConsultas(){
+        val db = getWritableDatabase()
+
+        val consultas = Consultas("25 de junho de 2022", 4, 4, 6)
+        insereConsultas(db, consultas)
+
+        val cursor = TabelaBDConsultas(db).query(
+            TabelaBDConsultas.TODAS_COLUNAS,
+            "${TabelaBDConsultas.CAMPO_ID}=?",
+            arrayOf("${consultas.id}"),
+            null,
+            null,
+            null
+        )
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val consultasBD = Consultas.fromCursor(cursor)  //consultas que tenho na BD
+        assertEquals(consultas, consultasBD) //comparar as duas categorias para ver se sao iguais
+
+        db.close()
+    }
+
+    @Test
+    fun consegueLerMedicos(){
+        val db = getWritableDatabase()
+
+        val medicos = Medicos("João","123455", 2, 4)
+        insereMedicos(db, medicos)
+
+        val cursor = TabelaBDMedicos(db).query(
+            TabelaBDMedicos.TODAS_COLUNAS,
+            "${TabelaBDMedicos.CAMPO_ID}=?",
+            arrayOf("${medicos.id}"),
+            null,
+            null,
+            null
+        )
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val medicosBD = Consultas.fromCursor(cursor)  //consultas que tenho na BD
+        assertEquals(medicos, medicosBD) //comparar as duas categorias para ver se sao iguais
+
+        db.close()
+    }
+    @Test
+    fun consegueLerDoentes(){
+        val db = getWritableDatabase()
+
+        val doentes = Doentes("Alberto", "987654321", "23 de janeiro de 2021", 3, 5)
+        insereDoentes(db, doentes)
+
+        val cursor = TabelaBDDoentes(db).query(
+            TabelaBDDoentes.TODAS_COLUNAS,
+            "${TabelaBDDoentes.CAMPO_ID}=?",
+            arrayOf("${doentes.id}"),
+            null,
+            null,
+            null
+        )
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val doentesBD = Consultas.fromCursor(cursor)  //consultas que tenho na BD
+        assertEquals(doentes, doentesBD) //comparar as duas categorias para ver se sao iguais
+
+        db.close()
+    }
 }
 
