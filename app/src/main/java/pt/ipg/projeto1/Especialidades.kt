@@ -11,7 +11,7 @@ data class Especialidades(
         val valores = ContentValues()
 
         valores.put(TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES, tipoEspecialidades)
-        //valores.put(TabelaBDEspecialidades.CAMPO_ID, id)
+        valores.put(TabelaBDEspecialidades.CAMPO_ID, id)
 
         return valores
     }

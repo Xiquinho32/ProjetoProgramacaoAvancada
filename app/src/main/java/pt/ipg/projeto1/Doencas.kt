@@ -10,7 +10,9 @@ data class Doencas(
     fun ToContentValues(): ContentValues {
         val valores = ContentValues()
         valores.put(TabelaBDDoencas.CAMPO_TIPO_DOENCAS, tipoDoenca)
-        //valores.put(TabelaBDDoencas.CAMPO_ID, id)
+        valores.put(TabelaBDDoencas.CAMPO_ID, id)
         return valores
+
+
     }
 }

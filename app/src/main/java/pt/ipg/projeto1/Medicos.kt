@@ -14,7 +14,7 @@ data class Medicos(
         valores.put(TabelaBDMedicos.CAMPO_NOME_MEDICO, nome)
         valores.put(TabelaBDMedicos.CAMPO_CC, cc)
         valores.put(TabelaBDMedicos.CAMPO_ESPECIALIDADES_ID, idEspecialidades)
-       // valores.put(TabelaBDMedicos.CAMPO_ID, id)
+        valores.put(TabelaBDMedicos.CAMPO_ID, id)
 
         return valores
 

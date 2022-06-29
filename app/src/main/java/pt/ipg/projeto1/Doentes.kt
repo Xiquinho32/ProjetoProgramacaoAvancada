@@ -19,8 +19,7 @@ data class Doentes(
         valores.put(TabelaBDDoentes.CAMPO_CC, cc)
         valores.put(TabelaBDDoentes.CAMPO_DATA_NASCIMENTO, dataNascimento)
         valores.put(TabelaBDDoentes.CAMPO_DOENCA_ID, idDoencas)
-        //valores.get(TabelaBDDoentes.Campo_Data_Nascimento, Data_Nascimento)
-        //valores.put(TabelaBDDoentes.CAMPO_ID, id)
+        valores.put(TabelaBDDoentes.CAMPO_ID, id)
         return valores
     }
 
