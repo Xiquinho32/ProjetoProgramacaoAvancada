@@ -163,7 +163,53 @@ class BaseDadosTest {
         )
 
     }
+    @Test
+    fun consegueEliminarConsultas(){
+        val db = getWritableDatabase()
 
+        val consultas = Consultas("25 de junho de 2022", 4, 4, 6)
+        insereConsultas(db, consultas)
 
+        val registosEliminados = TabelaBDConsultas(db).delete(
+            "${TabelaBDConsultas.CAMPO_ID}=?",
+            arrayOf("${consultas.id}"))
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+
+    }
+    @Test
+    fun consegueEliminarDoentes(){
+        val db = getWritableDatabase()
+
+        val doente = Doentes("Alberto", "987654321", "23 de janeiro de 2021", 3, 5)
+        insereDoentes(db, doente)
+
+        val registosEliminados = TabelaBDDoentes(db).delete(
+            "${TabelaBDDoentes.CAMPO_ID}=?",
+            arrayOf("${doente.id}"))
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+
+    }
+    @Test
+    fun consegueEliminarMedicos(){
+        val db = getWritableDatabase()
+
+        val medicos = Medicos("João","123455", 2, 4)
+        insereMedicos(db, medicos)
+
+        val registosEliminados = TabelaBDMedicos(db).delete(
+            "${TabelaBDMedicos.CAMPO_ID}=?",
+            arrayOf("${medicos.id}"))
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+
+    }
 }
 
