@@ -13,4 +13,6 @@
     <string name="doentes">Doentes</string>
     <string name="medicos">Medicos</string>
     <string name="consultas">Consultas</string>
+    <string name="data">24-02-2022</string>
+    <string name="nomeMedico">medico</string>
 </resources>
