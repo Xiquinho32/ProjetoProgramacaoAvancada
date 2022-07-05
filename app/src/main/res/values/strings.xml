@@ -22,4 +22,6 @@
     <string name="Guardar">Guardar</string>
     <string name="Cancelar">Cancelar</string>
     <string name="Eliminar">Eliminar</string>
+    <string name="Inserir">Inserir</string>
+    <string name="Alterar">Alterar</string>
 </resources>
