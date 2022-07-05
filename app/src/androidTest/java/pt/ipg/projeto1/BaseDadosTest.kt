@@ -7,7 +7,6 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.time.format.DateTimeFormatter
 
 @RunWith(AndroidJUnit4::class)
 class BaseDadosTest {
