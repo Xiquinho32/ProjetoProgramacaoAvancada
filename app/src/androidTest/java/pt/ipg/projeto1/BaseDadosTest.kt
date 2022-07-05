@@ -99,7 +99,10 @@ class BaseDadosTest {
     @Test
     fun consegueInserirConsultas(){
         val db = getWritableDatabase()
-        val consultas = Consultas("25 de junho de 2022", 4, 4, 6)
+
+        val medicos = Medicos("João","123455", 2, 4)
+        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984",2, 4)
+        val consultas = Consultas("25 de junho de 2022",  medicos, doentes,1)
         insereConsultas(db, consultas)
 
         db.close()
@@ -150,9 +153,12 @@ class BaseDadosTest {
     fun consegueAlterarConsultas(){
         val db = getWritableDatabase()
 
-        val consultas = Consultas("25 de junho de 2022", 4, 4, 6)
+        val medicos = Medicos("João","123455", 2, 4)
+        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984",2, 4)
 
-        consultas.idDoente = 2
+        val consultas = Consultas("25 de junho de 2022", medicos, doentes, 6)
+
+        consultas.id = 2
 
         val registosAlterados = TabelaBDConsultas(db).update(
             consultas.toContentValues(),
@@ -166,7 +172,10 @@ class BaseDadosTest {
     fun consegueEliminarConsultas(){
         val db = getWritableDatabase()
 
-        val consultas = Consultas("25 de junho de 2022", 4, 4, 6)
+        val medicos = Medicos("João","123455", 2, 4)
+        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984",2, 4)
+
+        val consultas = Consultas("25 de junho de 2022", medicos, doentes, 6)
         insereConsultas(db, consultas)
 
         val registosEliminados = TabelaBDConsultas(db).delete(
@@ -214,7 +223,10 @@ class BaseDadosTest {
     fun consegueLerConsultas(){
         val db = getWritableDatabase()
 
-        val consultas = Consultas("25 de junho de 2022", 4, 4, 6)
+        val medicos = Medicos("João","123455", 2, 4)
+        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984",2, 4)
+
+        val consultas = Consultas("25 de junho de 2022", medicos, doentes, 6)
         insereConsultas(db, consultas)
 
         val cursor = TabelaBDConsultas(db).query(
