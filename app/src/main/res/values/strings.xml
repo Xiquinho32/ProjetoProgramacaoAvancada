@@ -24,4 +24,6 @@
     <string name="Eliminar">Eliminar</string>
     <string name="Inserir">Inserir</string>
     <string name="Alterar">Alterar</string>
+    <string name="menu_principal_label">Menu principal</string>
+    <string name="lista_consultas_label">Consultas</string>
 </resources>
