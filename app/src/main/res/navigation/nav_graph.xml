@@ -15,5 +15,9 @@
     <fragment
         android:id="@+id/listaConsultasFragment"
         android:name="pt.ipg.projeto1.ListaConsultasFragment"
-        android:label="@string/lista_consultas_label" />
+        android:label="@string/lista_consultas_label">
+        <action
+            android:id="@+id/action_listaConsultasFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuPrincipalFragment" />
+    </fragment>
 </navigation>

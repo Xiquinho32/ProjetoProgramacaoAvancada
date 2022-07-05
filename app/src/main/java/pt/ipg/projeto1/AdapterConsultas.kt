@@ -46,7 +46,7 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
         private fun seleciona() {
             itemView.setBackgroundResource(android.R.color.holo_orange_light)
             viewHolderSelecionado = this
-            //fragment.livroSeleccionado = livro falta fazer isso
+            fragment.consultaSeleccionado = consulta
         }
 
         private fun desseleciona() {
