@@ -15,4 +15,8 @@
     <string name="consultas">Consultas</string>
     <string name="data">24-02-2022</string>
     <string name="nomeMedico">medico</string>
+    <string name="eliminarLivro">Eliminar Livro</string>
+    <string name="Data">Data</string>
+    <string name="eliminarConsulta">Eliminar Consulta</string>
+    <string name="NomeDoente">João</string>
 </resources>
