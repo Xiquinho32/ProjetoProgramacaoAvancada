@@ -31,4 +31,9 @@
     <string name="Medico_obrigatorio">Escolha um Medico</string>
     <string name="erro_guardar_consulta">Erro ao guardar consulta</string>
     <string name="consulta_guardado_sucesso">Consulta guardado com sucesso</string>
+    <string name="eliminar_consulta_label">Eliminar consulta</string>
+    <string name="confirma_eliminar_consulta">Tem a certeza que quer eliminar a consulta?</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="erro_eliminar_consulta">Erro ao eliminar consulta</string>
+    <string name="consulta_eliminado_sucesso">consulta eliminado com sucesso</string>
 </resources>

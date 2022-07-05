@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_listaConsultasFragment_to_editarConsultasFragment"
             app:destination="@id/EditarConsultasFragment" />
+        <action
+            android:id="@+id/action_listaConsultasFragment_to_eliminarConsultasFragment"
+            app:destination="@id/eliminarConsultasFragment" />
     </fragment>
     <fragment
         android:id="@+id/EditarConsultasFragment"
@@ -34,5 +37,13 @@
             android:defaultValue="@null"
             app:argType="pt.ipg.projeto1.Consultas"
             app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarConsultasFragment"
+        android:name="pt.ipg.projeto1.EliminarConsultasFragment"
+        android:label="@string/eliminar_consulta_label">
+        <action
+            android:id="@+id/action_eliminarConsultasFragment_to_listaConsultasFragment"
+            app:destination="@id/listaConsultasFragment" />
     </fragment>
 </navigation>
