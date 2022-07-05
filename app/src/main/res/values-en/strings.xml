@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Projecto1</string>
+    <string name="doentes">Patient</string>
+    <string name="medicos">Doctors</string>
+    <string name="consultas">Appointment</string>
+    <string name="Data">Date</string>
+    <string name="Data">D</string>
+    <string name="eliminarConsulta">Delete Appointments</string>
+    <string name="eliminarConsulta">delete appointments</string>
+    <string name="Guardar">Save</string>
+    <string name="Guardar">S</string>
+    <string name="Cancelar">Cancel</string>
+    <string name="Eliminar">Delete</string>
+    <string name="Inserir">Insert</string>
+    <string name="Alterar">Change</string>
+    <string name="menu_principal_label">Main Menu</string>
+    <string name="lista_consultas_label">Appointment</string>
+    <string name="Data_obrigatorio">Insert the date</string>
+    <string name="Doente_obrigatorio">Choose a Patient</string>
+    <string name="Medico_obrigatorio">Choose a Doctor</string>
+    <string name="Medico_obrigatorio">CH</string>
+    <string name="consulta_guardado_sucesso">Appointment saved with success</string>
+    <string name="erro_guardar_consulta">Error saving the appointment</string>
+    <string name="eliminar_consulta_label">Delete Appointment</string>
+    <string name="confirma_eliminar_consulta">"Are you sure do you want to delete the appointment ? "</string>
+    <string name="eliminar">Delete</string>
+    <string name="erro_eliminar_consulta">Error to delete the appointment</string>
+    <string name="consulta_eliminado_sucesso">appointment delete with success</string>
+</resources>

@@ -13,12 +13,12 @@
     <string name="doentes">Doentes</string>
     <string name="medicos">Medicos</string>
     <string name="consultas">Consultas</string>
-    <string name="data">24-02-2022</string>
-    <string name="nomeMedico">medico</string>
+    <string name="data" translatable="false">24-02-2022</string>
+    <string name="nomeMedico" translatable="false">Alberto</string>
     <string name="eliminarLivro">Eliminar Livro</string>
     <string name="Data">Data</string>
     <string name="eliminarConsulta">Eliminar Consulta</string>
-    <string name="NomeDoente">João</string>
+    <string name="NomeDoente" translatable="false">João</string>
     <string name="Guardar">Guardar</string>
     <string name="Cancelar">Cancelar</string>
     <string name="Eliminar">Eliminar</string>
@@ -34,6 +34,7 @@
     <string name="eliminar_consulta_label">Eliminar consulta</string>
     <string name="confirma_eliminar_consulta">Tem a certeza que quer eliminar a consulta?</string>
     <string name="eliminar">Eliminar</string>
-    <string name="erro_eliminar_consulta">Erro ao eliminar consulta</string>
+    <string name="erro_eliminar_consulta">Erro ao Eliminar consulta</string>
     <string name="consulta_eliminado_sucesso">consulta eliminado com sucesso</string>
+    <string name="erro_eliminar_consulta">E</string>
 </resources>
