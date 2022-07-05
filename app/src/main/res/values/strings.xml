@@ -19,4 +19,6 @@
     <string name="Data">Data</string>
     <string name="eliminarConsulta">Eliminar Consulta</string>
     <string name="NomeDoente">João</string>
+    <string name="Guardar">Guardar</string>
+    <string name="Cancelar">Cancelar</string>
 </resources>
