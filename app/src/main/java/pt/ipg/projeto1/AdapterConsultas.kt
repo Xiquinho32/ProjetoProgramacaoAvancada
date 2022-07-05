@@ -33,12 +33,24 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
                 field = value
 
                 textViewData.text = consulta?.data?: ""
-                textViewMedico.text = consulta?.medicos?.nome
-                textViewDoente.text = consulta?.doentes?.nome
+                textViewMedico.text = consulta?.medicos?.nome?: ""
+                textViewDoente.text = consulta?.doentes?.nome?: ""
             }
 
-        override fun onClick(p0: View?) {
-            TODO("Not yet implemented")
+
+        override fun onClick(v: View?) {
+            viewHolderSelecionado?.desseleciona()
+            seleciona()
+        }
+
+        private fun seleciona() {
+            itemView.setBackgroundResource(android.R.color.holo_orange_light)
+            viewHolderSelecionado = this
+            //fragment.livroSeleccionado = livro falta fazer isso
+        }
+
+        private fun desseleciona() {
+            itemView.setBackgroundResource(android.R.color.white)
         }
     }
     /**
@@ -68,7 +80,8 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
         parent: ViewGroup,
         viewType: Int
     ): ViewHolderConsulta {
-        TODO("Not yet implemented")
+        val itemConsulta = fragment.layoutInflater.inflate(R.layout.item_consulta, parent, false)
+        return ViewHolderConsulta(itemConsulta)
     }
 
     /**
@@ -93,7 +106,8 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderConsulta, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.consulta = Consultas.fromCursor(cursor!!)
     }
 
     /**
@@ -102,6 +116,8 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        if (cursor == null) return 0
+
+        return cursor!!.count
     }
 }
