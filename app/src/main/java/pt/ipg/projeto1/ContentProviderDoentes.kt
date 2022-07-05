@@ -133,6 +133,11 @@ class ContentProviderDoentes : ContentProvider(){
 
         const val UNICO_REGISTO = "vnd.android.cursor.item"
         const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
+
+        private val ENDERECO_BASE = Uri.parse("content://$AUTHORITY")
+        val ENDERECO_DOENTES = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDDoentes.NOME)
+        val ENDERECO_MEDICOS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDMedicos.NOME)
+        val ENDERECO_CONSULTAS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDConsultas.NOME)
     }
     fun getUriMatcher() : UriMatcher {
         var uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
