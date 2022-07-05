@@ -19,5 +19,20 @@
         <action
             android:id="@+id/action_listaConsultasFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
+        <action
+            android:id="@+id/action_listaConsultasFragment_to_editarConsultasFragment"
+            app:destination="@id/EditarConsultasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EditarConsultasFragment"
+        android:name="pt.ipg.projeto1.EditarConsultasFragment">
+        <action
+            android:id="@+id/action_editarConsultasFragment_to_listaConsultasFragment"
+            app:destination="@id/listaConsultasFragment" />
+        <argument
+            android:name="consultas"
+            android:defaultValue="@null"
+            app:argType="pt.ipg.projeto1.Consultas"
+            app:nullable="true" />
     </fragment>
 </navigation>

@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import pt.ipg.projeto1.AdapterConsultas.*
 
 class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adapter<AdapterConsultas.ViewHolderConsulta>() {
     var cursor: Cursor? = null

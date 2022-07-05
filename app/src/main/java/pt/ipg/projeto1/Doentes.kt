@@ -7,9 +7,9 @@ import java.sql.Date
 
 
 data class Doentes(
-    var nome : String,
-    var cc : String,
-    var dataNascimento : String, //java.util
+    var nome : String = "",
+    var cc : String = "",
+    var dataNascimento : String = "", //java.util
     var idDoencas: Long,
     var id: Long =  1
 ){

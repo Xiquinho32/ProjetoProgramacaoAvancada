@@ -5,8 +5,8 @@ import android.database.Cursor
 import android.provider.BaseColumns
 
 data class Medicos(
-    var nome: String,
-    var cc : String,
+    var nome: String = "",
+    var cc : String = "",
     var idEspecialidades: Long,
     var id: Long =  1
 ) {

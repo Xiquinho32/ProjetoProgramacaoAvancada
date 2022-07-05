@@ -26,4 +26,9 @@
     <string name="Alterar">Alterar</string>
     <string name="menu_principal_label">Menu principal</string>
     <string name="lista_consultas_label">Consultas</string>
+    <string name="Data_obrigatorio">Preencha a Data</string>
+    <string name="Doente_obrigatorio">Escolha um Doente</string>
+    <string name="Medico_obrigatorio">Escolha um Medico</string>
+    <string name="erro_guardar_consulta">Erro ao guardar consulta</string>
+    <string name="consulta_guardado_sucesso">Consulta guardado com sucesso</string>
 </resources>
