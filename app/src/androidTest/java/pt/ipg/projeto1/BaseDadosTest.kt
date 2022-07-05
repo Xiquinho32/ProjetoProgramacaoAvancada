@@ -163,9 +163,13 @@ class BaseDadosTest {
         val registosAlterados = TabelaBDConsultas(db).update(
             consultas.toContentValues(),
             "${TabelaBDConsultas.CAMPO_ID}= 2",
-            arrayOf("${consultas.id}")
+            arrayOf("${consultas.id}"))
 
-        )
+        assertEquals(1, registosAlterados)
+
+        db.close()
+
+
 
     }
     @Test
