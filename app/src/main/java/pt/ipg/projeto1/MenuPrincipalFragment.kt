@@ -31,7 +31,7 @@ class MenuPrincipalFragment :Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonConsultas.setOnClickListener{
-            findNavController().navigate(R.id.action_MenuPrincipalFragment_to_listaConsultasFragment)
+            findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaConsultasFragment)
         }
         val activity = activity as MainActivity
         activity.fragment = this

@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.Person.fromBundle
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import pt.ipg.projeto1.databinding.FragmentEliminarConsultasBinding
@@ -43,7 +44,7 @@ class EliminarConsultasFragment : Fragment(){
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        consulta = EliminarConsultasFragment.fromBundle(requireArguments()).consulta
+        //consulta = EliminarConsultasFragment.fromBundle(requireArguments()).consulta
 
         binding.textViewData.text = consulta?.data?: ""
         binding.textViewMedico.text = consulta?.medicos?.nome?: ""
@@ -70,7 +71,7 @@ class EliminarConsultasFragment : Fragment(){
             setTitle(R.string.eliminar_consulta_label)
             setMessage(getString(R.string.confirma_eliminar_consulta))
             setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener { dialogInterface, i ->  })
-            setPositiveButton(getString(R.string.eliminar), DialogInterface.OnClickListener { dialogInterface, i -> confirmaEliminarLivro() })
+            setPositiveButton(getString(R.string.eliminar), DialogInterface.OnClickListener { dialogInterface, i -> confirmaEliminarConsulta() })
             show()
         }
     }
@@ -93,8 +94,7 @@ class EliminarConsultasFragment : Fragment(){
     }
 
     private fun voltaListaConsulta() {
-        val acao = EliminarConsultasFragment.action_eliminarConsultasFragment_to_listaConsultasFragment()
-        findNavController().navigate(acao)
+        findNavController().navigate(R.id.action_eliminarConsultasFragment_to_listaConsultasFragment)
     }
 
 

@@ -18,7 +18,7 @@ class   BDDoentesOpenHelper(context: Context?) : SQLiteOpenHelper(context, NOME,
         TabelaBDDoentes(db).cria()
         TabelaBDMedicos(db).cria()
         TabelaBDDoencas(db).cria()
-        TabelaBDMedicos(db).cria()
+        TabelaBDEspecialidades(db).cria()
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

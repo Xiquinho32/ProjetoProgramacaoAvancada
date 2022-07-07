@@ -49,7 +49,7 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         activity.idMenuAtual = R.menu.menu_edicao
 
         if (arguments != null) {
-            consulta = EditarConsultasFragment.fromBundle(requireArguments()).consulta
+           // consulta = EditarConsultasFragment.fromBundle(requireArguments()).consulta
             if (consulta != null) {
                 binding.editTextData.setText(consulta!!.data)
             }
@@ -272,7 +272,7 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
     }
 
     private fun voltaListaConsultas() {
-        findNavController().navigate(R.id.action_listaConsultasFragment_to_editarConsultasFragment)
+        findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaConsultasFragment)
     }
 
 }

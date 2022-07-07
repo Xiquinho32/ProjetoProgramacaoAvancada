@@ -3,12 +3,14 @@ package pt.ipg.projeto1
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.projeto1.databinding.FragmentListaConsultasBinding
 
@@ -137,7 +139,33 @@ class ListaConsultasFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         if (_binding == null) return
         adapterConsultas!!.cursor = null
     }
+    fun processaOpcaoMenu(item: MenuItem) : Boolean =
+        when(item.itemId) {
+            R.id.action_inserir -> {
+
+                findNavController().navigate(R.id.action_listaConsultasFragment_to_editarConsultasFragment)
+
+                (activity as MainActivity).atualizaData(getString(R.string.inserir_consulta_label))
+                true
+            }
+            R.id.action_alterar -> {
+
+                findNavController().navigate(R.id.action_listaConsultasFragment_to_editarConsultasFragment)
+
+                (activity as MainActivity).atualizaData("Alterar Data")
+                true
+            }
+            R.id.action_eliminar -> {
+                //val acao = ListaLivrosFragmentDirections.actionListaLivrosFragmentToEliminarLivroFragment(livroSeleccionado!!)
+                //findNavController().navigate(acao)
+                findNavController().navigate(R.id.action_listaConsultasFragment_to_eliminarConsultasFragment)
+                true
+            }
+            else -> false
+        }
+
     companion object {
         const val ID_LOADER_CONSULTAS = 0
     }
+
 }
