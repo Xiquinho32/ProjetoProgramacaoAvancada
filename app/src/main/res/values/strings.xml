@@ -38,4 +38,8 @@
     <string name="inserir_consulta_label">Inserir consulta</string>
     <string name="editar_consultas_label">Editar consultas</string>
     <string name="Doentes">Doentes</string>
+    <string name="eliminarMedico">Eliminar Medico</string>
+    <string name="Nome">Nome</string>
+    <string name="CartaoCidadao">Cartao cidadao</string>
+    <string name="Especialidades">Especialidades</string>
 </resources>
