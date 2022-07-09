@@ -6,8 +6,8 @@ import android.provider.BaseColumns
 
 data class Medicos(
     var nome: String = "",
-    var cc : String = "",
-    var idEspecialidades: Long,
+    var cc: String = "",
+    var especialidades: Especialidades,
     var id: Long = -1
 ) {
     fun toContentValues() : ContentValues{
@@ -15,11 +15,10 @@ data class Medicos(
 
         valores.put(TabelaBDMedicos.CAMPO_NOME_MEDICO, nome)
         valores.put(TabelaBDMedicos.CAMPO_CC, cc)
-        valores.put(TabelaBDMedicos.CAMPO_ESPECIALIDADES_ID, idEspecialidades)
-        valores.put(TabelaBDMedicos.CAMPO_ID, id)
+        valores.put(TabelaBDMedicos.CAMPO_ESPECIALIDADES_ID, especialidades.id)
+        //valores.put(TabelaBDMedicos.CAMPO_ID, id)
 
         return valores
-
     }
     companion object{
         fun fromCursor(cursor: Cursor):Medicos{
@@ -27,13 +26,22 @@ data class Medicos(
             val posNome = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_NOME_MEDICO)
             val posCC = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_CC)
             val posIdEspecialidades = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_ESPECIALIDADES_ID)
+            val posTipoEspecialidades = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES)
+            val pos2IdEspecialidades = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_ID)
 
+            //medicos
             val id = cursor.getLong(posId)
             val nome = cursor.getString(posNome)
             val cc = cursor.getString(posCC)
-            val idEspecialidades= cursor.getLong(posIdEspecialidades)
+            val especialidadesMedicos= cursor.getLong(posIdEspecialidades)
 
-            return Medicos(nome, cc, idEspecialidades, id)
+            // especialidades
+            val tipoEspecialidades = cursor.getString(posTipoEspecialidades)
+            val idEspecialidades = cursor.getLong(pos2IdEspecialidades)
+
+           val especialidades = Especialidades(tipoEspecialidades, idEspecialidades)
+
+            return Medicos(nome, cc, especialidades, id)
         }
     }
 

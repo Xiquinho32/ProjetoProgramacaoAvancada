@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.SimpleCursorAdapter
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.core.app.Person.fromBundle
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader

@@ -7,6 +7,7 @@ class TabelaBDEspecialidades(db: SQLiteDatabase) : TabelaBD(db, NOME) {
     override fun cria() {
         db.execSQL("CREATE TABLE IF NOT EXISTS $nome (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_TIPO_ESPECIALIDADES TEXT NOT NULL)")
     }
+
     companion object{
         const val NOME = "Especialidades"
        const val CAMPO_ID = "$NOME.${BaseColumns._ID}"

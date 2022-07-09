@@ -23,31 +23,46 @@ data class Consultas(
     }
     companion object{
         fun fromCursor(cursor: Cursor):Consultas{
+            //Tabela consultas
             val posId =cursor.getColumnIndex(BaseColumns._ID)
             val posData = cursor.getColumnIndex(TabelaBDConsultas.CAMPO_DATA)
             val posIdMedicos = cursor.getColumnIndex(TabelaBDConsultas.CAMPO_MEDICO_ID)
+            val posIdDoentes = cursor.getColumnIndex(TabelaBDConsultas.CAMPO_DOENTE_ID)
+
+            //Tabela medicos
             val posNomeMedicos = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_NOME_MEDICO)
             val posccMedicos = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_CC)
-            val posIdDoentes = cursor.getColumnIndex(TabelaBDConsultas.CAMPO_DOENTE_ID)
+            val posIdEspecialidades = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_ESPECIALIDADES_ID)
+
+            //Tabela doentes
             val posNomeDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_NOME_DOENTE)
             val posccDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_CC)
             val posDataNascimentoDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_DATA_NASCIMENTO)
 
+            //Tabela Especialidades
+           // val posTipoEspecialidades = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES)
+
+            //consulta
             val id = cursor.getLong(posId)
             val data = cursor.getString(posData)
 
+            //medicos
             val idMedico = cursor.getLong(posIdMedicos)
             val nomeMedico = cursor.getString(posNomeMedicos)
             val ccMedicos = cursor.getString(posccMedicos)
-            val medico = Medicos(nomeMedico, ccMedicos, idMedico)
+            val idEspecialidades = cursor.getLong(posIdEspecialidades)
 
+            val medico = Medicos(nomeMedico, ccMedicos, idEspecialidades)
 
+            //doentes
             val idDoentes = cursor.getLong(posIdDoentes)
             val nomeDoentes = cursor.getString(posNomeDoentes)
             val ccDoentes = cursor.getString(posccDoentes)
             val dataNascimentoDoentes = cursor.getString(posDataNascimentoDoentes)
+
             val doente = Doentes(nomeDoentes, ccDoentes, dataNascimentoDoentes, idDoentes)
 
+            //return valores
             return Consultas(data, medico,doente , id)
         }
     }
