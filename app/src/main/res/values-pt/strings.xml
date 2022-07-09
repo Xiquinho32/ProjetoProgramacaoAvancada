@@ -1,23 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Projeto1</string>
-    <string name="action_settings">Definições</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label" translatable="false">First Fragment</string>
-    <string name="second_fragment_label" translatable="false">Second Fragment</string>
-    <string name="next" translatable="false">Next</string>
-    <string name="previous" translatable="false">Previous</string>
-
-    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
-    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
     <string name="doentes">Doentes</string>
     <string name="medicos">Medicos</string>
     <string name="consultas">Consultas</string>
-    <string name="data" translatable="false">24-02-2022</string>
-    <string name="nomeMedico" translatable="false">Alberto</string>
-    <string name="eliminarLivro" translatable="false">Eliminar Livro</string>
     <string name="Data">Data</string>
     <string name="eliminarConsulta">Eliminar Consulta</string>
-    <string name="NomeDoente" translatable="false">João</string>
     <string name="Guardar">Guardar</string>
     <string name="Cancelar">Cancelar</string>
     <string name="Eliminar">Eliminar</string>
@@ -28,14 +16,15 @@
     <string name="Data_obrigatorio">Preencha a Data</string>
     <string name="Doente_obrigatorio">Escolha um Doente</string>
     <string name="Medico_obrigatorio">Escolha um Medico</string>
-    <string name="erro_guardar_consulta">Erro ao guardar consulta</string>
     <string name="consulta_guardado_sucesso">Consulta guardado com sucesso</string>
+    <string name="erro_guardar_consulta">Erro ao guardar consulta</string>
     <string name="eliminar_consulta_label">Eliminar consulta</string>
     <string name="confirma_eliminar_consulta">Tem a certeza que quer eliminar a consulta?</string>
-    <string name="eliminar">Eliminar</string>
     <string name="erro_eliminar_consulta">Erro ao Eliminar consulta</string>
     <string name="consulta_eliminado_sucesso">consulta eliminado com sucesso</string>
+    <string name="Doentes" translatable="false">Doentes</string>
+    <string name="action_settings" translatable="false">Definições</string>
     <string name="inserir_consulta_label">Inserir consulta</string>
     <string name="editar_consultas_label">Editar consultas</string>
-    <string name="Doentes">Doentes</string>
+    <string name="eliminar">Eliminar</string>
 </resources>

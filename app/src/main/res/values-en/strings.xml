@@ -23,4 +23,8 @@
     <string name="eliminar">Delete</string>
     <string name="erro_eliminar_consulta">Error to delete the appointment</string>
     <string name="consulta_eliminado_sucesso">appointment delete with success</string>
+    <string name="Doentes" translatable="false">Patient</string>
+    <string name="inserir_consulta_label">Insert Appointment</string>
+    <string name="editar_consultas_label">Edit Appointment</string>
+    <string name="action_settings" translatable="false">Settings</string>
 </resources>
