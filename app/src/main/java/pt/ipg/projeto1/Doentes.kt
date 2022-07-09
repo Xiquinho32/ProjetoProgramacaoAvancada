@@ -11,7 +11,7 @@ data class Doentes(
     var cc : String = "",
     var dataNascimento : String = "", //java.util
     var idDoencas: Long,
-    var id: Long =  1
+    var id: Long =  -1
 ){
 
 

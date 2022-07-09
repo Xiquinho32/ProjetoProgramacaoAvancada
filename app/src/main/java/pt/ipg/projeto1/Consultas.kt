@@ -9,7 +9,7 @@ data class Consultas(
     var data: String,
     var medicos: Medicos,
     var doentes: Doentes,
-    var id: Long = 1
+    var id: Long = -1
 ) : Serializable{
     fun toContentValues() : ContentValues{
         val valores = ContentValues()

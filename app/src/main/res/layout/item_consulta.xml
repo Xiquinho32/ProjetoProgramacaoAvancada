@@ -10,35 +10,35 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        android:text="@string/data"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/purple_500"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="24-02-2022"/>
 
     <TextView
         android:id="@+id/textViewMedico"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        android:text="Alexandre"
         android:textColor="@color/teal_200"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewData" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewData"
+        tools:text="Alexandre"/>
 
     <TextView
         android:id="@+id/textViewDoente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        android:text="Diogo"
         android:textColor="@color/teal_700"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMedico" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewMedico"
+        tools:text="Diogo"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".EditarConsultasFragment" >
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -13,7 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
-            android:hint="Data" />
+            android:hint="@string/Data"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
             android:id="@+id/textViewMedico"

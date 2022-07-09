@@ -37,4 +37,5 @@
     <string name="erro_eliminar_consulta">Erro ao Eliminar consulta</string>
     <string name="consulta_eliminado_sucesso">consulta eliminado com sucesso</string>
     <string name="inserir_consulta_label">Inserir data</string>
+    <string name="editar_consultas_label">Editar consultas</string>
 </resources>
