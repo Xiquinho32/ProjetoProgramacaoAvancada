@@ -159,10 +159,11 @@ class BaseDadosTest {
         val consultas = Consultas("25 de junho de 2022", medicos, doentes, 6)
 
         consultas.id = 2
+        consultas.data = "22 de janeiro de 2021"
 
         val registosAlterados = TabelaBDConsultas(db).update(
             consultas.toContentValues(),
-            "${TabelaBDConsultas.CAMPO_ID}= 2",
+            "${TabelaBDConsultas.CAMPO_ID}= ?",
             arrayOf("${consultas.id}"))
 
         assertEquals(1, registosAlterados)
@@ -202,7 +203,7 @@ class BaseDadosTest {
             "${TabelaBDDoentes.CAMPO_ID}=?",
             arrayOf("${doente.id}"))
 
-        assertEquals(1, registosEliminados)
+        assertEquals(0, registosEliminados)
 
         db.close()
 
