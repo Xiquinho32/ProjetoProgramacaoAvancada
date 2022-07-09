@@ -142,7 +142,6 @@ class ListaConsultasFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {
             R.id.action_inserir -> {
-
                 findNavController().navigate(R.id.action_listaConsultasFragment_to_editarConsultasFragment)
 
                 (activity as MainActivity).atualizaData(getString(R.string.inserir_consulta_label))

@@ -17,7 +17,9 @@
     <fragment
         android:id="@+id/listaConsultasFragment"
         android:name="pt.ipg.projeto1.ListaConsultasFragment"
-        android:label="@string/lista_consultas_label">
+        android:label="@string/lista_consultas_label"
+        tools:layout="@layout/fragment_lista_consultas">
+
         <action
             android:id="@+id/action_listaConsultasFragment_to_menuPrincipalFragment"
             app:destination="@id/menuPrincipalFragment" />
@@ -31,7 +33,8 @@
     <fragment
         android:id="@+id/editarConsultasFragment"
         android:name="pt.ipg.projeto1.EditarConsultasFragment"
-        android:label="@string/editar_consultas_label">
+        android:label="@string/editar_consultas_label"
+        tools:layout="@layout/fragment_editar_consultas">
         <action
             android:id="@+id/action_editarConsultasFragment_to_listaConsultasFragment"
             app:destination="@id/listaConsultasFragment" />
@@ -44,7 +47,8 @@
     <fragment
         android:id="@+id/eliminarConsultasFragment"
         android:name="pt.ipg.projeto1.EliminarConsultasFragment"
-        android:label="@string/eliminar_consulta_label">
+        android:label="@string/eliminar_consulta_label"
+        tools:layout="@layout/fragment_eliminar_consultas">
         <action
             android:id="@+id/action_eliminarConsultasFragment_to_listaConsultasFragment"
             app:destination="@id/listaConsultasFragment" />

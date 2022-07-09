@@ -49,7 +49,7 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         activity.idMenuAtual = R.menu.menu_edicao
 
         if (arguments != null) {
-           // consulta = EditarConsultasFragment.fromBundle(requireArguments()).consulta
+            //consulta = EditarConsultasFragment.fromBundle(arguments).consulta
             if (consulta != null) {
                 binding.editTextData.setText(consulta!!.data)
             }
@@ -136,6 +136,11 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
             intArrayOf(android.R.id.text1),
             0
         )
+        binding.spinnerDoentes.adapter = adapterDoentes
+
+        atualizaDoenteSelecionada()
+
+
         val adapterMedicos = SimpleCursorAdapter(
             requireContext(),
             android.R.layout.simple_list_item_1,
@@ -145,11 +150,8 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
             0
         )
 
-
-        binding.spinnerDoentes.adapter = adapterDoentes
         binding.spinnerMedicos.adapter = adapterMedicos
 
-        atualizaDoenteSelecionada()
         atualizaMedicosSelecionada()
     }
     private fun atualizaDoenteSelecionada() {
@@ -254,7 +256,7 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
     }
 
     private fun alteraConsulta(data: String, idDoentes : Long, idMedicos: Long) : Boolean {
-        val consulta = Consultas(data, Medicos(id = idMedicos, cc = "", idEspecialidades = 2), Doentes(id = idDoentes, cc = "", dataNascimento = "", idDoencas = 2))
+        val consulta = Consultas(data, Medicos(id = idMedicos, idEspecialidades = 3), Doentes(id = idDoentes, idDoencas = 3))
 
         val enderecoConsultas = Uri.withAppendedPath(ContentProviderDoentes.ENDERECO_CONSULTAS, "${this.consulta!!.id}")
 
@@ -264,7 +266,7 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
     }
 
     private fun insereConsulta(data: String, idDoentes : Long, idMedicos: Long): Boolean {
-        val consulta = Consultas(data, Medicos(id = idMedicos, cc = "", idEspecialidades = 2), Doentes(id = idDoentes, cc = "", dataNascimento = "", idDoencas = 2))
+        val consulta = Consultas(data, Medicos(id = idMedicos, idEspecialidades = 2), Doentes(id = idDoentes,idDoencas = 2))
 
         val enderecoConsultasInserido = requireActivity().contentResolver.insert(ContentProviderDoentes.ENDERECO_CONSULTAS, consulta.toContentValues())
 
@@ -272,7 +274,7 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
     }
 
     private fun voltaListaConsultas() {
-        findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaConsultasFragment)
+        findNavController().navigate(R.id.action_editarConsultasFragment_to_listaConsultasFragment)
     }
 
 }

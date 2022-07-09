@@ -22,7 +22,7 @@ class EliminarConsultasFragment : Fragment(){
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private lateinit var consulta: Consultas
+    private lateinit var consultas: Consultas
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,11 +44,12 @@ class EliminarConsultasFragment : Fragment(){
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        //consulta = EliminarConsultasFragment.fromBundle(requireArguments()).consulta
+        //consultas = EliminarConsultasFragment.fromBundle(arguments).consultas
+        //erro no from bundle
 
-        binding.textViewData.text = consulta?.data?: ""
-        binding.textViewMedico.text = consulta?.medicos?.nome?: ""
-        binding.textViewDoente.text = consulta?.doentes?.nome?: ""
+        binding.textViewData.text = consultas.data?: ""
+        binding.textViewMedico.text = consultas.medicos.nome?: ""
+        binding.textViewDoente.text = consultas.doentes.nome?: ""
     }
 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
@@ -77,7 +78,7 @@ class EliminarConsultasFragment : Fragment(){
     }
 
     private fun confirmaEliminarConsulta() {
-        val enderecoConsultas = Uri.withAppendedPath(ContentProviderDoentes.ENDERECO_CONSULTAS, "${consulta.id}")
+        val enderecoConsultas = Uri.withAppendedPath(ContentProviderDoentes.ENDERECO_CONSULTAS, "${consultas.id}")
         val registosEliminados = requireActivity().contentResolver.delete(enderecoConsultas, null, null)
 
         if (registosEliminados != 1) {
