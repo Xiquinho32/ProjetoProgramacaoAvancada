@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextData"
+            android:id="@+id/editTextNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
@@ -18,7 +18,7 @@
             tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/textViewCartaoCidadao"
+            android:id="@+id/textViewMedicos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
@@ -36,7 +36,7 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/textViewEspecialidade"
+            android:id="@+id/textViewDoentes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
