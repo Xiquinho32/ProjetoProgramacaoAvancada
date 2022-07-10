@@ -53,7 +53,7 @@ class AdapterMedicos(val fragment: ListaMedicosFragment): RecyclerView.Adapter<A
     }
 
     private fun desseleciona() {
-        TODO("Not yet implemented")
+        itemView.setBackgroundResource(android.R.color.white)
     }
 
 }
@@ -82,7 +82,8 @@ class AdapterMedicos(val fragment: ListaMedicosFragment): RecyclerView.Adapter<A
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMedico {
-        TODO("Not yet implemented")
+       val itemMedico = fragment.layoutInflater.inflate(R.layout.item_medico, parent, false)
+        return ViewHolderMedico(itemMedico)
     }
 
     /**
@@ -107,7 +108,8 @@ class AdapterMedicos(val fragment: ListaMedicosFragment): RecyclerView.Adapter<A
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderMedico, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.medico = Medicos.fromCursor(cursor!!)
     }
 
     /**
@@ -116,6 +118,8 @@ class AdapterMedicos(val fragment: ListaMedicosFragment): RecyclerView.Adapter<A
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        if (cursor == null) return 0
+
+        return cursor!!.count
     }
 }

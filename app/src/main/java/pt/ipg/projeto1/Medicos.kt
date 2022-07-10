@@ -3,13 +3,14 @@ package pt.ipg.projeto1
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
+import java.io.Serializable
 
 data class Medicos(
     var nome: String = "",
     var cc: String = "",
     var especialidades: Especialidades,
     var id: Long = -1
-) {
+) : Serializable {
     fun toContentValues() : ContentValues{
         val valores =ContentValues()
 

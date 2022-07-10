@@ -62,7 +62,8 @@
     <fragment
         android:id="@+id/listaMedicosFragment"
         android:name="pt.ipg.projeto1.ListaMedicosFragment"
-        android:label="ListaMedicosFragment" >
+        android:label="ListaMedicosFragment"
+        tools:layout="@layout/fragment_lista_medicos" >
         <action
             android:id="@+id/action_listaMedicosFragment_to_menuPrincipalFragment"
             app:destination="@id/menuPrincipalFragment" />
@@ -76,10 +77,16 @@
     <fragment
         android:id="@+id/editarMedicosFragment"
         android:name="pt.ipg.projeto1.EditarMedicosFragment"
-        android:label="EditarMedicosFragment" >
+        android:label="EditarMedicosFragment"
+        tools:layout="@layout/fragment_editar_medicos">
         <action
             android:id="@+id/action_editarMedicosFragment_to_listaMedicosFragment"
             app:destination="@id/listaMedicosFragment" />
+        <argument
+            android:name="medicos"
+            app:argType="pt.ipg.projeto1.Medicos"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/eliminarMedicosFragment"
@@ -89,5 +96,8 @@
         <action
             android:id="@+id/action_eliminarMedicosFragment_to_listaMedicosFragment"
             app:destination="@id/listaMedicosFragment" />
+        <argument
+            android:name="medico"
+            app:argType="pt.ipg.projeto1.Medicos" />
     </fragment>
 </navigation>

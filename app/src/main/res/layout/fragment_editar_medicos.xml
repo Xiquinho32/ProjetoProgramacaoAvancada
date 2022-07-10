@@ -30,7 +30,7 @@
                 android:textColorHint="#757575" />
 
             <TextView
-                android:id="@+id/textViewEspecialidade"
+                android:id="@+id/textViewEspecialidades"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"

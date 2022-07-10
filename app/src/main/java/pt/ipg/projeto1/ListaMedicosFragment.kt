@@ -132,7 +132,7 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
      * @param loader The Loader that is being reset.
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        if (binding == null) return
+        if (_binding == null) return
         adapterMedicos!!.cursor = null
     }
 
@@ -143,7 +143,15 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
                 (activity as MainActivity).atualizaData(getString(R.string.inserir_medico_label))
                 true
             }
-            //Alterar e eiminar
+            R.id.action_alterar -> {
+                findNavController().navigate(R.id.action_listaMedicosFragment_to_editarMedicosFragment)
+                (activity as MainActivity).atualizaData("Alterar medicos")
+                true
+            }
+            R.id.action_eliminar ->{
+                findNavController().navigate(R.id.action_listaMedicosFragment_to_eliminarMedicosFragment)
+                true
+            }
 
 
             else -> false
