@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_menuPrincipalFragment_to_listaMedicosFragment"
             app:destination="@id/listaMedicosFragment" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_listaEspecialidadesFragment"
+            app:destination="@id/listaEspecialidadesFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaConsultasFragment"
@@ -99,5 +102,14 @@
         <argument
             android:name="medico"
             app:argType="pt.ipg.projeto1.Medicos" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaEspecialidadesFragment"
+        android:name="pt.ipg.projeto1.ListaEspecialidadesFragment"
+        android:label="fragment_lista_especialidades"
+        tools:layout="@layout/fragment_lista_especialidades" >
+        <action
+            android:id="@+id/action_listaEspecialidadesFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
     </fragment>
 </navigation>
