@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_menuPrincipalFragment_to_listaConsultasFragment"
             app:destination="@id/listaConsultasFragment" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_listaMedicosFragment"
+            app:destination="@id/listaMedicosFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaConsultasFragment"
@@ -55,5 +58,13 @@
         <argument
             android:name="consulta"
             app:argType="pt.ipg.projeto1.Consultas" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaMedicosFragment"
+        android:name="pt.ipg.projeto1.ListaMedicosFragment"
+        android:label="ListaMedicosFragment" >
+        <action
+            android:id="@+id/action_listaMedicosFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
     </fragment>
 </navigation>

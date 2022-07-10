@@ -42,4 +42,5 @@
     <string name="Nome">Nome</string>
     <string name="CartaoCidadao">Cartao cidadao</string>
     <string name="Especialidades">Especialidades</string>
+    <string name="inserir_medico_label">Inserir Medicos</string>
 </resources>

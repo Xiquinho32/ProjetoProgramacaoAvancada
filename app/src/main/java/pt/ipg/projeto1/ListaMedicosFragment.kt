@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.projeto1.databinding.FragmentListaMedicosBinding
 
@@ -135,14 +136,21 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         if (binding == null) return
         adapterMedicos!!.cursor = null
     }
-    /*
+
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {
+            R.id.action_inserir -> {
+                findNavController().navigate(R.id.action_listaMedicosFragment_to_menuPrincipalFragment)
+                (activity as MainActivity).atualizaData(getString(R.string.inserir_medico_label))
+                true
+            }
+            //Alterar e eiminar
 
 
-     }
+            else -> false
+        }
 
-     */
+
     companion object{
         const val ID_LOADER_MEDICOS = 0
     }
