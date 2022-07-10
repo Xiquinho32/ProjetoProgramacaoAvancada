@@ -9,14 +9,13 @@ data class Especialidades(
     var tipoEspecialidades : String = "",
     var id : Long = -1
 ) :Serializable {
-
     fun ToContentValues(): ContentValues {
         val valores = ContentValues()
-
         valores.put(TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES, tipoEspecialidades)
 
         return valores
     }
+
     companion object{
         fun fromCursor(cursor: Cursor): Especialidades{
             val posId = cursor.getColumnIndex(BaseColumns._ID)

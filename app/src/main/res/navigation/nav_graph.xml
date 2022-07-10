@@ -111,5 +111,16 @@
         <action
             android:id="@+id/action_listaEspecialidadesFragment_to_menuPrincipalFragment"
             app:destination="@id/menuPrincipalFragment" />
+        <action
+            android:id="@+id/action_listaEspecialidadesFragment_to_editarEspecialidadesFragment"
+            app:destination="@id/editarEspecialidadesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarEspecialidadesFragment"
+        android:name="pt.ipg.projeto1.EditarEspecialidadesFragment"
+        android:label="EditarEspecialidadesFragment" >
+        <action
+            android:id="@+id/action_editarEspecialidadesFragment_to_listaEspecialidadesFragment"
+            app:destination="@id/listaEspecialidadesFragment" />
     </fragment>
 </navigation>
