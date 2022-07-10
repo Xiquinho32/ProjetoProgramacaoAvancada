@@ -139,7 +139,7 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {
             R.id.action_inserir -> {
-                findNavController().navigate(R.id.action_listaMedicosFragment_to_menuPrincipalFragment)
+                findNavController().navigate(R.id.action_listaMedicosFragment_to_editarMedicosFragment)
                 (activity as MainActivity).atualizaData(getString(R.string.inserir_medico_label))
                 true
             }

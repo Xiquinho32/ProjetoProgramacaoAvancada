@@ -154,6 +154,8 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         }
     }
 
+
+
     /**
      * Called when a previously created loader is being reset, and thus
      * making its data unavailable.  The application should at this point

@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.view.accessibility.AccessibilityManager
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
@@ -61,9 +63,7 @@ class EliminarMedicosFragment : Fragment(){
             else -> false
         }
 
-    private fun voltaListaMedicos() {
-        findNavController().navigate(R.id.action_eliminarMedicosFragment_to_listaMedicosFragment)
-    }
+
 
     private fun eliminaMedico() {
         val alterDialog = AlertDialog.Builder(requireContext())
@@ -89,6 +89,11 @@ class EliminarMedicosFragment : Fragment(){
             ).show()
             return
         }
+        Toast.makeText(requireContext(), "medico eliminado com sucesso", Toast.LENGTH_LONG).show()
+        voltaListaMedicos()
+    }
+    private fun voltaListaMedicos() {
+        findNavController().navigate(R.id.action_eliminarMedicosFragment_to_listaMedicosFragment)
     }
 
 
