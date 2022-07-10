@@ -48,6 +48,7 @@ class AdapterMedicos(val fragment: ListaMedicosFragment): RecyclerView.Adapter<A
     private fun seleciona() {
         itemView.setBackgroundResource(android.R.color.holo_orange_light)
         viewHolderSelecionado = this
+        fragment.medicoSeleccionado = medico
 
     }
 

@@ -15,13 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.projeto1.databinding.FragmentListaMedicosBinding
 
 class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
-    var medicoSelecionado : Medicos? null
+    var medicoSeleccionado : Medicos? = null
         get() = field
         set(value) {
-            field = values
-        (requireActivity() as MainActivity).mostraOpcoesAlterarEliminar(field != null)
+            field = value
+            (requireActivity() as MainActivity).mostraOpcoesAlterarEliminar(field != null)
         }
-
     private var _binding: FragmentListaMedicosBinding? = null
     private var adapterMedicos: AdapterMedicos? = null
 
