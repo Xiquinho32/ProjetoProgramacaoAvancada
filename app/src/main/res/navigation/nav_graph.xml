@@ -126,6 +126,11 @@
         <action
             android:id="@+id/action_editarEspecialidadesFragment_to_listaEspecialidadesFragment"
             app:destination="@id/listaEspecialidadesFragment" />
+        <argument
+            android:name="especialidades"
+            app:argType="pt.ipg.projeto1.Especialidades"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/eliminarEspecialidadesFragment"
@@ -135,5 +140,8 @@
         <action
             android:id="@+id/action_eliminarEspecialidadesFragment_to_listaEspecialidadesFragment"
             app:destination="@id/listaEspecialidadesFragment" />
+        <argument
+            android:name="especialidade"
+            app:argType="pt.ipg.projeto1.Especialidades" />
     </fragment>
 </navigation>

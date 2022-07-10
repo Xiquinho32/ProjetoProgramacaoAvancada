@@ -41,7 +41,7 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        LoaderManager.getInstance(this).initLoader(ID_LOADER_ESPECIALIDADES, null, this)
+        LoaderManager.getInstance(this).initLoader(ID_LOADER_ESPECIALIDADES2, null, this)
 
         adapterEspecialidades = AdapterEspecialidades(this)
         binding.recyclerViewEspecialidades.adapter = adapterEspecialidades
@@ -156,14 +156,12 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
                 findNavController().navigate(R.id.action_listaConsultasFragment_to_eliminarConsultasFragment)
                 true
             }
-
-
             else -> false
         }
 
 
 
     companion object{
-        const val ID_LOADER_ESPECIALIDADES = 0
+        const val ID_LOADER_ESPECIALIDADES2 = 0
     }
 }

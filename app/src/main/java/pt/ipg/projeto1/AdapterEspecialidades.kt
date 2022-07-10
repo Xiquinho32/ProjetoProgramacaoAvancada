@@ -69,8 +69,12 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
      * @see .getItemViewType
      * @see .onBindViewHolder
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderEspecialidade {
-        TODO("Not yet implemented")
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolderEspecialidade {
+        val itemEspecialidades = fragment.layoutInflater.inflate(R.layout.item_especialidade, parent, false)
+        return ViewHolderEspecialidade(itemEspecialidades)
     }
 
     /**
@@ -95,7 +99,8 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderEspecialidade, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.especialidade = Especialidades.fromCursor(cursor!!)
     }
 
     /**
@@ -104,7 +109,9 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        if (cursor == null) return 0
+
+        return cursor!!.count
     }
 
 
