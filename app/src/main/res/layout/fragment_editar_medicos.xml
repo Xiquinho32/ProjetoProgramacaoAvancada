@@ -14,19 +14,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
-            android:hint="@string/Nome" />
+            android:hint="@string/Nome"
+            android:textColorHint="#757575" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/TextInputLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/fab_margin">
+            android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextCartaoCidadao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/CartaoCidadao" />
+                android:layout_margin="@dimen/fab_margin"
+                android:hint="@string/CartaoCidadao"
+                android:textColorHint="#757575" />
 
             <TextView
                 android:id="@+id/textViewEspecialidades"
@@ -39,6 +40,7 @@
                 android:id="@+id/spinnerEspecialidades"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
                 android:minHeight="48dp"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>

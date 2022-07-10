@@ -66,5 +66,16 @@
         <action
             android:id="@+id/action_listaMedicosFragment_to_menuPrincipalFragment"
             app:destination="@id/menuPrincipalFragment" />
+        <action
+            android:id="@+id/action_listaMedicosFragment_to_editarMedicosFragment"
+            app:destination="@id/editarMedicosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarMedicosFragment"
+        android:name="pt.ipg.projeto1.EditarMedicosFragment"
+        android:label="EditarMedicosFragment" >
+        <action
+            android:id="@+id/action_editarMedicosFragment_to_listaMedicosFragment"
+            app:destination="@id/listaMedicosFragment" />
     </fragment>
 </navigation>
