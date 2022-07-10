@@ -114,6 +114,9 @@
         <action
             android:id="@+id/action_listaEspecialidadesFragment_to_editarEspecialidadesFragment"
             app:destination="@id/editarEspecialidadesFragment" />
+        <action
+            android:id="@+id/action_listaEspecialidadesFragment_to_eliminarEspecialidadesFragment"
+            app:destination="@id/eliminarEspecialidadesFragment" />
     </fragment>
     <fragment
         android:id="@+id/editarEspecialidadesFragment"
@@ -121,6 +124,15 @@
         android:label="EditarEspecialidadesFragment" >
         <action
             android:id="@+id/action_editarEspecialidadesFragment_to_listaEspecialidadesFragment"
+            app:destination="@id/listaEspecialidadesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarEspecialidadesFragment"
+        android:name="pt.ipg.projeto1.EliminarEspecialidadesFragment"
+        android:label="fragment_eliminar_especialidades"
+        tools:layout="@layout/fragment_eliminar_especialidades" >
+        <action
+            android:id="@+id/action_eliminarEspecialidadesFragment_to_listaEspecialidadesFragment"
             app:destination="@id/listaEspecialidadesFragment" />
     </fragment>
 </navigation>
