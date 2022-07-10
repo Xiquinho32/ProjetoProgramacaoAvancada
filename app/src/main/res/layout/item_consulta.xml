@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewData"
+        android:id="@+id/textViewNome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
@@ -19,7 +19,7 @@
         tools:text="24-02-2022"/>
 
     <TextView
-        android:id="@+id/textViewMedico"
+        android:id="@+id/textViewCartaoCidadao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
@@ -27,11 +27,11 @@
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewData"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNome"
         tools:text="Alexandre"/>
 
     <TextView
-        android:id="@+id/textViewDoente"
+        android:id="@+id/textViewEspecialidade"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
@@ -39,6 +39,6 @@
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMedico"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCartaoCidadao"
         tools:text="Diogo"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

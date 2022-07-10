@@ -69,6 +69,9 @@
         <action
             android:id="@+id/action_listaMedicosFragment_to_editarMedicosFragment"
             app:destination="@id/editarMedicosFragment" />
+        <action
+            android:id="@+id/action_listaMedicosFragment_to_eliminarMedicosFragment"
+            app:destination="@id/eliminarMedicosFragment" />
     </fragment>
     <fragment
         android:id="@+id/editarMedicosFragment"
@@ -76,6 +79,15 @@
         android:label="EditarMedicosFragment" >
         <action
             android:id="@+id/action_editarMedicosFragment_to_listaMedicosFragment"
+            app:destination="@id/listaMedicosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarMedicosFragment"
+        android:name="pt.ipg.projeto1.EliminarMedicosFragment"
+        android:label="fragment_eliminar_medicos"
+        tools:layout="@layout/fragment_eliminar_medicos" >
+        <action
+            android:id="@+id/action_eliminarMedicosFragment_to_listaMedicosFragment"
             app:destination="@id/listaMedicosFragment" />
     </fragment>
 </navigation>
