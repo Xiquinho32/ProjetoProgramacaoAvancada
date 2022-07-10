@@ -32,7 +32,7 @@ data class Consultas(
             //Tabela medicos
             val posNomeMedicos = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_NOME_MEDICO)
             val posccMedicos = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_CC)
-            val posIdEspecialidades = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_ESPECIALIDADES_ID)
+            val posEspecialidades = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_ESPECIALIDADES_ID)
 
             //Tabela doentes
             val posNomeDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_NOME_DOENTE)
@@ -50,9 +50,9 @@ data class Consultas(
             val idMedico = cursor.getLong(posIdMedicos)
             val nomeMedico = cursor.getString(posNomeMedicos)
             val ccMedicos = cursor.getString(posccMedicos)
-            val idEspecialidades = cursor.getLong(posIdEspecialidades)
+            val Especialidades = cursor.getString(posEspecialidades)
 
-            val medico = Medicos(nomeMedico, ccMedicos, idEspecialidades)
+            val medico = Medicos(nomeMedico, ccMedicos, especialidades = Especialidades(""))
 
             //doentes
             val idDoentes = cursor.getLong(posIdDoentes)
