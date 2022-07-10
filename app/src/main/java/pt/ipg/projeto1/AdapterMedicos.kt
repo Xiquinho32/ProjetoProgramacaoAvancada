@@ -11,8 +11,8 @@ class AdapterMedicos(val fragment: ListaMedicosFragment): RecyclerView.Adapter<A
     var cursor: Cursor? = null
     get() = field
     set(value) {
-        if (filed != value){
-            filed = value
+        if (field != value){
+            field = value
             notifyDataSetChanged()
         }
     }
