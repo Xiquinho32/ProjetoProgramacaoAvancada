@@ -48,4 +48,5 @@
     <string name="especialidade_obrigatoria">Escolha uma especialidade</string>
     <string name="medico_guardado_sucesso">Medico guardado com sucesso</string>
     <string name="erro_guardar_medico">Erro ao guardar medico</string>
+    <string name="TipoEspecialidades">Tipo de especialidade</string>
 </resources>
