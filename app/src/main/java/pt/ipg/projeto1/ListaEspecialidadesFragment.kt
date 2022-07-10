@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.projeto1.databinding.FragmentListaEspecialidadesBinding
 
@@ -22,7 +23,7 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
         }
 
     private var _binding: FragmentListaEspecialidadesBinding? = null
-    private var adapterEspecialidades : AdapterConsultas? = null
+    private var adapterEspecialidades : AdapterEspecialidades? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -137,17 +138,30 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
        if(_binding == null) return
         adapterEspecialidades!!.cursor = null
     }
-/*
+
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId){
             R.id.action_inserir -> {
+                findNavController().navigate(R.id.action_listaEspecialidadesFragment_to_editarEspecialidadesFragment)
 
+                (activity as MainActivity).atualizaData("inserir tipo especialista")
+                true
+            }
+            R.id.action_alterar->{
+                findNavController().navigate(R.id.action_listaEspecialidadesFragment_to_editarEspecialidadesFragment)
+                (activity as MainActivity).atualizaData("Alterar tipo especialidade")
+                true
+            }
+            R.id.action_eliminar -> {
+                findNavController().navigate(R.id.action_listaConsultasFragment_to_eliminarConsultasFragment)
+                true
             }
 
 
+            else -> false
         }
 
- */
+
 
     companion object{
         const val ID_LOADER_ESPECIALIDADES = 0

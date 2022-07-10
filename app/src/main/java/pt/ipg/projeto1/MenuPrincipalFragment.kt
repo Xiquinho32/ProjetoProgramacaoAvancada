@@ -37,6 +37,9 @@ class MenuPrincipalFragment :Fragment() {
         binding.buttonMedicos.setOnClickListener{
             findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaMedicosFragment)
         }
+        binding.buttonEspecialidades.setOnClickListener{
+            findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaEspecialidadesFragment)
+        }
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_main

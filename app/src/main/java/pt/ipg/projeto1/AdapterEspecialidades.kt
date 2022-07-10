@@ -16,8 +16,9 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
             }
         }
     var viewHolderSelecionado : ViewHolderEspecialidade? = null
+    //var viewHolderSelecionado : ViewHolderEspecialidade? = null
 
-    class ViewHolderEspecialidade(itemEspecialidades: View) : RecyclerView.ViewHolder(itemEspecialidades), View.OnClickListener {
+    inner class ViewHolderEspecialidade(itemEspecialidades: View) : RecyclerView.ViewHolder(itemEspecialidades), View.OnClickListener {
         val textViewTipoEspecialidades = itemEspecialidades.findViewById<TextView>(R.id.textViewEspecialidades)
 
         init {
@@ -32,12 +33,12 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
         }
 
         override fun onClick(v: View?) {
-           // viewHolderSelecionado?.desse
+            viewHolderSelecionado?.desseleciona()
         }
         private fun seleciona() {
             itemView.setBackgroundResource(android.R.color.holo_orange_light)
-           // viewHolderSelecionado = this
-           // fragment.consultaSeleccionado = consulta
+            viewHolderSelecionado = this
+            fragment.especialidadeSeleccionado = especialidade
         }
 
         private fun desseleciona() {
@@ -109,4 +110,3 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
 
 }
 
-}

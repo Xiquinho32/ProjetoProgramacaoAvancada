@@ -121,7 +121,8 @@
     <fragment
         android:id="@+id/editarEspecialidadesFragment"
         android:name="pt.ipg.projeto1.EditarEspecialidadesFragment"
-        android:label="EditarEspecialidadesFragment" >
+        android:label="fragment_editar_especialidades"
+        tools:layout="@layout/fragment_editar_especialidades">
         <action
             android:id="@+id/action_editarEspecialidadesFragment_to_listaEspecialidadesFragment"
             app:destination="@id/listaEspecialidadesFragment" />
