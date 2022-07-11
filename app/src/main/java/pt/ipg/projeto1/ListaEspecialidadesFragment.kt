@@ -144,7 +144,7 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
             R.id.action_inserir -> {
                 findNavController().navigate(R.id.action_listaEspecialidadesFragment_to_editarEspecialidadesFragment)
 
-                (activity as MainActivity).atualizaData("inserir tipo especialista")
+                (activity as MainActivity).atualizaData(getString(R.string.inserir_tipo_especialidade))
                 true
             }
             R.id.action_alterar->{

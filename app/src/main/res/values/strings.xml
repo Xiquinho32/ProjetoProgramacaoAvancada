@@ -50,4 +50,5 @@
     <string name="erro_guardar_medico">Erro ao guardar medico</string>
     <string name="TipoEspecialidades">Tipo de especialidade</string>
     <string name="eliminarEspecialidade">Eliminar Especialidade</string>
+    <string name="inserir_tipo_especialidade">inserir tipo especialista</string>
 </resources>

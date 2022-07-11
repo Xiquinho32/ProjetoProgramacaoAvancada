@@ -19,7 +19,7 @@ class TabelaBDMedicos(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         orderBy: String?
     ): Cursor {
         val queryBuilder = SQLiteQueryBuilder()
-        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDEspecialidades.NOME} INNER JOIN ${TabelaBDEspecialidades.NOME} ON ${TabelaBDEspecialidades.CAMPO_ID} = ${TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES}"
+        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDEspecialidades.NOME} ON ${TabelaBDEspecialidades.CAMPO_ID} = $CAMPO_ESPECIALIDADES_ID"
 
 
         return queryBuilder.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
