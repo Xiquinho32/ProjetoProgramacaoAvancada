@@ -7,19 +7,23 @@
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/content_main.xml" value="0.25" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment.xml" value="0.16983695652173914" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_editar_consultas.xml" value="0.25" />
+        <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_editar_doencas.xml" value="0.25" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_editar_especialidades.xml" value="0.21" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_editar_medicos.xml" value="0.33" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_eliminar_consultas.xml" value="0.25" />
+        <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_eliminar_doencas.xml" value="0.25" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_eliminar_especialidades.xml" value="0.22" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_eliminar_medicos.xml" value="0.25" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_first.xml" value="0.22" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_lista_consultas.xml" value="0.2" />
+        <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_lista_doencas.xml" value="0.1" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_lista_doentes.xml" value="0.25" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_lista_especialidades.xml" value="0.25" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_lista_medicos.xml" value="0.25" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_menu_principal.xml" value="0.22" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/fragment_second.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/item_consulta.xml" value="0.25" />
+        <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/item_doencas.xml" value="0.25" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/item_especialidade.xml" value="0.17" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/item_medico.xml" value="0.33" />
         <entry key="..\:/Users/Francisco/AndroidStudioProjects/Projeto1/app/src/main/res/layout/main_activity.xml" value="0.20416666666666666" />

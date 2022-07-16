@@ -51,4 +51,7 @@
     <string name="TipoEspecialidades">Tipo de especialidade</string>
     <string name="eliminarEspecialidade">Eliminar Especialidade</string>
     <string name="inserir_tipo_especialidade">inserir tipo especialista</string>
+    <string name="tipodoenca">Tipo de doenca</string>
+    <string name="eliminar_doenca_label">Eliminar doenca</string>
+    <string name="Doencas">Doencas</string>
 </resources>
