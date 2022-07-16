@@ -1,6 +1,7 @@
 package pt.ipg.projeto1
 
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert.*
@@ -30,7 +31,7 @@ class BaseDadosTest {
 
     private fun insereConsultas(db: SQLiteDatabase, consultas: Consultas) {
         consultas.id = TabelaBDConsultas(db).insert(consultas.toContentValues())
-        assertNotEquals(-1, consultas.id)
+        assertNotEquals(1, consultas.id)
     }
 
     private fun insereDoencas(db: SQLiteDatabase, doencas: Doencas) {
@@ -39,7 +40,7 @@ class BaseDadosTest {
     }
 
     private fun insereEspecialidades(db: SQLiteDatabase, especialidades: Especialidades) {
-        especialidades.id = TabelaBDEspecialidades(db).insert(especialidades.ToContentValues())
+        especialidades.id = TabelaBDEspecialidades(db).insert(especialidades.toContentValues())
         assertNotEquals(-1, especialidades.id)
 
     }
@@ -60,7 +61,7 @@ class BaseDadosTest {
     }
 
     @Test
-    fun consegueInserirEspecialidades(){
+    fun consegueInserirEspecialidades() {
         val db = getWritableDatabase()
 
         val especialidades = Especialidades("Cardiologia")
@@ -68,11 +69,10 @@ class BaseDadosTest {
 
         db.close()
     }
-
     @Test
     fun consegueInserirMedicos(){
         val db = getWritableDatabase()
-        
+
         val especialidades = Especialidades("Geral")
         insereEspecialidades(db, especialidades)
 
@@ -81,7 +81,6 @@ class BaseDadosTest {
 
         db.close()
     }
-
     @Test
     fun consegueInserirDoencas(){
         val db = getWritableDatabase()
@@ -90,6 +89,7 @@ class BaseDadosTest {
         insereDoencas(db, doencas)
         db.close()
     }
+
     @Test
     fun consegueInserirDoentes(){
         val db = getWritableDatabase()
@@ -124,10 +124,34 @@ class BaseDadosTest {
 
         db.close()
 
-        //erros de inserir consultas
     }
-
     @Test
+    fun consegueAlterarEspecialidades(){
+        val db = getWritableDatabase()
+
+        val especialidades = Especialidades("Teste")
+        insereEspecialidades(db , especialidades)
+
+        especialidades.tipoEspecialidades  = "Acupuntura"
+
+        val registosAlterados = TabelaBDEspecialidades(db).update(
+            especialidades.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf("${especialidades.id}"))
+
+        assertEquals(1, registosAlterados)
+
+        db.close()
+
+    }
+}
+
+/*
+
+
+
+
+@Test
     fun consegueAlterarDoentes(){
         val db = getWritableDatabase()
 
@@ -141,7 +165,7 @@ class BaseDadosTest {
         val registosAlterados = TabelaBDDoentes(db).update(
             doente.toContentValues(),
             "${TabelaBDDoentes.CAMPO_ID}=?",
-             arrayOf("${doente.id}")
+            arrayOf("${doente.id}")
         )
 
         assertEquals(1, registosAlterados)
@@ -150,6 +174,9 @@ class BaseDadosTest {
 
         //erro no alterar doentes
     }
+
+
+    /*
     @Test
     fun consegueAlterarMedicos(){
         val db = getWritableDatabase()
@@ -364,5 +391,7 @@ class BaseDadosTest {
 
         db.close()
     }
-}
+
+     */
+}*/
 

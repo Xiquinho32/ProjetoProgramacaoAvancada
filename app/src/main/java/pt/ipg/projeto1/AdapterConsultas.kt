@@ -106,7 +106,7 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
      */
     override fun onBindViewHolder(holder: ViewHolderConsulta, position: Int) {
         cursor!!.moveToPosition(position)
-        holder.consulta = Consultas.fromCursor(cursor!!)
+        //holder.consulta = Consultas.fromCursor(cursor!!)
     }
 
     /**

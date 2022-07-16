@@ -197,7 +197,7 @@ import pt.ipg.projeto1.databinding.FragmentEditarMedicosBinding
     private fun insereEspecialidade(tipoEspecialidade: String): Boolean {
         val especialidade = Especialidades(tipoEspecialidade)
 
-        val enderecoEspecialidadeInserido = requireActivity().contentResolver.insert(ContentProviderDoentes.ENDERECO_ESPECIALIDADES, especialidade.ToContentValues())
+        val enderecoEspecialidadeInserido = requireActivity().contentResolver.insert(ContentProviderDoentes.ENDERECO_ESPECIALIDADES, especialidade.toContentValues())
 
         return enderecoEspecialidadeInserido != null
     }
@@ -209,7 +209,7 @@ import pt.ipg.projeto1.databinding.FragmentEditarMedicosBinding
 
         val enderecoEspecialidade = Uri.withAppendedPath(ContentProviderDoentes.ENDERECO_ESPECIALIDADES, "${this.especialidade!!.id}")
 
-        val registosAlterados = requireActivity().contentResolver.update(enderecoEspecialidade, especialidade.ToContentValues(), null, null)
+        val registosAlterados = requireActivity().contentResolver.update(enderecoEspecialidade,especialidade.toContentValues(), null, null)
 
         return registosAlterados == 1
     }

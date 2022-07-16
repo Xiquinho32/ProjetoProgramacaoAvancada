@@ -20,7 +20,7 @@ data class Consultas(
         valores.put(TabelaBDConsultas.CAMPO_ID, id)
 
         return valores;
-    }
+    }/*
     companion object{
         fun fromCursor(cursor: Cursor):Consultas{
             //Tabela consultas
@@ -60,10 +60,11 @@ data class Consultas(
             val ccDoentes = cursor.getString(posccDoentes)
             val dataNascimentoDoentes = cursor.getString(posDataNascimentoDoentes)
 
-            val doente = Doentes(nomeDoentes, ccDoentes, dataNascimentoDoentes, idDoentes)
+            //val doente = Doentes(nomeDoentes, ccDoentes, dataNascimentoDoentes, idDoentes)
 
             //return valores
-            return Consultas(data, medico,doente , id)
+            //return Consultas(data, medico,doente , id)
         }
     }
+    */
 }

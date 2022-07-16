@@ -153,6 +153,7 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
 
         atualizaMedicosSelecionada()
     }
+
     private fun atualizaDoenteSelecionada() {
         if (consulta == null) return
         val idDoentes = consulta!!.doentes.id
@@ -166,6 +167,7 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
             }
         }
     }
+
     private fun atualizaMedicosSelecionada() {
         if (consulta == null) return
         val idMedicos = consulta!!.medicos.id
@@ -196,14 +198,14 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         binding.spinnerMedicos.adapter = null
     }
 
-    fun processaOpcaoMenu(item: MenuItem) : Boolean =
-        when(item.itemId) {
+    fun processaOpcaoMenu(item: MenuItem): Boolean =
+        when (item.itemId) {
             R.id.action_guardar -> {
                 guardar()
                 true
             }
             R.id.action_cancelar -> {
-                voltaListaConsultas()
+                //voltaListaConsultas()
                 true
             }
             else -> false
@@ -232,10 +234,13 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
 
         val consultaGuardado =
             if (consulta == null) {
-                insereConsulta(data, idDoentes, idMedicos)
+                //insereConsulta(data, idDoentes, idMedicos)
             } else {
-                alteraConsulta(data, idDoentes, idMedicos)
+                //alteraConsulta(data, idDoentes, idMedicos)
             }
+    }
+}
+        /*
         if (consultaGuardado) {
             Toast.makeText(
                 requireContext(),
@@ -252,8 +257,8 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
             ).show()
             return
         }
-    }
-
+    }*/
+/*
     private fun alteraConsulta(data: String, idDoentes : Long, idMedicos: Long) : Boolean {
         val consulta = Consultas(data, Medicos(id = idMedicos, especialidades = Especialidades("Cardiologia", 1)), Doentes(
             id = idDoentes, idDoencas = 3))
@@ -279,4 +284,5 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         findNavController().navigate(R.id.action_editarConsultasFragment_to_listaConsultasFragment)
     }
 
-}
+}*/
+
