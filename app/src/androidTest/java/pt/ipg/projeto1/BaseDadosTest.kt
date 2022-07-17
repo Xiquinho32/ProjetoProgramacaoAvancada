@@ -21,7 +21,7 @@ class BaseDadosTest {
 
     private fun insereDoentes(db: SQLiteDatabase, doentes: Doentes) {
         doentes.id = TabelaBDDoentes(db).insert(doentes.toContentValues())
-        assertNotEquals(1, doentes.id)
+        assertNotEquals(-1, doentes.id)
     }
 
     private fun insereMedicos(db: SQLiteDatabase, medicos: Medicos) {
@@ -47,7 +47,7 @@ class BaseDadosTest {
 
     @Before
     fun apagaBaseDados() {
-        //appContext().deleteDatabase(BDDoentesOpenHelper.NOME)
+        appContext().deleteDatabase(BDDoentesOpenHelper.NOME)
     }
 
     @Test
@@ -69,20 +69,23 @@ class BaseDadosTest {
 
         db.close()
     }
+
+
     @Test
-    fun consegueInserirMedicos(){
+    fun consegueInserirMedicos() {
         val db = getWritableDatabase()
 
         val especialidades = Especialidades("Geral")
         insereEspecialidades(db, especialidades)
 
-        val medicos = Medicos("João","123455",especialidades)
+        val medicos = Medicos("João", "123455", especialidades)
         insereMedicos(db, medicos)
 
         db.close()
     }
+
     @Test
-    fun consegueInserirDoencas(){
+    fun consegueInserirDoencas() {
         val db = getWritableDatabase()
 
         val doencas = Doencas("Dor de peito")
@@ -91,26 +94,29 @@ class BaseDadosTest {
     }
 
     @Test
-    fun consegueInserirDoentes(){
+    fun consegueInserirDoentes() {
         val db = getWritableDatabase()
 
         val doencas = Doencas("Dor de peito")
         insereDoencas(db, doencas)
 
-        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984",doencas)
+        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984", doencas)
         insereDoentes(db, doentes)
 
+
+        //val teste = Doentes()
         //val doencas = Doencas("Dor de peito", 1)
         db.close()
     }
+
     @Test
-    fun consegueInserirConsultas(){
+    fun consegueInserirConsultas() {
         val db = getWritableDatabase()
 
         val tipoEspecialidades = Especialidades("Geral")
         insereEspecialidades(db, tipoEspecialidades)
 
-        val medicos = Medicos("João","123455", tipoEspecialidades)
+        val medicos = Medicos("João", "123455", tipoEspecialidades)
         insereMedicos(db, medicos)
 
         val doencas = Doencas("dor de peito")
@@ -119,41 +125,44 @@ class BaseDadosTest {
 
         val doentes = Doentes("Josefino", "543212", "3 de abril de 1984", doencas)
         insereDoentes(db, doentes)
-        val consultas = Consultas("25 de junho de 2022",  medicos, doentes)
+        val consultas = Consultas("25 de junho de 2022", medicos, doentes)
         insereConsultas(db, consultas)
 
         db.close()
 
     }
+
     @Test
-    fun consegueAlterarEspecialidades(){
+    fun consegueAlterarEspecialidades() {
         val db = getWritableDatabase()
 
         val especialidades = Especialidades("Teste")
-        insereEspecialidades(db , especialidades)
+        insereEspecialidades(db, especialidades)
 
-        especialidades.tipoEspecialidades  = "Acupuntura"
+        especialidades.tipoEspecialidades = "Acupuntura"
 
         val registosAlterados = TabelaBDEspecialidades(db).update(
             especialidades.toContentValues(),
             "${BaseColumns._ID}=?",
-            arrayOf("${especialidades.id}"))
+            arrayOf("${especialidades.id}")
+        )
 
         assertEquals(1, registosAlterados)
 
         db.close()
     }
+
     @Test
-    fun consegueAlterarMedicos(){
+    fun consegueAlterarMedicos() {
         val db = getWritableDatabase()
 
         val especialidadesGeral = Especialidades("Geral")
         insereEspecialidades(db, especialidadesGeral)
 
         val especialidadesAcupuntura = Especialidades("Acupuntura")
-        insereEspecialidades(db ,especialidadesAcupuntura)
+        insereEspecialidades(db, especialidadesAcupuntura)
 
-        val medicos = Medicos("Teste","Teste", especialidadesGeral)
+        val medicos = Medicos("Teste", "Teste", especialidadesGeral)
         insereMedicos(db, medicos)
 
         medicos.nome = "Josefino"
@@ -170,26 +179,29 @@ class BaseDadosTest {
 
         db.close()
     }
+
     @Test
-    fun consegueAlterarDoencas(){
+    fun consegueAlterarDoencas() {
         val db = getWritableDatabase()
 
         val doencas = Doencas("Teste")
-        insereDoencas(db , doencas)
+        insereDoencas(db, doencas)
 
-        doencas.tipoDoenca  = "Dor de peito"
+        doencas.tipoDoenca = "Dor de peito"
 
         val registosAlterados = TabelaBDDoencas(db).update(
             doencas.toContentValues(),
             "${BaseColumns._ID}=?",
-            arrayOf("${doencas.id}"))
+            arrayOf("${doencas.id}")
+        )
 
         assertEquals(1, registosAlterados)
 
         db.close()
     }
+
     @Test
-    fun consegueAlterarDoentes(){
+    fun consegueAlterarDoentes() {
         val db = getWritableDatabase()
 
         val doencasDorDeBraco = Doencas("Dor de braço")
@@ -215,88 +227,83 @@ class BaseDadosTest {
 
         db.close()
 
-        //erro no alterar doentes
+
     }
-}
-
-/*
-
-
-
-
-
-
-
-    /*
-
 
     @Test
-    fun consegueAlterarConsultas(){
+    fun consegueAlterarConsultas() {
         val db = getWritableDatabase()
 
         val especialidades = Especialidades("Geral")
         insereEspecialidades(db, especialidades)
 
-        val medicosNome = Medicos("João","123455", especialidades)
+        val medicosNome = Medicos("João", "123455", especialidades)
         insereMedicos(db, medicosNome)
+
         val doencas = Doencas("Dor de braço")
         insereDoencas(db, doencas)
 
-        val doentesNome = Doentes("Josefino", "543212", "3 de abril de 1984", doencas)
-        insereDoentes(db, doentesNome)
+        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984", doencas)
+        insereDoentes(db, doentes)
 
 
-
-        val doentesNome2 = Doentes("Afonso", "543212", "3 de abril de 1984",doencas)
-        insereDoentes(db, doentesNome)
-
-        val consultas = Consultas("Teste", medicosNome, doentesNome)
+        val consultas = Consultas("Teste", medicosNome, doentes)
         insereConsultas(db, consultas)
 
-        consultas.id = 6
+
         consultas.data = "22 de janeiro de 2021"
-        consultas.doentes = doentesNome2
+
 
         val registosAlterados = TabelaBDConsultas(db).update(
             consultas.toContentValues(),
             "${TabelaBDConsultas.CAMPO_ID}= ?",
-            arrayOf("${consultas.id}"))
+            arrayOf("${consultas.id}")
+        )
 
         assertEquals(1, registosAlterados)
 
         db.close()
 
     }
+
     @Test
-    fun consegueEliminarConsultas(){
+    fun consegueEliminarEspecialidade() {
         val db = getWritableDatabase()
 
-        val especialidades = Especialidades("Geral")
-        insereEspecialidades(db, especialidades)
+        val especialidade = Especialidades("geral")
+        insereEspecialidades(db, especialidade)
 
-        val medicos = Medicos("João","123455", especialidades)
-        insereMedicos(db, medicos)
 
-        val doencas = Doencas("Dor de braço")
-        insereDoencas(db, doencas)
-
-        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984",doencas)
-        insereDoentes(db, doentes)
-
-        val consultas = Consultas("25 de junho de 2022", medicos, doentes)
-        insereConsultas(db, consultas)
-
-        val registosEliminados = TabelaBDConsultas(db).delete(
-            "${TabelaBDConsultas.CAMPO_ID}=?",
-            arrayOf("${consultas.id}"))
+        val registosEliminados = TabelaBDEspecialidades(db).delete(
+            "${TabelaBDEspecialidades.CAMPO_ID}=?",
+            arrayOf("${especialidade.id}")
+        )
 
         assertEquals(1, registosEliminados)
 
         db.close()
-
     }
+
     @Test
-    fun consegueEliminarDoentes(){
+    fun consegueEliminarDoenca() {
+        val db = getWritableDatabase()
+
+        val doenca = Doencas("dor de cabelo")
+        insereDoencas(db, doenca)
+
+
+        val registosEliminados = TabelaBDDoencas(db).delete(
+            "${TabelaBDDoencas.CAMPO_ID}=?",
+            arrayOf("${doenca.id}")
+        )
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueEliminarDoentes() {
         val db = getWritableDatabase()
 
         val doencas = Doencas("Dor de braço")
@@ -307,32 +314,194 @@ class BaseDadosTest {
 
         val registosEliminados = TabelaBDDoentes(db).delete(
             "${TabelaBDDoentes.CAMPO_ID}=?",
-            arrayOf("${doente.id}"))
+            arrayOf("${doente.id}")
+        )
 
         assertEquals(1, registosEliminados)
 
         db.close()
 
     }
+
     @Test
-    fun consegueEliminarMedicos(){
+    fun consegueEliminarMedicos() {
         val db = getWritableDatabase()
 
         val especialidades = Especialidades("Geral")
         insereEspecialidades(db, especialidades)
 
-        val medicos = Medicos("João","123455", especialidades)
+        val medicos = Medicos("João", "123455", especialidades)
         insereMedicos(db, medicos)
 
         val registosEliminados = TabelaBDMedicos(db).delete(
             "${TabelaBDMedicos.CAMPO_ID}=?",
-            arrayOf("${medicos.id}"))
+            arrayOf("${medicos.id}")
+        )
 
         assertEquals(1, registosEliminados)
 
         db.close()
 
     }
+
+    @Test
+    fun consegueEliminarConsultas() {
+        val db = getWritableDatabase()
+
+        val especialidades = Especialidades("Geral")
+        insereEspecialidades(db, especialidades)
+
+        val medicosNome = Medicos("João", "123455", especialidades)
+        insereMedicos(db, medicosNome)
+
+        val doencas = Doencas("Dor de braço")
+        insereDoencas(db, doencas)
+
+        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984", doencas)
+        insereDoentes(db, doentes)
+
+
+        val consultas = Consultas("Teste", medicosNome, doentes)
+        insereConsultas(db, consultas)
+
+
+        consultas.data = "22 de janeiro de 2021"
+
+
+        val registosAlterados = TabelaBDConsultas(db).delete(
+            "${TabelaBDConsultas.CAMPO_ID}= ?",
+            arrayOf("${consultas.id}")
+        )
+
+        assertEquals(1, registosAlterados)
+
+        db.close()
+
+    }
+
+    @Test
+    fun consegueLerEspecialidades() {
+        val db = getWritableDatabase()
+
+        val especialidades = Especialidades("geral")
+        insereEspecialidades(db, especialidades)
+
+
+        val cursor = TabelaBDEspecialidades(db).query(
+            TabelaBDEspecialidades.TODAS_COLUNAS,
+            "${TabelaBDEspecialidades.CAMPO_ID}=?",
+            arrayOf("${especialidades.id}"),
+            null,
+            null,
+            null
+        )
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val espBD = Especialidades.fromCursor(cursor)  //consultas que tenho na BD
+        assertEquals(especialidades, espBD) //comparar as duas categorias para ver se sao iguais
+
+        db.close()
+    }
+
+    @Test
+    fun consegueLerDoencas() {
+        val db = getWritableDatabase()
+
+        val doencas = Doencas("Dor de cotovelo")
+        insereDoencas(db, doencas)
+
+
+        val cursor = TabelaBDDoencas(db).query(
+            TabelaBDDoencas.TODAS_COLUNAS,
+            "${TabelaBDDoencas.CAMPO_ID}=?",
+            arrayOf("${doencas.id}"),
+            null,
+            null,
+            null
+        )
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val doencasBD = Doencas.fromCursor(cursor)  //consultas que tenho na BD
+        assertEquals(doencas, doencasBD) //comparar as duas categorias para ver se sao iguais
+
+        db.close()
+    }
+}
+/*
+    @Test
+    fun consegueLerMedicos(){
+        val db = getWritableDatabase()
+
+        val especialidade = Especialidades("Geral")
+        insereEspecialidades(db, especialidade)
+
+        val medicos = Medicos("João","123455", especialidade)
+        insereMedicos(db, medicos)
+
+        val cursor = TabelaBDMedicos(db).query(
+            TabelaBDMedicos.TODAS_COLUNAS,
+            "${TabelaBDMedicos.CAMPO_ID}=?",
+            arrayOf("${medicos.id}"),
+            null,
+            null,
+            null
+        )
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val medicoBD = Medicos.fromCursor(cursor)  //consultas que tenho na BD
+
+        assertEquals(medicos, medicoBD) //comparar as duas categorias para ver se sao iguais
+
+        db.close()
+    }
+
+
+
+
+
+/*
+
+
+
+@Test
+    fun consegueLerDoencas(){
+        val db = getWritableDatabase()
+
+        val doencas = Doencas("Dor de braço")
+        insereDoencas(db, doencas)
+
+        val doentes = Doentes("Alberto", "987654321", "23 de janeiro de 2021", doencas)
+        insereDoentes(db, doentes)
+
+        val cursor = TabelaBDDoentes(db).query(
+            TabelaBDDoentes.TODAS_COLUNAS,
+            "${TabelaBDDoentes.CAMPO_ID}=?",
+            arrayOf("${doentes.id}"),
+            null,
+            null,
+            null
+        )
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val doentBD = Doentes.fromCursor(cursor)  //consultas que tenho na BD
+        assertEquals(doentes, doentBD) //comparar as duas categorias para ver se sao iguais
+
+        db.close()
+    }
+
+
+
+    /*
+
+
+
+
+
+
     @Test
     fun consegueLerConsultas(){
         val db = getWritableDatabase()
@@ -369,60 +538,10 @@ class BaseDadosTest {
         db.close()
     }
 
-    @Test
-    fun consegueLerMedicos(){
-        val db = getWritableDatabase()
 
-        val especialidade = Especialidades("Geral")
-        insereEspecialidades(db, especialidade)
-
-        val medicos = Medicos("João","123455", especialidade, 3)
-        insereMedicos(db, medicos)
-
-        val cursor = TabelaBDMedicos(db).query(
-            TabelaBDMedicos.TODAS_COLUNAS,
-            "${TabelaBDMedicos.CAMPO_ID}=?",
-            arrayOf("${medicos.id}"),
-            null,
-            null,
-            null
-        )
-        assertEquals(1, cursor.count)
-        assertTrue(cursor.moveToNext())
-
-        val medicoBD = Medicos.fromCursor(cursor)  //consultas que tenho na BD
-
-        assertEquals(medicos, medicoBD) //comparar as duas categorias para ver se sao iguais
-
-        db.close()
-    }
-    @Test
-    fun consegueLerDoentes(){
-        val db = getWritableDatabase()
-
-        val doencas = Doencas("Dor de braço")
-        insereDoencas(db, doencas)
-
-        val doentes = Doentes("Alberto", "987654321", "23 de janeiro de 2021", doencas)
-        insereDoentes(db, doentes)
-
-        val cursor = TabelaBDDoentes(db).query(
-            TabelaBDDoentes.TODAS_COLUNAS,
-            "${TabelaBDDoentes.CAMPO_ID}=?",
-            arrayOf("${doentes.id}"),
-            null,
-            null,
-            null
-        )
-        assertEquals(1, cursor.count)
-        assertTrue(cursor.moveToNext())
-
-        val doentBD = Doentes.fromCursor(cursor)  //consultas que tenho na BD
-        assertEquals(doentes, doentBD) //comparar as duas categorias para ver se sao iguais
-
-        db.close()
-    }
 
      */
-}*/
+
+
+     */*/
 

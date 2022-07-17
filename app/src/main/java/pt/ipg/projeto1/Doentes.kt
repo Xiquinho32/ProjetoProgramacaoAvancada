@@ -3,6 +3,7 @@ package pt.ipg.projeto1
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
+import java.io.Serializable
 
 
 data class Doentes(
@@ -11,16 +12,17 @@ data class Doentes(
     var dataNascimento: String = "", //java.util
     var doencas: Doencas,
     var id: Long =  -1
-){
+): Serializable{
 
 
     fun toContentValues() : ContentValues{
         val valores = ContentValues()
+
         valores.put(TabelaBDDoentes.CAMPO_NOME_DOENTE, nome)
         valores.put(TabelaBDDoentes.CAMPO_CC, cc)
         valores.put(TabelaBDDoentes.CAMPO_DATA_NASCIMENTO, dataNascimento)
         valores.put(TabelaBDDoentes.CAMPO_DOENCA_ID, doencas.id)
-        valores.put(TabelaBDDoentes.CAMPO_ID, id)
+        //valores.put(TabelaBDDoentes.CAMPO_ID, id)
         return valores
     }
     companion object{

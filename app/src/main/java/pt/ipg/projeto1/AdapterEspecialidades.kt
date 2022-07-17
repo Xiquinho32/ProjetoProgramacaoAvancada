@@ -19,7 +19,7 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
     //var viewHolderSelecionado : ViewHolderEspecialidade? = null
 
     inner class ViewHolderEspecialidade(itemEspecialidades: View) : RecyclerView.ViewHolder(itemEspecialidades), View.OnClickListener {
-        val textViewTipoEspecialidades = itemEspecialidades.findViewById<TextView>(R.id.textViewEspecialidades)
+        val textViewTipoEspecialidades = itemEspecialidades.findViewById<TextView>(R.id.textViewTipoEspecialidades)
 
         init {
             itemEspecialidades.setOnClickListener(this)

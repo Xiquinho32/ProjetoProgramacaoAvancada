@@ -17,7 +17,6 @@ import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import pt.ipg.projeto1.databinding.FragmentEditarEspecialidadesBinding
-import pt.ipg.projeto1.databinding.FragmentEditarMedicosBinding
 
  class EditarEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private var _binding: FragmentEditarEspecialidadesBinding? = null
@@ -151,7 +150,7 @@ import pt.ipg.projeto1.databinding.FragmentEditarMedicosBinding
 
             }
             R.id.action_cancelar ->{
-                voltaListaEspecialidades()
+                voltaListaDoencas()
                 true
             }
             else -> false
@@ -179,11 +178,11 @@ import pt.ipg.projeto1.databinding.FragmentEditarMedicosBinding
         if (especialidadeGuardado){
             Toast.makeText(
                 requireContext(),
-                getString(R.string.medico_guardado_sucesso),
+                "Especialidade guardado com sucesso",
                 Toast.LENGTH_LONG
             )
                 .show()
-            voltaListaEspecialidades()
+            voltaListaDoencas()
         } else {
             Snackbar.make(
                 binding.editTextTipoEspecialidade,
@@ -215,8 +214,8 @@ import pt.ipg.projeto1.databinding.FragmentEditarMedicosBinding
     }
 
 
-    private fun voltaListaEspecialidades(){
-        findNavController().navigate(R.id.action_editarEspecialidadesFragment_to_listaEspecialidadesFragment)
+    private fun voltaListaDoencas(){
+        findNavController().navigate(R.id.action_editarDoencasFragment_to_listaDoencasFragment)
     }
 
      /**

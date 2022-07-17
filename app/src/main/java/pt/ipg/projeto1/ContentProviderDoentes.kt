@@ -40,6 +40,8 @@ class ContentProviderDoentes : ContentProvider(){
             URI_MEDICOS_ESPECIFICA -> TabelaBDMedicos(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             URI_CONSULTAS_ESPECIFICA -> TabelaBDConsultas(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             URI_ESPECIALIDADES_ESPECIFICA -> TabelaBDMedicos(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            URI_DOENCAS -> TabelaBDDoencas(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_DOENCAS_ESPECIFICAS -> TabelaBDDoencas(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             else -> null
         }
 
@@ -58,6 +60,8 @@ class ContentProviderDoentes : ContentProvider(){
             URI_CONSULTAS_ESPECIFICA ->"$UNICO_REGISTO/${TabelaBDConsultas.NOME}"
             URI_ESPECIALIDADES ->"$MULTIPLOS_REGISTOS/${TabelaBDConsultas.NOME}"
             URI_CONSULTAS_ESPECIFICA ->"$UNICO_REGISTO/${TabelaBDConsultas.NOME}"
+            URI_DOENCAS->"$MULTIPLOS_REGISTOS/${TabelaBDDoencas.NOME}"
+            URI_DOENCAS_ESPECIFICAS -> "$UNICO_REGISTO/${TabelaBDDoencas.NOME}"
 
             else -> null
         }
@@ -72,6 +76,7 @@ class ContentProviderDoentes : ContentProvider(){
             URI_CONSULTAS -> TabelaBDConsultas(db).insert(values)
             URI_MEDICOS -> TabelaBDMedicos(db).insert(values)
             URI_ESPECIALIDADES -> TabelaBDEspecialidades(db).insert(values)
+            URI_DOENCAS -> TabelaBDDoencas(db).insert(values)
             else -> -1
         }
         db.close()
@@ -92,6 +97,7 @@ class ContentProviderDoentes : ContentProvider(){
             URI_MEDICOS_ESPECIFICA -> TabelaBDMedicos(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
             URI_CONSULTAS_ESPECIFICA -> TabelaBDConsultas(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
             URI_ESPECIALIDADES_ESPECIFICA -> TabelaBDEspecialidades(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_DOENCAS_ESPECIFICAS -> TabelaBDDoencas(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
             else -> 0
         }
 
@@ -117,6 +123,7 @@ class ContentProviderDoentes : ContentProvider(){
             URI_CONSULTAS_ESPECIFICA -> TabelaBDConsultas(db).update(values,"${BaseColumns._ID}=?", arrayOf("${id}"))
             URI_MEDICOS_ESPECIFICA -> TabelaBDMedicos(db).update(values,"${BaseColumns._ID}=?", arrayOf("${id}"))
             URI_ESPECIALIDADES_ESPECIFICA -> TabelaBDEspecialidades(db).update(values,"${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_DOENCAS_ESPECIFICAS -> TabelaBDDoencas(db).update(values,"${BaseColumns._ID}=?", arrayOf("${id}"))
             else -> 0
         }
 
@@ -140,6 +147,10 @@ class ContentProviderDoentes : ContentProvider(){
         const val URI_ESPECIALIDADES = 400
         const val URI_ESPECIALIDADES_ESPECIFICA = 401
 
+        const val URI_DOENCAS = 500
+        const val URI_DOENCAS_ESPECIFICAS = 501
+
+
         const val UNICO_REGISTO = "vnd.android.cursor.item"
         const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
 
@@ -148,6 +159,8 @@ class ContentProviderDoentes : ContentProvider(){
         val ENDERECO_MEDICOS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDMedicos.NOME)
         val ENDERECO_CONSULTAS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDConsultas.NOME)
         val ENDERECO_ESPECIALIDADES= Uri.withAppendedPath(ENDERECO_BASE, TabelaBDEspecialidades.NOME)
+        val ENDERECO_DOENCAS= Uri.withAppendedPath(ENDERECO_BASE, TabelaBDDoencas.NOME)
+
     }
     fun getUriMatcher() : UriMatcher {
         var uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
@@ -163,6 +176,9 @@ class ContentProviderDoentes : ContentProvider(){
 
         uriMatcher.addURI(AUTHORITY, TabelaBDEspecialidades.NOME, URI_ESPECIALIDADES)
         uriMatcher.addURI(AUTHORITY, "${TabelaBDEspecialidades.NOME}/#", URI_ESPECIALIDADES_ESPECIFICA)
+
+        uriMatcher.addURI(AUTHORITY, TabelaBDDoencas.NOME, URI_DOENCAS)
+        uriMatcher.addURI(AUTHORITY, "${TabelaBDDoencas.NOME}/#", URI_DOENCAS_ESPECIFICAS)
 
         return uriMatcher
     }

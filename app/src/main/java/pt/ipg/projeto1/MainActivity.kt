@@ -78,7 +78,13 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = (fragment as EditarEspecialidadesFragment).processaOpcaoMenu(item)
         } else if (fragment is EliminarEspecialidadesFragment){
             opcaoProcessada = (fragment as EliminarEspecialidadesFragment).processaOpcaoMenu(item)
-        } else {
+        }else if (fragment is ListaDoencasFragment) {
+            opcaoProcessada = (fragment as ListaDoencasFragment).processaOpcaoMenu(item)
+        } else if (fragment is EditarDoencasFragment) {
+            opcaoProcessada = (fragment as EditarDoencasFragment).processaOpcaoMenu(item)
+        } else if (fragment is EliminarDoencasFragment) {
+            opcaoProcessada = (fragment as EliminarDoencasFragment).processaOpcaoMenu(item)
+        }else {
             opcaoProcessada = false
         }
 

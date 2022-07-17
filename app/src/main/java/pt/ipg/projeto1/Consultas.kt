@@ -17,7 +17,7 @@ data class Consultas(
         valores.put(TabelaBDConsultas.CAMPO_DATA, data)
         valores.put(TabelaBDConsultas.CAMPO_DOENTE_ID, doentes.id)
         valores.put(TabelaBDConsultas.CAMPO_MEDICO_ID, medicos.id)
-        valores.put(TabelaBDConsultas.CAMPO_ID, id)
+        //valores.put(TabelaBDConsultas.CAMPO_ID, id)
 
         return valores;
     }/*
