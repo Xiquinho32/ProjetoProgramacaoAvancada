@@ -186,7 +186,8 @@
     <fragment
         android:id="@+id/listaDoentesFragment"
         android:name="pt.ipg.projeto1.ListaDoentesFragment"
-        android:label="ListaDoentesFragment" >
+        android:label="ListaDoentesFragment"
+        tools:layout="@layout/fragment_lista_doentes">
         <action
             android:id="@+id/action_listaDoentesFragment_to_eliminarDoentesFragment"
             app:destination="@id/eliminarDoentesFragment" />
@@ -200,7 +201,8 @@
     <fragment
         android:id="@+id/eliminarDoentesFragment"
         android:name="pt.ipg.projeto1.EliminarDoentesFragment"
-        android:label="EliminarDoentesFragment" >
+        android:label="EliminarDoentesFragment"
+        tools:layout="@layout/fragment_eliminar_doentes">
         <action
             android:id="@+id/action_eliminarDoentesFragment_to_listaDoentesFragment"
             app:destination="@id/listaDoentesFragment" />
@@ -208,7 +210,8 @@
     <fragment
         android:id="@+id/editarDoentesFragment"
         android:name="pt.ipg.projeto1.EditarDoentesFragment"
-        android:label="EditarDoentesFragment" >
+        android:label="EditarDoentesFragment"
+        tools:layout="@layout/fragment_editar_doentes">
         <action
             android:id="@+id/action_editarDoentesFragment_to_listaDoentesFragment"
             app:destination="@id/listaDoentesFragment" />
