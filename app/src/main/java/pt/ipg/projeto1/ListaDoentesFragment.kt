@@ -138,28 +138,27 @@ class ListaDoentesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         adapterDoentes!!.cursor = null
     }
 
-    /*
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {
             R.id.action_inserir -> {
-                findNavController().navigate(R.id.action_listaMedicosFragment_to_editarMedicosFragment)
-                (activity as MainActivity).atualizaData(getString(R.string.inserir_medico_label))
+                findNavController().navigate(R.id.action_listaDoentesFragment_to_editarDoentesFragment)
+                (activity as MainActivity).atualizaData("Inserir Doentes")
                 true
             }
             R.id.action_alterar -> {
-                findNavController().navigate(R.id.action_listaMedicosFragment_to_editarMedicosFragment)
-                (activity as MainActivity).atualizaData("Alterar medicos")
+                findNavController().navigate(R.id.action_listaDoentesFragment_to_editarDoentesFragment)
+                (activity as MainActivity).atualizaData("Alterar doentes")
                 true
             }
             R.id.action_eliminar ->{
-                findNavController().navigate(R.id.action_listaMedicosFragment_to_eliminarMedicosFragment)
+                findNavController().navigate(R.id.action_listaDoentesFragment_to_eliminarDoentesFragment)
                 true
             }
 
 
             else -> false
         }
-*/
+
 
     companion object{
         const val ID_LOADER_DOENTES = 0
