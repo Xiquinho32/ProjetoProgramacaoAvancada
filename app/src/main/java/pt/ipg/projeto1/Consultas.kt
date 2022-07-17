@@ -20,11 +20,11 @@ data class Consultas(
         //valores.put(TabelaBDConsultas.CAMPO_ID, id)
 
         return valores;
-    }/*
+    }
     companion object{
-        fun fromCursor(cursor: Cursor):Consultas{
+        fun fromCursor(cursor: Cursor):Consultas {
             //Tabela consultas
-            val posId =cursor.getColumnIndex(BaseColumns._ID)
+            val posId = cursor.getColumnIndex(BaseColumns._ID)
             val posData = cursor.getColumnIndex(TabelaBDConsultas.CAMPO_DATA)
             val posIdMedicos = cursor.getColumnIndex(TabelaBDConsultas.CAMPO_MEDICO_ID)
             val posIdDoentes = cursor.getColumnIndex(TabelaBDConsultas.CAMPO_DOENTE_ID)
@@ -37,10 +37,11 @@ data class Consultas(
             //Tabela doentes
             val posNomeDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_NOME_DOENTE)
             val posccDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_CC)
-            val posDataNascimentoDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_DATA_NASCIMENTO)
+            val posDataNascimentoDoentes =
+                cursor.getColumnIndex(TabelaBDDoentes.CAMPO_DATA_NASCIMENTO)
 
             //Tabela Especialidades
-           // val posTipoEspecialidades = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES)
+            // val posTipoEspecialidades = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES)
 
             //consulta
             val id = cursor.getLong(posId)
@@ -60,11 +61,11 @@ data class Consultas(
             val ccDoentes = cursor.getString(posccDoentes)
             val dataNascimentoDoentes = cursor.getString(posDataNascimentoDoentes)
 
-            //val doente = Doentes(nomeDoentes, ccDoentes, dataNascimentoDoentes, idDoentes)
+            val doente = Doentes(nomeDoentes, ccDoentes, dataNascimentoDoentes, doencas = Doencas(""))
 
             //return valores
-            //return Consultas(data, medico,doente , id)
+            return Consultas(data, medico,doente , id)
         }
-    }
-    */
-}
+
+
+}}
