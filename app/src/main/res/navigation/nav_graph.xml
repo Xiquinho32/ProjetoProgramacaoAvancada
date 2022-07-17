@@ -193,6 +193,9 @@
         <action
             android:id="@+id/action_listaDoentesFragment_to_menuPrincipalFragment"
             app:destination="@id/menuPrincipalFragment" />
+        <action
+            android:id="@+id/action_listaDoentesFragment_to_editarDoentesFragment"
+            app:destination="@id/editarDoentesFragment" />
     </fragment>
     <fragment
         android:id="@+id/eliminarDoentesFragment"
@@ -200,6 +203,14 @@
         android:label="EliminarDoentesFragment" >
         <action
             android:id="@+id/action_eliminarDoentesFragment_to_listaDoentesFragment"
+            app:destination="@id/listaDoentesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarDoentesFragment"
+        android:name="pt.ipg.projeto1.EditarDoentesFragment"
+        android:label="EditarDoentesFragment" >
+        <action
+            android:id="@+id/action_editarDoentesFragment_to_listaDoentesFragment"
             app:destination="@id/listaDoentesFragment" />
     </fragment>
 </navigation>
