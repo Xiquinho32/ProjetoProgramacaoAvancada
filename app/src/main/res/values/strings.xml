@@ -49,10 +49,12 @@
     <string name="medico_guardado_sucesso">Medico guardado com sucesso</string>
     <string name="erro_guardar_medico">Erro ao guardar medico</string>
     <string name="TipoEspecialidades">Tipo de especialidade</string>
-    <string name="eliminarEspecialidade">Eliminar Especialidade</string>
-    <string name="inserir_tipo_especialidade">inserir tipo especialista</string>
+    <string name="eliminarEspecialidade">Eliminar especialidade</string>
+    <string name="inserir_tipo_especialidade">inserir tipo especialidade</string>
     <string name="tipodoenca">Tipo de doenca</string>
     <string name="eliminar_doenca_label">Eliminar doenca</string>
     <string name="Doencas">Doencas</string>
     <string name="EliminarDoentes">Eliminar Doentes</string>
+    <string name="eliminarEspecialidade">E</string>
+    <string name="eliminarEspecialidade">E</string>
 </resources>

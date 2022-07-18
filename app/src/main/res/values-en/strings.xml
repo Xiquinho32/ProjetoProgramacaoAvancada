@@ -27,4 +27,25 @@
     <string name="inserir_consulta_label">Insert Appointment</string>
     <string name="editar_consultas_label">Edit Appointment</string>
     <string name="action_settings" translatable="false">Settings</string>
+    <string name="eliminarMedico">Delete Doctor</string>
+    <string name="eliminarMedico">D</string>
+    <string name="eliminarMedico">De</string>
+    <string name="Nome">Name</string>
+    <string name="Nome">N</string>
+    <string name="CartaoCidadao">citizen Card</string>
+    <string name="Especialidades">Specialties</string>
+    <string name="inserir_medico_label">insert doctors</string>
+    <string name="nome_obrigatorio">fill in the name</string>
+    <string name="cartaoCidadao_obrigatorio">fill out the citizen card</string>
+    <string name="especialidade_obrigatoria">choose a specialty</string>
+    <string name="medico_guardado_sucesso">doctor saved successfully</string>
+    <string name="erro_guardar_medico">error saving doctor</string>
+    <string name="TipoEspecialidades">specialty type</string>
+    <string name="eliminarEspecialidade">Delete speciality</string>
+    <string name="inserir_tipo_especialidade">"Insert speciality type "</string>
+    <string name="tipodoenca">type of disease</string>
+    <string name="tipodoenca">type of disease</string>
+    <string name="eliminar_doenca_label">eliminate disease</string>
+    <string name="Doencas">Disease</string>
+    <string name="EliminarDoentes">Delete patient</string>
 </resources>
