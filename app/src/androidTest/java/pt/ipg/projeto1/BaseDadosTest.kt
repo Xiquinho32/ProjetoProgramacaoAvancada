@@ -482,12 +482,6 @@ class BaseDadosTest {
 
     }
 
-
-
-    }
-/*
-
-
     @Test
     fun consegueLerConsultas(){
         val db = getWritableDatabase()
@@ -523,6 +517,12 @@ class BaseDadosTest {
 
         db.close()
     }
+
+    }
+/*
+
+
+
 
 
 

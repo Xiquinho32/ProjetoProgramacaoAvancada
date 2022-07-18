@@ -36,16 +36,14 @@ class ContentProviderDoentes : ContentProvider(){
             URI_MEDICOS -> TabelaBDDoentes(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
             URI_CONSULTAS -> TabelaBDDoentes(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
             URI_ESPECIALIDADES -> TabelaBDDoentes(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_DOENCAS -> TabelaBDDoencas(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
             URI_DOENTES_ESPECIFICA -> TabelaBDDoentes(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             URI_MEDICOS_ESPECIFICA -> TabelaBDMedicos(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             URI_CONSULTAS_ESPECIFICA -> TabelaBDConsultas(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             URI_ESPECIALIDADES_ESPECIFICA -> TabelaBDMedicos(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
-            URI_DOENCAS -> TabelaBDDoencas(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
             URI_DOENCAS_ESPECIFICAS -> TabelaBDDoencas(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             else -> null
         }
-
-        db.close()
 
         return cursor
     }
@@ -133,7 +131,7 @@ class ContentProviderDoentes : ContentProvider(){
     }
 
     companion object{
-        const val AUTHORITY = "pt.ipg.livros"
+        const val AUTHORITY = "pt.ipg.projeto"
 
         const val URI_CONSULTAS = 100
         const val URI_CONSULTAS_ESPECIFICA = 101

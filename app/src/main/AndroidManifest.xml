@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <provider
-            android:authorities="pt.ipg.projeto1"
+            android:authorities="pt.ipg.projeto"
             android:name=".ContentProviderDoentes"
             android:exported="false" />
     </application>
