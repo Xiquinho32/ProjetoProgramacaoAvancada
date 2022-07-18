@@ -130,20 +130,6 @@ class BaseDadosTest {
         db.close()
 
     }
-}
-/*
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Test
@@ -193,7 +179,6 @@ class BaseDadosTest {
 
         db.close()
     }
-
     @Test
     fun consegueAlterarDoencas() {
         val db = getWritableDatabase()
@@ -213,7 +198,6 @@ class BaseDadosTest {
 
         db.close()
     }
-
     @Test
     fun consegueAlterarDoentes() {
         val db = getWritableDatabase()
@@ -279,6 +263,30 @@ class BaseDadosTest {
         db.close()
 
     }
+
+
+}
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Test
     fun consegueEliminarEspecialidade() {
