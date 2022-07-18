@@ -15,6 +15,7 @@ class AdapterDoencas (val fragment: ListaDoencasFragment) : RecyclerView.Adapter
                 notifyDataSetChanged()
             }
         }
+
     var viewHolderSelecionado : ViewHolderDoenca? = null
     //var viewHolderSelecionado : ViewHolderEspecialidade? = null
 
