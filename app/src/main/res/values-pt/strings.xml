@@ -31,7 +31,6 @@
     <string name="Nome">Nome</string>
     <string name="CartaoCidadao">Cartao cidadao</string>
     <string name="Especialidades">Especialidades</string>
-    <string name="Especialidades">Especialidades</string>
     <string name="inserir_medico_label">Inserir Medicos</string>
     <string name="nome_obrigatorio">Preencha o nome</string>
     <string name="cartaoCidadao_obrigatorio">Preencha o Cartao cidadao</string>
@@ -39,7 +38,6 @@
     <string name="medico_guardado_sucesso">Medico guardado com sucesso</string>
     <string name="erro_guardar_medico">Erro ao guardar medico</string>
     <string name="TipoEspecialidades">Tipo de especialidade</string>
-    <string name="eliminarEspecialidade">Eliminar especialidade</string>
     <string name="eliminarEspecialidade">Eliminar especialidade</string>
     <string name="inserir_tipo_especialidade">inserir tipo especialidades</string>
     <string name="tipodoenca">Tipo de doenca</string>
