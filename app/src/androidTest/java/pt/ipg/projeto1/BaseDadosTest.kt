@@ -60,15 +60,10 @@ class BaseDadosTest {
         db.close()
     }
 
-    @Test
-    fun consegueInserirEspecialidades() {
-        val db = getWritableDatabase()
 
-        val especialidades = Especialidades("Cardiologia")
-        insereEspecialidades(db, especialidades)
+}
+/*
 
-        db.close()
-    }
 
 
     @Test
@@ -544,4 +539,6 @@ class BaseDadosTest {
 
 
      */*/
+
+*/
 
