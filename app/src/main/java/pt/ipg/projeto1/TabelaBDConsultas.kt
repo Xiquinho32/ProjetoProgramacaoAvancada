@@ -18,8 +18,11 @@ class TabelaBDConsultas(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         orderBy: String?
     ): Cursor {
         val queryBuilder = SQLiteQueryBuilder()
-        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.CAMPO_ID} = $CAMPO_MEDICO_ID"; "$NOME INNER JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} = $CAMPO_DOENTE_ID"
-        //queryBuilder.tables= "$NOME INNER JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} = $CAMPO_DOENTE_ID"
+        //"$NOME INNER JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} = $CAMPO_DOENTE_ID"
+        //"$NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.CAMPO_ID} = $CAMPO_MEDICO_ID"
+        //queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} = $CAMPO_DOENTE_ID UNION ALL $NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.CAMPO_ID} = $CAMPO_MEDICO_ID" - nao mudar
+        //queryBuilder2.tables= "$NOME INNER JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} = $CAMPO_DOENTE_ID"
+        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} = $CAMPO_DOENTE_ID + $NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.CAMPO_ID} = $CAMPO_MEDICO_ID"
 
         return queryBuilder.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
     }

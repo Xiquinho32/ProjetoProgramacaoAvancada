@@ -33,21 +33,22 @@ data class Doentes(
             val posCC = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_CC)
             val posIdDoencas = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_DOENCA_ID)
             val posTipoDoencas = cursor.getColumnIndex(TabelaBDDoencas.CAMPO_TIPO_DOENCAS)
-            val posidDoencas = cursor.getColumnIndex(TabelaBDDoencas.CAMPO_ID)
+            val pos2IdDoencas = cursor.getColumnIndex(TabelaBDDoencas.CAMPO_ID)
 
-
+            //doentes
             val id = cursor.getLong(posId)
             val nome = cursor.getString(posNome)
             val dataNascimento = cursor.getString(posDataNascimento)
             val cc = cursor.getString(posCC)
-            val idDoencas = cursor.getLong(posIdDoencas)
+            val doencasDoentes = cursor.getLong(posIdDoencas)
 
-            val idDoencas2 = cursor.getString(posTipoDoencas)
-            val tipoDoencas = cursor.getLong(posidDoencas)
+            //doencas
+            val tipoDoencas = cursor.getString(posTipoDoencas)
+            val idDoencas = cursor.getLong(pos2IdDoencas)
 
-            val doencas = Doencas(idDoencas2, tipoDoencas)
+            val doencas = Doencas(tipoDoencas, idDoencas)
 
-            return Doentes(nome, dataNascimento, cc, doencas, idDoencas)
+            return Doentes(nome, cc, dataNascimento, doencas, id)
         }
     }
 

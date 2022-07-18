@@ -372,42 +372,6 @@ class BaseDadosTest {
 
     }
 
-
-
-    }
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
     @Test
     fun consegueLerEspecialidades() {
         val db = getWritableDatabase()
@@ -432,7 +396,6 @@ class BaseDadosTest {
 
         db.close()
     }
-
     @Test
     fun consegueLerDoencas() {
         val db = getWritableDatabase()
@@ -457,8 +420,7 @@ class BaseDadosTest {
 
         db.close()
     }
-}
-/*
+
     @Test
     fun consegueLerMedicos(){
         val db = getWritableDatabase()
@@ -487,48 +449,43 @@ class BaseDadosTest {
         db.close()
     }
 
-
-
-
-
-/*
-
-
-
-@Test
-    fun consegueLerDoencas(){
+    @Test
+    fun consegueLerDoentes() {
         val db = getWritableDatabase()
 
-        val doencas = Doencas("Dor de braço")
-        insereDoencas(db, doencas)
 
-        val doentes = Doentes("Alberto", "987654321", "23 de janeiro de 2021", doencas)
-        insereDoentes(db, doentes)
+        val doencasDorDeCabeca = Doencas("Dor de cabeça")
+        insereDoencas(db, doencasDorDeCabeca)
+
+        val doente = Doentes("Teste", "Teste", "Teste", doencasDorDeCabeca)
+        insereDoentes(db, doente)
+
 
         val cursor = TabelaBDDoentes(db).query(
             TabelaBDDoentes.TODAS_COLUNAS,
             "${TabelaBDDoentes.CAMPO_ID}=?",
-            arrayOf("${doentes.id}"),
+            arrayOf("${doente.id}"),
             null,
             null,
             null
         )
+
+
         assertEquals(1, cursor.count)
         assertTrue(cursor.moveToNext())
 
-        val doentBD = Doentes.fromCursor(cursor)  //consultas que tenho na BD
-        assertEquals(doentes, doentBD) //comparar as duas categorias para ver se sao iguais
+        val doenteBD = Doentes.fromCursor(cursor)
+        assertEquals(doente, doenteBD)
 
         db.close()
+
+
     }
 
 
 
-    /*
-
-
-
-
+    }
+/*
 
 
     @Test
@@ -566,6 +523,60 @@ class BaseDadosTest {
 
         db.close()
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+}
+/*
+
+
+
+
+
+
+/*
+
+
+
+
+
+    /*
+
+
+
+
+
+
+
 
 
 

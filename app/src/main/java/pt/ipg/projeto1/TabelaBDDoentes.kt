@@ -18,8 +18,7 @@ class TabelaBDDoentes(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         orderBy: String?
     ): Cursor {
         val queryBuilder = SQLiteQueryBuilder()
-        queryBuilder.tables = "${TabelaBDDoencas.NOME} INNER JOIN ${TabelaBDDoencas.NOME} ON ${TabelaBDDoencas.CAMPO_ID} = $CAMPO_DOENCA_ID"
-
+        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDDoencas.NOME} ON ${TabelaBDDoencas.CAMPO_ID} = $CAMPO_DOENCA_ID"
 
         return queryBuilder.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
@@ -31,6 +30,6 @@ class TabelaBDDoentes(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val CAMPO_DATA_NASCIMENTO = "data_nascimento"
         const val CAMPO_DOENCA_ID = "doencaId"
 
-        val TODAS_COLUNAS = arrayOf(CAMPO_ID, CAMPO_NOME_DOENTE, CAMPO_CC, CAMPO_DATA_NASCIMENTO, CAMPO_DOENCA_ID)
+        val TODAS_COLUNAS = arrayOf(CAMPO_ID, CAMPO_NOME_DOENTE, CAMPO_CC, CAMPO_DATA_NASCIMENTO, CAMPO_DOENCA_ID, TabelaBDDoencas.CAMPO_TIPO_DOENCAS)
     }
 }
