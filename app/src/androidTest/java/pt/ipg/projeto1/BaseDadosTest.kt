@@ -26,7 +26,7 @@ class BaseDadosTest {
 
     private fun insereMedicos(db: SQLiteDatabase, medicos: Medicos) {
         medicos.id = TabelaBDMedicos(db).insert(medicos.toContentValues())
-        assertNotEquals(1, medicos.id)
+        assertNotEquals(-1, medicos.id)
     }
 
     private fun insereConsultas(db: SQLiteDatabase, consultas: Consultas) {
@@ -36,7 +36,7 @@ class BaseDadosTest {
 
     private fun insereDoencas(db: SQLiteDatabase, doencas: Doencas) {
         doencas.id = TabelaBDDoencas(db).insert(doencas.toContentValues())
-        assertNotEquals(1, doencas.id)
+        assertNotEquals(-1, doencas.id)
     }
 
     private fun insereEspecialidades(db: SQLiteDatabase, especialidades: Especialidades) {
@@ -60,10 +60,14 @@ class BaseDadosTest {
         db.close()
     }
 
+    @Test
+    fun consegueInserirEspecialidades() {
+        val db = getWritableDatabase()
 
-}
-/*
-
+        val especialidades = Especialidades("Geral")
+        insereEspecialidades(db, especialidades)
+        db.close()
+    }
 
 
     @Test
@@ -78,7 +82,6 @@ class BaseDadosTest {
 
         db.close()
     }
-
     @Test
     fun consegueInserirDoencas() {
         val db = getWritableDatabase()
@@ -87,6 +90,7 @@ class BaseDadosTest {
         insereDoencas(db, doencas)
         db.close()
     }
+
 
     @Test
     fun consegueInserirDoentes() {
@@ -126,6 +130,21 @@ class BaseDadosTest {
         db.close()
 
     }
+}
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Test
     fun consegueAlterarEspecialidades() {
