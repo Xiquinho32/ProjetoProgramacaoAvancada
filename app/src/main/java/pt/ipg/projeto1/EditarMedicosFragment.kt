@@ -22,6 +22,7 @@ import pt.ipg.projeto1.databinding.FragmentEditarMedicosBinding
 
 class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private var _binding: FragmentEditarMedicosBinding? = null
+
     private val binding get() = _binding!!
 
     private var medico: Medicos? = null
@@ -48,7 +49,7 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         activity.idMenuAtual = R.menu.menu_edicao
 
         if(arguments != null){
-           // medico = EditarMedicosFragment.fromBundle(arguments!!).medico
+            medico = EditarMedicosFragmentArgs.fromBundle(arguments!!).medicos
 
             if(medico != null){
                 binding.editTextNome.setText(medico!!.nome)
@@ -75,11 +76,11 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
         CursorLoader(
             requireContext(),
-            ContentProviderDoentes.ENDERECO_MEDICOS,
-            TabelaBDMedicos.TODAS_COLUNAS,
+            ContentProviderDoentes.ENDERECO_ESPECIALIDADES,
+            TabelaBDEspecialidades.TODAS_COLUNAS,
             null,
             null,
-            "${TabelaBDMedicos.CAMPO_NOME_MEDICO}"
+            "${TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES}"
         )
 
 
@@ -215,21 +216,22 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             }
 
         if (medicoGuardado){
-            Toast.makeText(
-                requireContext(),
-                getString(R.string.medico_guardado_sucesso),
-                Toast.LENGTH_LONG
-            )
+            Toast.makeText(requireContext(), getString(R.string.medico_guardado_sucesso), Toast.LENGTH_LONG)
                 .show()
             voltaListaMedicos()
         } else {
-            Snackbar.make(
-                binding.editTextNome,
-                getString(R.string.erro_guardar_medico),
-                Snackbar.LENGTH_INDEFINITE
-            ).show()
+            Snackbar.make(binding.editTextNome, getString(R.string.erro_guardar_medico), Snackbar.LENGTH_INDEFINITE).show()
             return
         }
+    }
+    private fun alteraMedico(nome: String, cc: String, idEspecialidades: Long): Boolean {
+        val medico = Medicos(nome, cc, Especialidades(id = idEspecialidades))
+
+        val enderecoMedico = Uri.withAppendedPath(ContentProviderDoentes.ENDERECO_MEDICOS, "${this.medico!!.id}")
+
+        val registosAlterados = requireActivity().contentResolver.update(enderecoMedico, medico.toContentValues(), null, null)
+
+        return registosAlterados == 1
     }
 
     private fun insereMedico(nome: String, cc: String, idEspecialidades: Long): Boolean {
@@ -241,15 +243,7 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
 
     }
 
-    private fun alteraMedico(nome: String, cc: String, idEspecialidades: Long): Boolean {
-        val medico = Medicos(nome, cc, Especialidades(id = idEspecialidades))
 
-        val enderecoMedico = Uri.withAppendedPath(ContentProviderDoentes.ENDERECO_MEDICOS, "${this.medico!!.id}")
-
-        val registosAlterados = requireActivity().contentResolver.update(enderecoMedico, medico.toContentValues(), null, null)
-
-        return registosAlterados == 1
-    }
 
     private fun voltaListaMedicos() {
         findNavController().navigate(R.id.action_editarMedicosFragment_to_listaMedicosFragment)

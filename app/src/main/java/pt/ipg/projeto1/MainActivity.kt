@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
         menu!!.findItem(R.id.action_eliminar).setVisible(mostra)
     }
 
-    fun atualizaData(id_string_data: String) {
+    fun atualizaData(id_string_data: Int) {
         binding.toolbar2.setTitle(id_string_data)
     }
 }

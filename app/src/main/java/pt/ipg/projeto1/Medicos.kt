@@ -6,8 +6,8 @@ import android.provider.BaseColumns
 import java.io.Serializable
 
 data class Medicos(
-    var nome: String = "",
-    var cc: String = "",
+    var nome: String,
+    var cc: String,
     var especialidades: Especialidades,
     var id: Long = -1
 ) : Serializable {
@@ -28,19 +28,19 @@ data class Medicos(
             val posCC = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_CC)
             val posIdEspecialidades = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_ESPECIALIDADES_ID)
             val posTipoEspecialidades = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES)
-            val pos2IdEspecialidades = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_ID)
+           // val pos2IdEspecialidades = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_ID)
 
             //medicos
             val id = cursor.getLong(posId)
             val nome = cursor.getString(posNome)
             val cc = cursor.getString(posCC)
-            val especialidadesMedicos= cursor.getLong(posIdEspecialidades)
+            //val especialidadesMedicos= cursor.getLong(posIdEspecialidades)
 
             // especialidades
+            val idEspecialidades = cursor.getLong(posIdEspecialidades)
             val tipoEspecialidades = cursor.getString(posTipoEspecialidades)
-            val idEspecialidades = cursor.getLong(pos2IdEspecialidades)
 
-           val especialidades = Especialidades(tipoEspecialidades, idEspecialidades)
+            val especialidades = Especialidades(tipoEspecialidades, idEspecialidades)
 
             return Medicos(nome, cc, especialidades, id)
         }

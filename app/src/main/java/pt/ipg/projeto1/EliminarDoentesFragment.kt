@@ -43,7 +43,7 @@ class EliminarDoentesFragment: Fragment(){
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        //doentes = EliminarDoentesFragment.fromBundle(arguments!!).medicos
+        //doentes = EliminarDoentesFragmentArgs.fromBundle(arguments!!).doentes
 
         binding.textViewNome.text = doentes.nome
         binding.textViewCC.text = doentes.cc

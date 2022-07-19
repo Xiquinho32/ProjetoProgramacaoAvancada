@@ -43,7 +43,7 @@ class EliminarEspecialidadesFragment  : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        //medicos = EliminarMedicosFragmentArgs.fromBundle(arguments!!).medicos
+       especialidade= EliminarEspecialidadesFragmentArgs.fromBundle(arguments!!).especialidade
 
         binding.textViewTipoEspecialidades.text = especialidade.tipoEspecialidades
     }

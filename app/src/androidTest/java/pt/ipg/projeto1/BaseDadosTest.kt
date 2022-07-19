@@ -167,7 +167,7 @@ class BaseDadosTest {
 
         medicos.nome = "Josefino"
         medicos.cc = "6654321"
-        medicos.especialidades = especialidadesGeral
+        medicos.especialidades = especialidadesAcupuntura
 
         val registosAlterados = TabelaBDMedicos(db).update(
             medicos.toContentValues(),
@@ -442,7 +442,7 @@ class BaseDadosTest {
         assertEquals(1, cursor.count)
         assertTrue(cursor.moveToNext())
 
-        val medicoBD = Medicos.fromCursor(cursor)  //consultas que tenho na BD
+        val medicoBD = Medicos.fromCursor(cursor)
 
         assertEquals(medicos, medicoBD) //comparar as duas categorias para ver se sao iguais
 
@@ -482,108 +482,42 @@ class BaseDadosTest {
 
     }
 
-    @Test
-    fun consegueLerConsultas(){
-        val db = getWritableDatabase()
-
-        val especialidades = Especialidades("Geral")
-        insereEspecialidades(db, especialidades)
-
-        val medicos = Medicos("João","123455", especialidades)
-        insereMedicos(db, medicos)
-
-        val doencas = Doencas("Dor de braço")
-        insereDoencas(db, doencas)
-
-        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984",doencas)
-        insereDoentes(db, doentes)
-
-        val consultas = Consultas("25 de junho de 2022", medicos, doentes)
-        insereConsultas(db, consultas)
-
-        val cursor = TabelaBDConsultas(db).query(
-            TabelaBDConsultas.TODAS_COLUNAS,
-            "${TabelaBDConsultas.CAMPO_ID}=?",
-            arrayOf("${consultas.id}"),
-            null,
-            null,
-            null
-        )
-        assertEquals(1, cursor.count)
-        assertTrue(cursor.moveToNext())
-
-        val consultasBD = Consultas.fromCursor(cursor)  //consultas que tenho na BD
-        assertEquals(consultas, consultasBD) //comparar as duas categorias para ver se sao iguais
-
-        db.close()
-    }
 
     }
 /*
+@Test
+fun consegueLerConsultas(){
+    val db = getWritableDatabase()
 
+    val especialidades = Especialidades("Geral")
+    insereEspecialidades(db, especialidades)
 
+    val medicos = Medicos("João","123455", especialidades)
+    insereMedicos(db, medicos)
 
+    val doencas = Doencas("Dor de braço")
+    insereDoencas(db, doencas)
 
+    val doentes = Doentes("Josefino", "543212", "3 de abril de 1984",doencas)
+    insereDoentes(db, doentes)
 
+    val consultas = Consultas("25 de junho de 2022", medicos, doentes)
+    insereConsultas(db, consultas)
 
+    val cursor = TabelaBDConsultas(db).query(
+        TabelaBDConsultas.TODAS_COLUNAS,
+        "${TabelaBDConsultas.CAMPO_ID}=?",
+        arrayOf("${consultas.id}"),
+        null,
+        null,
+        null
+    )
+    assertEquals(1, cursor.count)
+    assertTrue(cursor.moveToNext())
 
+    val consultasBD = Consultas.fromCursor(cursor)  //consultas que tenho na BD
+    assertEquals(consultas, consultasBD) //comparar as duas categorias para ver se sao iguais
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-
-
+    db.close()
 }
-/*
-
-
-
-
-
-
-/*
-
-
-
-
-
-    /*
-
-
-
-
-
-
-
-
-
-
-     */
-
-
-     */*/
-
 */
-

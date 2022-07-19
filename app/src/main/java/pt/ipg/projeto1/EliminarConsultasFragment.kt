@@ -44,7 +44,7 @@ class EliminarConsultasFragment : Fragment(){
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        //consultas = EliminarConsultasFragment.fromBundle(arguments).consultas
+        consultas = EliminarConsultasFragmentArgs.fromBundle(arguments!!).consulta
         //erro no from bundle
 
         binding.textViewData.text = consultas.data?: ""

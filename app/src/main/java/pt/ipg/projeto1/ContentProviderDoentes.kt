@@ -27,20 +27,20 @@ class ContentProviderDoentes : ContentProvider(){
         requireNotNull(projection)
         val colunas = projection as Array<String>
 
-        val argsSeleccao = selectionArgs as Array<String>
+        val argsSeleccao = selectionArgs as Array<String>?
 
         val id = uri.lastPathSegment
 
         val cursor = when (getUriMatcher().match(uri)) {
             URI_DOENTES -> TabelaBDDoentes(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
-            URI_MEDICOS -> TabelaBDDoentes(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
-            URI_CONSULTAS -> TabelaBDDoentes(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
-            URI_ESPECIALIDADES -> TabelaBDDoentes(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_MEDICOS -> TabelaBDMedicos(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_CONSULTAS -> TabelaBDConsultas(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
+            URI_ESPECIALIDADES -> TabelaBDEspecialidades(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
             URI_DOENCAS -> TabelaBDDoencas(db).query(colunas, selection, argsSeleccao, null, null, sortOrder)
             URI_DOENTES_ESPECIFICA -> TabelaBDDoentes(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             URI_MEDICOS_ESPECIFICA -> TabelaBDMedicos(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             URI_CONSULTAS_ESPECIFICA -> TabelaBDConsultas(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
-            URI_ESPECIALIDADES_ESPECIFICA -> TabelaBDMedicos(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            URI_ESPECIALIDADES_ESPECIFICA -> TabelaBDEspecialidades(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             URI_DOENCAS_ESPECIFICAS -> TabelaBDDoencas(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
             else -> null
         }
@@ -56,8 +56,8 @@ class ContentProviderDoentes : ContentProvider(){
             URI_MEDICOS_ESPECIFICA ->"$UNICO_REGISTO/${TabelaBDMedicos.NOME}"
             URI_CONSULTAS ->"$MULTIPLOS_REGISTOS/${TabelaBDConsultas.NOME}"
             URI_CONSULTAS_ESPECIFICA ->"$UNICO_REGISTO/${TabelaBDConsultas.NOME}"
-            URI_ESPECIALIDADES ->"$MULTIPLOS_REGISTOS/${TabelaBDConsultas.NOME}"
-            URI_CONSULTAS_ESPECIFICA ->"$UNICO_REGISTO/${TabelaBDConsultas.NOME}"
+            URI_ESPECIALIDADES ->"$MULTIPLOS_REGISTOS/${TabelaBDEspecialidades.NOME}"
+            URI_ESPECIALIDADES_ESPECIFICA -> "$UNICO_REGISTO/${TabelaBDEspecialidades.NOME}"
             URI_DOENCAS->"$MULTIPLOS_REGISTOS/${TabelaBDDoencas.NOME}"
             URI_DOENCAS_ESPECIFICAS -> "$UNICO_REGISTO/${TabelaBDDoencas.NOME}"
 
@@ -131,7 +131,7 @@ class ContentProviderDoentes : ContentProvider(){
     }
 
     companion object{
-        const val AUTHORITY = "pt.ipg.projeto"
+        const val AUTHORITY = "pt.ipg.projeto1"
 
         const val URI_CONSULTAS = 100
         const val URI_CONSULTAS_ESPECIFICA = 101

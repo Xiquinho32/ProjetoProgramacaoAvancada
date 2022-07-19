@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".EditarMedicosFragment" >
 
     <com.google.android.material.textfield.TextInputLayout
@@ -15,7 +16,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
             android:hint="@string/Nome"
-            android:textColorHint="#757575" />
+            android:textColorHint="#757575"
+            tools:ignore="TextContrastCheck"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -27,7 +29,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
                 android:hint="@string/CartaoCidadao"
-                android:textColorHint="#757575" />
+                android:textColorHint="#757575"
+                tools:ignore="TextContrastCheck"/>
 
             <TextView
                 android:id="@+id/textViewEspecialidades"

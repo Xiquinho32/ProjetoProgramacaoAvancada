@@ -33,6 +33,8 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'pt.ipg.projeto1'
+
 }
 
 dependencies {
