@@ -142,18 +142,20 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId){
             R.id.action_inserir -> {
-                findNavController().navigate(R.id.action_listaEspecialidadesFragment_to_editarEspecialidadesFragment)
-
-                (activity as MainActivity).atualizaData(getString(R.string.inserir_tipo_especialidade))
+                val acao = ListaEspecialidadesFragmentDirections.actionListaEspecialidadesFragmentToEditarEspecialidadesFragment()
+                findNavController().navigate(acao)
+                (activity as MainActivity).atualizaData("Inserir especialidades")
                 true
             }
             R.id.action_alterar->{
-                findNavController().navigate(R.id.action_listaEspecialidadesFragment_to_editarEspecialidadesFragment)
-                (activity as MainActivity).atualizaData("Alterar tipo especialidade")
+                val acao = ListaEspecialidadesFragmentDirections.actionListaEspecialidadesFragmentToEditarEspecialidadesFragment(especialidadeSeleccionado)
+                findNavController().navigate(acao)
+                (activity as MainActivity).atualizaData("Alterar especialidades")
                 true
             }
             R.id.action_eliminar -> {
-                findNavController().navigate(R.id.action_listaConsultasFragment_to_eliminarConsultasFragment)
+                val acao = ListaEspecialidadesFragmentDirections.actionListaEspecialidadesFragmentToEliminarEspecialidadesFragment(especialidadeSeleccionado!!)
+                findNavController().navigate(acao)
                 true
             }
             else -> false

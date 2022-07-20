@@ -141,17 +141,20 @@ class ListaDoentesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {
             R.id.action_inserir -> {
-                findNavController().navigate(R.id.action_listaDoentesFragment_to_editarDoentesFragment)
-                (activity as MainActivity).atualizaData("Inserir Doentes")
+                val acao = ListaDoentesFragmentDirections.actionListaDoentesFragmentToEditarDoentesFragment()
+                findNavController().navigate(acao)
+                (activity as MainActivity).atualizaData("Inserir doentes")
                 true
             }
             R.id.action_alterar -> {
-                findNavController().navigate(R.id.action_listaDoentesFragment_to_editarDoentesFragment)
+                val acao = ListaDoentesFragmentDirections.actionListaDoentesFragmentToEditarDoentesFragment(doenteSeleccionado)
+                findNavController().navigate(acao)
                 (activity as MainActivity).atualizaData("Alterar doentes")
                 true
             }
             R.id.action_eliminar ->{
-                findNavController().navigate(R.id.action_listaDoentesFragment_to_eliminarDoentesFragment)
+                val acao = ListaDoentesFragmentDirections.actionListaDoentesFragmentToEliminarDoentesFragment(doenteSeleccionado!!)
+                findNavController().navigate(acao)
                 true
             }
 

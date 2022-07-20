@@ -42,9 +42,11 @@ class EliminarDoencasFragment : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        //medicos = EliminarMedicosFragmentArgs.fromBundle(arguments!!).medicos
+        doenca = EliminarDoencasFragmentArgs.fromBundle(arguments!!).doenca
 
         binding.textViewTipoDoenca.text = doenca.tipoDoenca
+
+
     }
 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
@@ -90,7 +92,7 @@ class EliminarDoencasFragment : Fragment() {
         voltaListaDoenca()
     }
     private fun voltaListaDoenca() {
-        findNavController().navigate(R.id.action_eliminarEspecialidadesFragment_to_listaEspecialidadesFragment)
+        findNavController().navigate(R.id.action_eliminarDoencasFragment_to_listaDoencasFragment)
     }
 
 

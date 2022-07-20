@@ -69,11 +69,11 @@ class ListaDoencasFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
         CursorLoader(
             requireContext(),
-            ContentProviderDoentes.ENDERECO_ESPECIALIDADES,
-            TabelaBDEspecialidades.TODAS_COLUNAS,
+            ContentProviderDoentes.ENDERECO_DOENCAS,
+            TabelaBDDoencas.TODAS_COLUNAS,
             null,
             null,
-            "${TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES}"
+            "${TabelaBDDoencas.CAMPO_TIPO_DOENCAS}"
         )
 
 
@@ -142,19 +142,20 @@ class ListaDoencasFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId){
             R.id.action_inserir -> {
-                val acao = ListaConsultasFragment
-               // findNavController().navigate(R.id.action_listaDoencasFragment_to_editarDoencasFragment)
-
-               // (activity as MainActivity).atualizaData("Inserir Doencas")
+                val acao = ListaDoencasFragmentDirections.actionListaDoencasFragmentToEditarDoencasFragment()
+                findNavController().navigate(acao)
+                (activity as MainActivity).atualizaData("Inserir doencas")
                 true
             }
             R.id.action_alterar->{
-                findNavController().navigate(R.id.action_listaDoencasFragment_to_editarDoencasFragment)
-                (activity as MainActivity).atualizaData("Alterar tipo doencas")
+                val acao = ListaDoencasFragmentDirections.actionListaDoencasFragmentToEditarDoencasFragment(doencaSeleccionado)
+                findNavController().navigate(acao)
+                (activity as MainActivity).atualizaData("Alterar doencas")
                 true
             }
             R.id.action_eliminar -> {
-                findNavController().navigate(R.id.action_listaDoencasFragment_to_eliminarDoencasFragment)
+                val acao = ListaDoencasFragmentDirections.actionListaDoencasFragmentToEliminarDoencasFragment(doencaSeleccionado!!)
+                findNavController().navigate(acao)
                 true
             }
             else -> false

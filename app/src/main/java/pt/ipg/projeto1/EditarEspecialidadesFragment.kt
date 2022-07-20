@@ -47,7 +47,7 @@ import pt.ipg.projeto1.databinding.FragmentEditarEspecialidadesBinding
          activity.idMenuAtual = R.menu.menu_edicao
 
          if (arguments != null) {
-             // especialidade = EditarEspecialidadesFragment.fromBundle(arguments!!).medico
+             especialidade = EditarEspecialidadesFragmentArgs.fromBundle(arguments!!).especialidades
 
              if (especialidade != null) {
                  binding.editTextTipoEspecialidade.setText(especialidade!!.tipoEspecialidades)

@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import pt.ipg.projeto1.databinding.FragmentEliminarEspecialidadesBinding
-import pt.ipg.projeto1.databinding.FragmentEliminarMedicosBinding
 
 class EliminarEspecialidadesFragment  : Fragment() {
     private var _binding: FragmentEliminarEspecialidadesBinding? = null

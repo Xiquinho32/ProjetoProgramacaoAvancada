@@ -84,7 +84,7 @@ class AdapterDoentes(val fragment: ListaDoentesFragment): RecyclerView.Adapter<A
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderDoente {
-        val itemDoente = fragment.layoutInflater.inflate(R.layout.item_medico, parent, false)
+        val itemDoente = fragment.layoutInflater.inflate(R.layout.item_doentes, parent, false)
         return ViewHolderDoente(itemDoente)
     }
 

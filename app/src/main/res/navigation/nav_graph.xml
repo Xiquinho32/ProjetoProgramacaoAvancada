@@ -173,6 +173,11 @@
         <action
             android:id="@+id/action_editarDoencasFragment_to_listaDoencasFragment"
             app:destination="@id/listaDoencasFragment" />
+        <argument
+            android:name="doencas"
+            app:argType="pt.ipg.projeto1.Doencas"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/eliminarDoencasFragment"
@@ -182,6 +187,9 @@
         <action
             android:id="@+id/action_eliminarDoencasFragment_to_listaDoencasFragment"
             app:destination="@id/listaDoencasFragment" />
+        <argument
+            android:name="doenca"
+            app:argType="pt.ipg.projeto1.Doencas" />
     </fragment>
     <fragment
         android:id="@+id/listaDoentesFragment"
@@ -206,6 +214,9 @@
         <action
             android:id="@+id/action_eliminarDoentesFragment_to_listaDoentesFragment"
             app:destination="@id/listaDoentesFragment" />
+        <argument
+            android:name="doente"
+            app:argType="pt.ipg.projeto1.Doentes" />
     </fragment>
     <fragment
         android:id="@+id/editarDoentesFragment"
@@ -215,5 +226,10 @@
         <action
             android:id="@+id/action_editarDoentesFragment_to_listaDoentesFragment"
             app:destination="@id/listaDoentesFragment" />
+        <argument
+            android:name="doentes"
+            app:argType="pt.ipg.projeto1.Doentes"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 </navigation>

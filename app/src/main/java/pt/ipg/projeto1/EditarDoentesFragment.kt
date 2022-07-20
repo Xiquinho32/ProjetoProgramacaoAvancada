@@ -46,7 +46,7 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         activity.idMenuAtual = R.menu.menu_edicao
 
         if(arguments != null){
-            // medico = EditarMedicosFragment.fromBundle(arguments!!).medico
+             doente = EditarDoentesFragmentArgs.fromBundle(arguments!!).doentes
 
             if(doente!= null){
                 binding.editTextNome.setText(doente!!.nome)
@@ -74,11 +74,11 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
         CursorLoader(
             requireContext(),
-            ContentProviderDoentes.ENDERECO_DOENTES,
-            TabelaBDDoentes.TODAS_COLUNAS,
+            ContentProviderDoentes.ENDERECO_DOENCAS,
+            TabelaBDDoencas.TODAS_COLUNAS,
             null,
             null,
-            "${TabelaBDDoentes.CAMPO_NOME_DOENTE}"
+            "${TabelaBDDoencas.CAMPO_TIPO_DOENCAS}"
         )
 
 
@@ -237,14 +237,7 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         }
     }
 
-    private fun insereDoente(nome: String, cc: String, dataNascimento: String, idDoencas: Long): Boolean {
-        val doente = Doentes(nome, cc, dataNascimento , Doencas(id = idDoencas))
 
-        val enderecoDoenteInserido = requireActivity().contentResolver.insert(ContentProviderDoentes.ENDERECO_DOENTES, doente.toContentValues())
-
-        return enderecoDoenteInserido != null
-
-    }
 
     private fun alteraDoente(nome: String, cc: String, dataNascimento: String, idDoencas: Long): Boolean {
         val doente = Doentes(nome, cc, dataNascimento , Doencas(id = idDoencas))
@@ -254,6 +247,14 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val registosAlterados = requireActivity().contentResolver.update(enderecoDoente, doente.toContentValues(), null, null)
 
         return registosAlterados == 1
+    }
+    private fun insereDoente(nome: String, cc: String, dataNascimento: String, idDoencas: Long): Boolean {
+        val doente = Doentes(nome, cc, dataNascimento , Doencas(id = idDoencas))
+
+        val enderecoDoenteInserido = requireActivity().contentResolver.insert(ContentProviderDoentes.ENDERECO_DOENTES, doente.toContentValues())
+
+        return enderecoDoenteInserido != null
+
     }
 
     private fun voltaListaDoentes() {
