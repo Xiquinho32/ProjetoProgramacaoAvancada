@@ -36,7 +36,6 @@ data class Consultas(
 
             //Tabela doentes
             val posNomeDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_NOME_DOENTE)
-            val posccDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_CC)
             val posDataNascimentoDoentes =
                 cursor.getColumnIndex(TabelaBDDoentes.CAMPO_DATA_NASCIMENTO)
 
@@ -58,10 +57,9 @@ data class Consultas(
             //doentes
             val idDoentes = cursor.getLong(posIdDoentes)
             val nomeDoentes = cursor.getString(posNomeDoentes)
-            val ccDoentes = cursor.getString(posccDoentes)
             val dataNascimentoDoentes = cursor.getString(posDataNascimentoDoentes)
 
-            val doente = Doentes(nomeDoentes, ccDoentes, dataNascimentoDoentes, doencas = Doencas(""))
+            val doente = Doentes(nomeDoentes, dataNascimentoDoentes, doencas = Doencas(""))
 
             //return valores
             return Consultas(data, medico,doente , id)

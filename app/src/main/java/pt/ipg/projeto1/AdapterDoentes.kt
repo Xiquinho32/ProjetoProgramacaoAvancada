@@ -23,7 +23,6 @@ class AdapterDoentes(val fragment: ListaDoentesFragment): RecyclerView.Adapter<A
 
     inner class ViewHolderDoente(itemDoente: View): RecyclerView.ViewHolder(itemDoente), View.OnClickListener{
         val textViewNome = itemDoente.findViewById<TextView>(R.id.textViewNome)
-        val textViewCC = itemDoente.findViewById<TextView>(R.id.textViewCC)
         val textViewDataNascimento = itemDoente.findViewById<TextView>(R.id.textViewDataNascimento)
         val textViewTipoDoencas = itemDoente.findViewById<TextView>(R.id.textViewTipoDoenca)
 
@@ -37,7 +36,6 @@ class AdapterDoentes(val fragment: ListaDoentesFragment): RecyclerView.Adapter<A
                 field = value
 
                 textViewNome.text = doente?.nome ?: ""
-                textViewCC.text = doente?.cc ?: ""
                 textViewDataNascimento.text = doente?.dataNascimento ?: ""
                 textViewTipoDoencas.text = doente?.doencas?.tipoDoenca?: ""
             }

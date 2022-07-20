@@ -50,7 +50,6 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
             if(doente!= null){
                 binding.editTextNome.setText(doente!!.nome)
-                binding.editTextCC.setText(doente!!.cc)
                 binding.editTextDataNascimento.setText(doente!!.dataNascimento)
             }
         }
@@ -193,16 +192,10 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             binding.editTextNome.requestFocus()
             return
         }
-        val cc  = binding.editTextCC.text.toString()
-        if(cc.isBlank()){
-            binding.editTextCC.error = getString(R.string.cartaoCidadao_obrigatorio)
-            binding.editTextCC.requestFocus()
-            return
-        }
         val dataNascimento = binding.editTextDataNascimento.text.toString()
-        if(cc.isBlank()){
-            binding.editTextCC.error = ("preencha a data de nascimento")
-            binding.editTextCC.requestFocus()
+        if(dataNascimento.isBlank()){
+            binding.editTextDataNascimento.error = ("preencha a data de nascimento")
+            binding.editTextDataNascimento.requestFocus()
             return
         }
         val idDoencas = binding.spinnerDoencas.selectedItemId
@@ -214,9 +207,9 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
         val doenteGuardado =
             if(doente == null){
-                insereDoente(nome, cc, dataNascimento, idDoencas)
+                insereDoente(nome,  dataNascimento, idDoencas)
             } else {
-                alteraDoente(nome, cc, dataNascimento, idDoencas)
+                alteraDoente(nome,  dataNascimento, idDoencas)
             }
 
         if (doenteGuardado){
@@ -239,8 +232,8 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
 
 
-    private fun alteraDoente(nome: String, cc: String, dataNascimento: String, idDoencas: Long): Boolean {
-        val doente = Doentes(nome, cc, dataNascimento , Doencas(id = idDoencas))
+    private fun alteraDoente(nome: String, dataNascimento: String, idDoencas: Long): Boolean {
+        val doente = Doentes(nome, dataNascimento , Doencas(id = idDoencas))
 
         val enderecoDoente = Uri.withAppendedPath(ContentProviderDoentes.ENDERECO_DOENTES, "${this.doente!!.id}")
 
@@ -248,8 +241,8 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
         return registosAlterados == 1
     }
-    private fun insereDoente(nome: String, cc: String, dataNascimento: String, idDoencas: Long): Boolean {
-        val doente = Doentes(nome, cc, dataNascimento , Doencas(id = idDoencas))
+    private fun insereDoente(nome: String, dataNascimento: String, idDoencas: Long): Boolean {
+        val doente = Doentes(nome, dataNascimento , Doencas(id = idDoencas))
 
         val enderecoDoenteInserido = requireActivity().contentResolver.insert(ContentProviderDoentes.ENDERECO_DOENTES, doente.toContentValues())
 

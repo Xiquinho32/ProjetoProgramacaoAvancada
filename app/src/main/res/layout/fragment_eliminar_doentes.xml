@@ -46,31 +46,6 @@
             android:textSize="34sp" />
 
         <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/CartaoCidadao"
-            android:textColor="@color/purple_700"
-            android:textSize="34sp" />
-
-        <TextView
-            android:id="@+id/textViewCC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="26dp"
-            android:text="123456789"
-            android:textSize="34sp" />
-
-        <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

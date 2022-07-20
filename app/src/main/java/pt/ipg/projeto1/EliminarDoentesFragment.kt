@@ -46,7 +46,6 @@ class EliminarDoentesFragment: Fragment(){
         doentes = EliminarDoentesFragmentArgs.fromBundle(arguments!!).doente
 
         binding.textViewNome.text = doentes.nome
-        binding.textViewCC.text = doentes.cc
         binding.textViewDataNascimento.text = doentes.dataNascimento
         binding.textViewTipoDoenca.text = doentes.doencas.tipoDoenca
     }

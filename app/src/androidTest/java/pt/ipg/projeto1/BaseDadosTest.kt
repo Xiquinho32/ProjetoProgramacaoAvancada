@@ -99,7 +99,7 @@ class BaseDadosTest {
         val doencas = Doencas("Dor de peito")
         insereDoencas(db, doencas)
 
-        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984", doencas)
+        val doentes = Doentes("Josefino",  "3 de abril de 1984", doencas)
         insereDoentes(db, doentes)
 
 
@@ -122,7 +122,7 @@ class BaseDadosTest {
         insereDoencas(db, doencas)
 
 
-        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984", doencas)
+        val doentes = Doentes("Josefino", "3 de abril de 1984", doencas)
         insereDoentes(db, doentes)
         val consultas = Consultas("25 de junho de 2022", medicos, doentes)
         insereConsultas(db, consultas)
@@ -208,10 +208,9 @@ class BaseDadosTest {
         val doencasDorDeCabeca = Doencas("Dor de cabeça")
         insereDoencas(db, doencasDorDeCabeca)
 
-        val doente = Doentes("Teste", "Teste", "Teste", doencasDorDeCabeca)
+        val doente = Doentes("Teste",  "Teste", doencasDorDeCabeca)
         insereDoentes(db, doente)
         doente.nome = "Francisco"
-        doente.cc = "123456789"
         doente.dataNascimento = "26/11/2000"
         doente.doencas = doencasDorDeCabeca
 
@@ -241,7 +240,7 @@ class BaseDadosTest {
         val doencas = Doencas("Dor de braço")
         insereDoencas(db, doencas)
 
-        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984", doencas)
+        val doentes = Doentes("Josefino",  "3 de abril de 1984", doencas)
         insereDoentes(db, doentes)
 
 
@@ -306,7 +305,7 @@ class BaseDadosTest {
         val doencas = Doencas("Dor de braço")
         insereDoencas(db, doencas)
 
-        val doente = Doentes("Alberto", "987654321", "23 de janeiro de 2021", doencas)
+        val doente = Doentes("Alberto",  "23 de janeiro de 2021", doencas)
         insereDoentes(db, doente)
 
         val registosEliminados = TabelaBDDoentes(db).delete(
@@ -354,7 +353,7 @@ class BaseDadosTest {
         val doencas = Doencas("Dor de braço")
         insereDoencas(db, doencas)
 
-        val doentes = Doentes("Josefino", "543212", "3 de abril de 1984", doencas)
+        val doentes = Doentes("Josefino",  "3 de abril de 1984", doencas)
         insereDoentes(db, doentes)
 
 
@@ -457,7 +456,7 @@ class BaseDadosTest {
         val doencasDorDeCabeca = Doencas("Dor de cabeça")
         insereDoencas(db, doencasDorDeCabeca)
 
-        val doente = Doentes("Teste", "Teste", "Teste", doencasDorDeCabeca)
+        val doente = Doentes("Teste",  "Teste", doencasDorDeCabeca)
         insereDoentes(db, doente)
 
 
