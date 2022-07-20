@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar2)
+        setSupportActionBar(binding.toolbar)
 
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -111,8 +111,8 @@ class MainActivity : AppCompatActivity() {
         menu!!.findItem(R.id.action_eliminar).setVisible(mostra)
     }
 
-    fun atualizaData(id_string_data: Int) {
-        binding.toolbar2.setTitle(id_string_data)
+    fun atualizaData(id_string_data: String) {
+        binding.toolbar.setTitle(id_string_data)
     }
 }
 
