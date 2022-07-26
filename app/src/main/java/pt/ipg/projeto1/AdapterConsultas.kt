@@ -18,9 +18,9 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
     var viewHolderSelecionado : ViewHolderConsulta? = null
 
     inner class ViewHolderConsulta(itemConsulta: View) : RecyclerView.ViewHolder(itemConsulta), View.OnClickListener{
-        val textViewData = itemConsulta.findViewById<TextView>(R.id.textViewNome)
-        val textViewMedico = itemConsulta.findViewById<TextView>(R.id.textViewCartaoCidadao)
-        val textViewDoente = itemConsulta.findViewById<TextView>(R.id.textViewEspecialidade)
+        val textViewData = itemConsulta.findViewById<TextView>(R.id.textViewData)
+        val textViewMedico = itemConsulta.findViewById<TextView>(R.id.textViewMedico)
+        val textViewDoente = itemConsulta.findViewById<TextView>(R.id.textViewDoente)
 
         init {
             itemConsulta.setOnClickListener(this)
@@ -106,7 +106,7 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
      */
     override fun onBindViewHolder(holder: ViewHolderConsulta, position: Int) {
         cursor!!.moveToPosition(position)
-        //holder.consulta = Consultas.fromCursor(cursor!!)
+        holder.consulta = Consultas.fromCursor(cursor!!)
     }
 
     /**

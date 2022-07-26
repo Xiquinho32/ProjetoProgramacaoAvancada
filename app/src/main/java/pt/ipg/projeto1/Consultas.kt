@@ -29,6 +29,57 @@ data class Consultas(
             val posIdMedicos = cursor.getColumnIndex(TabelaBDConsultas.CAMPO_MEDICO_ID)
             val posIdDoentes = cursor.getColumnIndex(TabelaBDConsultas.CAMPO_DOENTE_ID)
 
+
+            val posNomeMedicos = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_NOME_MEDICO)
+            val posCCMedicos = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_CC)
+            //val posTipoEspecialidades = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_ESPECIALIDADES_ID)
+            val posTipoEspecialidades = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES)
+
+
+            val posNomeDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_NOME_DOENTE)
+            val posDataNascimentoDoentes = cursor.getColumnIndex(TabelaBDDoentes.CAMPO_DATA_NASCIMENTO)
+            val posTipoDoencas = cursor.getColumnIndex(TabelaBDDoencas.CAMPO_TIPO_DOENCAS)
+            //val posTipoDoencas2 = cursor.getColumnIndex(TabelaBDDoencas.CAMPO_TIPO_DOENCAS)
+
+
+
+            //consulta
+            val id = cursor.getLong(posId)
+            val data = cursor.getString(posData)
+
+
+            //medicos
+            val idMedico = cursor.getLong(posIdMedicos)
+            val nomeMedico = cursor.getString(posNomeMedicos)
+            val ccMedicos = cursor.getString(posCCMedicos)
+            val especialidadesMedicos = cursor.getString(posTipoEspecialidades)
+            //val especialidadesMedicos2 = cursor.getString(posTipoEspecialidades2)
+
+            val especialidades = Especialidades(especialidadesMedicos)
+
+            val medico = Medicos(nomeMedico, ccMedicos, especialidades ,idMedico )
+            //val medico = Medicos(nomeMedico, ccMedicos, especialidades = especialidadesMedicos,idMedico)
+            //val medico = Medicos(nomeMedico, ccMedicos, especialidades = Especialidades(especialidadesMedicos), idMedico)
+
+
+            //doentes
+            val idDoentes = cursor.getLong(posIdDoentes)
+            val nomeDoentes = cursor.getString(posNomeDoentes)
+            val dataNascimentoDoentes = cursor.getString(posDataNascimentoDoentes)
+            val doencasDoentes = cursor.getString(posTipoDoencas)
+            //val doencasDoentes2= cursor.getString(posTipoDoencas2)
+
+            val doenca = Doencas(doencasDoentes)
+
+            val doente = Doentes(nomeDoentes, dataNascimentoDoentes, doenca, idDoentes)
+
+            //val doente = Doentes(nomeDoentes, dataNascimentoDoentes, doencas = Doencas(doencasDoentes2), idDoentes)
+            return Consultas(data, medico, doente, id)
+
+
+
+
+/*
             //Tabela medicos
             val posNomeMedicos = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_NOME_MEDICO)
             val posccMedicos = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_CC)
@@ -42,27 +93,11 @@ data class Consultas(
             //Tabela Especialidades
             // val posTipoEspecialidades = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_TIPO_ESPECIALIDADES)
 
-            //consulta
-            val id = cursor.getLong(posId)
-            val data = cursor.getString(posData)
 
-            //medicos
-            val idMedico = cursor.getLong(posIdMedicos)
-            val nomeMedico = cursor.getString(posNomeMedicos)
-            val ccMedicos = cursor.getString(posccMedicos)
-            val Especialidades = cursor.getString(posEspecialidades)
-
-            val medico = Medicos(nomeMedico, ccMedicos, especialidades = Especialidades(""))
-
-            //doentes
-            val idDoentes = cursor.getLong(posIdDoentes)
-            val nomeDoentes = cursor.getString(posNomeDoentes)
-            val dataNascimentoDoentes = cursor.getString(posDataNascimentoDoentes)
-
-            val doente = Doentes(nomeDoentes, dataNascimentoDoentes, doencas = Doencas(""))
+*/
 
             //return valores
-            return Consultas(data, medico,doente , id)
+           // return Consultas(data, medico,doente , id)
         }
 
 

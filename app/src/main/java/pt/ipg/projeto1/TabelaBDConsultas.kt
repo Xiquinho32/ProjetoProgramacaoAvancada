@@ -22,10 +22,15 @@ class TabelaBDConsultas(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         //"$NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.CAMPO_ID} = $CAMPO_MEDICO_ID"
         //queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} = $CAMPO_DOENTE_ID UNION ALL $NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.CAMPO_ID} = $CAMPO_MEDICO_ID" - nao mudar
         //queryBuilder2.tables= "$NOME INNER JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} = $CAMPO_DOENTE_ID"
-        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} $CAMPO_DOENTE_ID  $NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.CAMPO_ID} = $CAMPO_MEDICO_ID"
+        //queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.CAMPO_ID} = $CAMPO_MEDICO_ID INTERSECT $NOME INNER JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} = $CAMPO_DOENTE_ID"
+        queryBuilder.tables =
+            "$NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.CAMPO_ID} = $CAMPO_MEDICO_ID JOIN ${TabelaBDDoentes.NOME} ON ${TabelaBDDoentes.CAMPO_ID} = $CAMPO_DOENTE_ID"
+
 
         return queryBuilder.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
+
+
     companion object{
         const val NOME = "Consultas"
         const val CAMPO_ID = "$NOME.${BaseColumns._ID}"
