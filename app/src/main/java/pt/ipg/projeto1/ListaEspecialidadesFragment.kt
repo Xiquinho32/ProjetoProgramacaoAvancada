@@ -144,13 +144,13 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
             R.id.action_inserir -> {
                 val acao = ListaEspecialidadesFragmentDirections.actionListaEspecialidadesFragmentToEditarEspecialidadesFragment()
                 findNavController().navigate(acao)
-                (activity as MainActivity).atualizaData("Inserir especialidades")
+                (activity as MainActivity).atualizaData(getString(R.string.inserir_especialidades_label))
                 true
             }
             R.id.action_alterar->{
                 val acao = ListaEspecialidadesFragmentDirections.actionListaEspecialidadesFragmentToEditarEspecialidadesFragment(especialidadeSeleccionado)
                 findNavController().navigate(acao)
-                (activity as MainActivity).atualizaData("Alterar especialidades")
+                (activity as MainActivity).atualizaData(getString(R.string.alterar_especialidades_label))
                 true
             }
             R.id.action_eliminar -> {

@@ -195,7 +195,7 @@ class EditarDoencasFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private fun guardar() {
         val tipoDoencas = binding.editTextTipoDoenca.text.toString()
         if(tipoDoencas.isBlank()){
-            binding.editTextTipoDoenca.error = "preencha o tipo de doenca"
+            binding.editTextTipoDoenca.error = getString(R.string.preencha_Tipo_Doenca)
             binding.editTextTipoDoenca.requestFocus()
             return
         }
@@ -212,7 +212,7 @@ class EditarDoencasFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         if (doencaGuardado){
             Toast.makeText(
                 requireContext(),
-                "Doenca guardado com sucesso",
+                getString(R.string.Doenca_guardado),
                 Toast.LENGTH_LONG
             )
                 .show()
@@ -220,7 +220,7 @@ class EditarDoencasFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         } else {
             Snackbar.make(
                 binding.editTextTipoDoenca,
-                "erro ao guardar tipo de doenca",
+                getString(R.string.Doenca_erro),
                 Snackbar.LENGTH_INDEFINITE
             ).show()
             return

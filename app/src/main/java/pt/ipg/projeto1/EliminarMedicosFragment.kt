@@ -69,10 +69,10 @@ class EliminarMedicosFragment : Fragment(){
         val alterDialog = AlertDialog.Builder(requireContext())
 
         alterDialog.apply {
-            setTitle("Eliminar medico")
-            setMessage("Tem a certeza que pertende eliminar o medico?")
+            setTitle(getString(R.string.eliminar_medico_label))
+            setMessage(getString(R.string.confirma_eliminar_medico))
             setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener{ dialogInterface, i ->  })
-            setNegativeButton("Eliminar", DialogInterface.OnClickListener{ dialogInterface, i -> confirmaEliminarMedico() })
+            setNegativeButton(getString(R.string.eliminar), DialogInterface.OnClickListener{ dialogInterface, i -> confirmaEliminarMedico() })
             show()
         }
     }
@@ -84,12 +84,12 @@ class EliminarMedicosFragment : Fragment(){
         if(registosEliminados != 1){
             Snackbar.make(
                 binding.textViewNome,
-                "Erro ao eliminar medico",
+                getString(R.string.erro_eliminar_medico),
                 Snackbar.LENGTH_INDEFINITE
             ).show()
             return
         }
-        Toast.makeText(requireContext(), "medico eliminado com sucesso", Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext(), getString(R.string.medico_eliminado_sucesso), Toast.LENGTH_LONG).show()
         voltaListaMedicos()
     }
     private fun voltaListaMedicos() {

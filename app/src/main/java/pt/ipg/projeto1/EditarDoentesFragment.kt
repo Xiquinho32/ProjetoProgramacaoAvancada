@@ -194,13 +194,13 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         }
         val dataNascimento = binding.editTextDataNascimento.text.toString()
         if(dataNascimento.isBlank()){
-            binding.editTextDataNascimento.error = ("preencha a data de nascimento")
+            binding.editTextDataNascimento.error = (getString(R.string.Preencha_DataNascimento))
             binding.editTextDataNascimento.requestFocus()
             return
         }
         val idDoencas = binding.spinnerDoencas.selectedItemId
         if (idDoencas == Spinner.INVALID_ROW_ID){
-            binding.textViewDoencas.error = ("Escolha uma doença")
+            binding.textViewDoencas.error = (getString(R.string.Escolha_Doenca))
             binding.spinnerDoencas.requestFocus()
             return
         }
@@ -215,7 +215,7 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         if (doenteGuardado){
             Toast.makeText(
                 requireContext(),
-                "doente guarado com sucesso",
+                getString(R.string.Doente_guardado),
                 Toast.LENGTH_LONG
             )
                 .show()
@@ -223,7 +223,7 @@ class EditarDoentesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         } else {
             Snackbar.make(
                 binding.editTextNome,
-                "erro ao guardar doente",
+                getString(R.string.Doente_erro),
                 Snackbar.LENGTH_INDEFINITE
             ).show()
             return

@@ -68,10 +68,10 @@ class EliminarDoencasFragment : Fragment() {
         val alterDialog = AlertDialog.Builder(requireContext())
 
         alterDialog.apply {
-            setTitle("Eliminar doenca")
-            setMessage("Tem a certeza que pertende eliminar doenca?")
+            setTitle(getString(R.string.Eliminar_Doenca_label))
+            setMessage(getString(R.string.confirma_eliminar_doenca))
             setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener{ dialogInterface, i ->  })
-            setNegativeButton("Eliminar", DialogInterface.OnClickListener{ dialogInterface, i -> confirmaEliminarDoenca() })
+            setNegativeButton(getString(R.string.eliminar), DialogInterface.OnClickListener{ dialogInterface, i -> confirmaEliminarDoenca() })
             show()
         }
     }
@@ -83,12 +83,12 @@ class EliminarDoencasFragment : Fragment() {
         if(registosEliminados != 1){
             Snackbar.make(
                 binding.textViewTipoDoenca,
-                "Erro ao eliminar Tipo de doenca",
+                getString(R.string.erro_eliminar_doenca),
                 Snackbar.LENGTH_INDEFINITE
             ).show()
             return
         }
-        Toast.makeText(requireContext(), "tipo de doenca eliminado com sucesso", Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext(), getString(R.string.doenca_eliminado_sucesso), Toast.LENGTH_LONG).show()
         voltaListaDoenca()
     }
     private fun voltaListaDoenca() {

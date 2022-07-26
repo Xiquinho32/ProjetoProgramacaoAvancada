@@ -210,7 +210,7 @@ import pt.ipg.projeto1.databinding.FragmentEditarEspecialidadesBinding
      private fun guardar() {
          val tipoEspecialidade = binding.editTextTipoEspecialidade.text.toString()
          if (tipoEspecialidade.isBlank()) {
-             binding.editTextTipoEspecialidade.error = "preencha o tipo de especialidade"
+             binding.editTextTipoEspecialidade.error = getString(R.string.Preencha_Tipo_Especialidades)
              binding.editTextTipoEspecialidade.requestFocus()
              return
          }
@@ -226,7 +226,7 @@ import pt.ipg.projeto1.databinding.FragmentEditarEspecialidadesBinding
          if (especialidadeGuardado) {
              Toast.makeText(
                  requireContext(),
-                 "Especialidade guardado com sucesso",
+                 getString(R.string.Especialidade_guardado),
                  Toast.LENGTH_LONG
              )
                  .show()
@@ -234,7 +234,7 @@ import pt.ipg.projeto1.databinding.FragmentEditarEspecialidadesBinding
          } else {
              Snackbar.make(
                  binding.editTextTipoEspecialidade,
-                 "erro ao guardar tipo de especialidade",
+                 getString(R.string.Especialidade_erro),
                  Snackbar.LENGTH_INDEFINITE
              ).show()
              return

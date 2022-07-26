@@ -205,7 +205,7 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
                 true
             }
             R.id.action_cancelar -> {
-                //voltaListaConsultas()
+                voltaListaConsultas()
                 true
             }
             else -> false
@@ -234,13 +234,13 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
 
         val consultaGuardado =
             if (consulta == null) {
-                //insereConsulta(data, idDoentes, idMedicos)
+                insereConsulta(data, idDoentes, idMedicos)
             } else {
-                //alteraConsulta(data, idDoentes, idMedicos)
+                alteraConsulta(data, idDoentes, idMedicos)
             }
-    }
-}
-        /*
+
+
+
         if (consultaGuardado) {
             Toast.makeText(
                 requireContext(),
@@ -257,12 +257,11 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
             ).show()
             return
         }
-    }*/
-/*
-    private fun alteraConsulta(data: String, idDoentes : Long, idMedicos: Long) : Boolean {
-        val consulta = Consultas(data, Medicos(id = idMedicos, especialidades = Especialidades("Cardiologia", 1)), Doentes(
-            id = idDoentes, idDoencas = 3))
+    }
 
+    private fun alteraConsulta(data: String, idDoentes : Long, idMedicos: Long) : Boolean {
+        val consulta = Consultas(data, Medicos(id = idMedicos, nome = "", cc = "",especialidades = Especialidades("Cardiologia")), Doentes(
+            id = idDoentes, nome = "", dataNascimento = "",doencas = Doencas("Dor de peito")))
         val enderecoConsultas = Uri.withAppendedPath(ContentProviderDoentes.ENDERECO_CONSULTAS, "${this.consulta!!.id}")
 
         val registosAlterados = requireActivity().contentResolver.update(enderecoConsultas, consulta.toContentValues(), null, null)
@@ -271,10 +270,8 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
     }
 
     private fun insereConsulta(data: String, idDoentes : Long, idMedicos: Long): Boolean {
-        val consulta = Consultas(data, Medicos(id = idMedicos, especialidades = Especialidades("Cardiologia", 1)), Doentes(
-            id = idDoentes,
-            idDoencas = 2))
-
+        val consulta = Consultas(data, Medicos(id = idMedicos, nome = "", cc = "",especialidades = Especialidades("Cardiologia")), Doentes(
+            id = idDoentes, nome = "", dataNascimento = "",doencas = Doencas("Dor de peito")))
         val enderecoConsultasInserido = requireActivity().contentResolver.insert(ContentProviderDoentes.ENDERECO_CONSULTAS, consulta.toContentValues())
 
         return enderecoConsultasInserido != null
@@ -284,5 +281,5 @@ class EditarConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         findNavController().navigate(R.id.action_editarConsultasFragment_to_listaConsultasFragment)
     }
 
-}*/
+}
 

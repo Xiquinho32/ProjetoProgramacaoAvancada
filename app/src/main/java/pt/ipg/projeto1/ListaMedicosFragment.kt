@@ -141,13 +141,13 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
             R.id.action_inserir -> {
                 val acao = ListaMedicosFragmentDirections.actionListaMedicosFragmentToEditarMedicosFragment()
                 findNavController().navigate(acao)
-                (activity as MainActivity).atualizaData("Inserir medicos")
+                (activity as MainActivity).atualizaData(getString(R.string.inserir_medicos_label))
                 true
             }
             R.id.action_alterar -> {
                 val acao = ListaMedicosFragmentDirections.actionListaMedicosFragmentToEditarMedicosFragment(medicoSeleccionado)
                 findNavController().navigate(acao)
-                (activity as MainActivity).atualizaData("Alterar medicos")
+                (activity as MainActivity).atualizaData(getString(R.string.alterar_medicos_label))
                 true
             }
             R.id.action_eliminar ->{

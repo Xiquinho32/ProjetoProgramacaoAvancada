@@ -142,22 +142,21 @@ class ListaConsultasFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {
             R.id.action_inserir -> {
-                findNavController().navigate(R.id.action_listaConsultasFragment_to_editarConsultasFragment)
+                val acao = ListaConsultasFragmentDirections.actionListaConsultasFragmentToEditarConsultasFragment()
+                findNavController().navigate(acao)
 
                 (activity as MainActivity).atualizaData(getString(R.string.inserir_consulta_label))
                 true
             }
             R.id.action_alterar -> {
-
-                findNavController().navigate(R.id.action_listaConsultasFragment_to_editarConsultasFragment)
-
-                (activity as MainActivity).atualizaData("Alterar Data")
+                val acao = ListaConsultasFragmentDirections.actionListaConsultasFragmentToEditarConsultasFragment(consultaSeleccionado)
+                findNavController().navigate(acao)
+                (activity as MainActivity).atualizaData(getString(R.string.alterar_data_label))
                 true
             }
             R.id.action_eliminar -> {
-                //val acao = ListaLivrosFragmentDirections.actionListaLivrosFragmentToEliminarLivroFragment(livroSeleccionado!!)
-                //findNavController().navigate(acao)
-                findNavController().navigate(R.id.action_listaConsultasFragment_to_eliminarConsultasFragment)
+                val acao = ListaConsultasFragmentDirections.actionListaConsultasFragmentToEliminarConsultasFragment(consultaSeleccionado!!)
+                findNavController().navigate(acao)
                 true
             }
             else -> false

@@ -144,13 +144,13 @@ class ListaDoencasFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             R.id.action_inserir -> {
                 val acao = ListaDoencasFragmentDirections.actionListaDoencasFragmentToEditarDoencasFragment()
                 findNavController().navigate(acao)
-                (activity as MainActivity).atualizaData("Inserir doencas")
+                (activity as MainActivity).atualizaData(getString(R.string.inserir_doencas_label))
                 true
             }
             R.id.action_alterar->{
                 val acao = ListaDoencasFragmentDirections.actionListaDoencasFragmentToEditarDoencasFragment(doencaSeleccionado)
                 findNavController().navigate(acao)
-                (activity as MainActivity).atualizaData("Alterar doencas")
+                (activity as MainActivity).atualizaData(getString(R.string.alterar_doencas_label))
                 true
             }
             R.id.action_eliminar -> {

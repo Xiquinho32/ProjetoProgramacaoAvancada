@@ -66,10 +66,10 @@ class EliminarEspecialidadesFragment  : Fragment() {
         val alterDialog = AlertDialog.Builder(requireContext())
 
         alterDialog.apply {
-            setTitle("Eliminar especialidade")
-            setMessage("Tem a certeza que pertende eliminar especialidade?")
+            setTitle(getString(R.string.eliminar_especialidade_label))
+            setMessage(getString(R.string.confirma_eliminar_especialidade))
             setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener{ dialogInterface, i ->  })
-            setNegativeButton("Eliminar", DialogInterface.OnClickListener{ dialogInterface, i -> confirmaEliminarEspecialidade() })
+            setNegativeButton(getString(R.string.eliminar), DialogInterface.OnClickListener{ dialogInterface, i -> confirmaEliminarEspecialidade() })
             show()
         }
     }
@@ -81,12 +81,12 @@ class EliminarEspecialidadesFragment  : Fragment() {
         if(registosEliminados != 1){
             Snackbar.make(
                 binding.textViewTipoEspecialidades,
-                "Erro ao eliminar Tipo de especialidade",
+                getString(R.string.erro_eliminar_especialidade),
                 Snackbar.LENGTH_INDEFINITE
             ).show()
             return
         }
-        Toast.makeText(requireContext(), "tipo de especialidade eliminado com sucesso", Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext(), getString(R.string.especialidade_eliminado_sucesso), Toast.LENGTH_LONG).show()
         voltaListaEspecialidades()
     }
     private fun voltaListaEspecialidades() {
